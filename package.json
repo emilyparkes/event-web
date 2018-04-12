@@ -1,0 +1,58 @@
+{
+  "name": "event-app",
+  "version": "1.0.0",
+  "description": "An app to find local hosted and community events.",
+  "main": "index.js",
+  "repository": "https://github.com/emilyparkes/event-app.git",
+  "author": "Emily Parkes",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --watch server & yarn build --watch",
+    "test": "jest test/client test/server",
+    "start": "node server"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "raf/polyfill",
+      "./test/client-setup.js"
+    ]
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "knex": "^0.14.4",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.1.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.1.0",
+    "superagent": "^3.8.1",
+    "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "jest": "^21.1.0",
+    "jsdom": "^11.2.0",
+    "nodemon": "^1.11.0",
+    "redux-mock-store": "^1.3.0",
+    "sqlite3": "^3.1.9",
+    "supertest": "^3.0.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
