@@ -45,8 +45,16 @@ class Preferences extends React.Component {
               <div className='category-blurb'>store openings, festivals.</div>
             </div>
             <div className='event-category'>
+              <div classname='category-name'>Markets</div>
+              <div className='category-blurb'>buy and sell commercial and handmade goods.</div>
+            </div>
+            <div className='event-category'>
               <div classname='category-name'>City Pop-Ups</div>
               <div className='category-blurb'>organised one off events, store openings, first-time city events.</div>
+            </div>
+            <div className='event-category'>
+              <div classname='category-name'>Garage Sale</div>
+              <div className='category-blurb'>buy secand hand goods from a local.</div>
             </div>
 
           </div>

@@ -9,7 +9,10 @@
   "scripts": {
     "dev": "nodemon --watch server & yarn build --watch",
     "test": "jest test/client test/server",
-    "start": "node server"
+    "start": "node server",
+    "knex": "knex --knexfile ./server/db/knexfile.js",
+    "seed": "yarn knex seed:run",
+    "migrate": "yarn knex migrate:latest"
   },
   "babel": {
     "presets": [
