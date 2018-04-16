@@ -2,9 +2,14 @@ import React from './react'
 
 const Home = () => {
   return (
-    <div>
-      <PublicEvents />
-      <LocalEvents />
+    <div className='homepg'>
+
+      <div className='page-section'>
+        <PublicEvents /></div>
+      
+      <div className='page-section'>
+        <LocalEvents /></div>
+
     </div>
   )
 }
