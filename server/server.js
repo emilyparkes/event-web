@@ -7,10 +7,12 @@ const server = express()
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
-// const adddbRoutes = require('./routes/adddb')
+const publicEventsRoutes = require('./routes/public-events')
+const localEventsRoutes = require('./routes/local-events')
 
 // these are the routes we have created
-// server.use('/api/v1/adddb', adddbRoutes)
+server.use('/api/v1/1events', publicEventsRoutes)
+server.use('/api/v1/2events', localEventsRoutes)
 
 // Default route for non-API requests
 server.get('*', (req, res) => {

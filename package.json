@@ -7,7 +7,7 @@
   "author": "Emily Parkes",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --watch server & yarn build --watch",
+    "dev": "nodemon --watch server",
     "test": "jest test/client test/server",
     "start": "node server",
     "knex": "knex --knexfile ./server/db/knexfile.js",

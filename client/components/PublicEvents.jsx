@@ -8,15 +8,16 @@ class PublicEvents extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
-      <div className='publicevents'>
+      <div className='publiceventspg'>
         {this.props.events.map(event => {
-          <Link key={events.id} to={`/public-events/${events.events}`} />
+          <Link key={events.id} to={`/public-events/${event.eventname}`} />
         })}
       </div>
     )
   }
 }
+
 
 export default PublicEvents

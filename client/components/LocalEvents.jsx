@@ -12,7 +12,7 @@ class LocalEvents extends React.Component {
     return (
       <div className='localevents'>
         {this.props.events.map(event => {
-          <Link key={events.id} to={`/local-events/${events.events}`} />
+          <Link key={events.id} to={`/local-events/${event.eventname}`} />
         })}
       </div>
     )

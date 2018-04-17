@@ -5,28 +5,36 @@ const connection = require('knex')(config)
 module.exports = {
   getPublicEvents,
   getLocalEvents, 
-  getEventsByCategoryName
+  getEventByName,
+  getEventsByCategoryId
 }
 
-function getPublicEvents (public, testConn) {
+function getPublicEvents (testConn) {
   const conn = testConn || connection
   return conn('events')
-  .join('event_type_junction', 'event_type_junction.event_id', 'events.id')
+  .join('events_event_types_junction', 'events_event_types_junction.event_id', 'events.id')
   .join('event_types', 'event_types.type_id','types.id')
-  .where('event_types.id', 1)
+  .where('type_id', 1)
   .select()
 }
 
 function getLocalEvents (testConn) {
   const conn = testConn || connection
   return conn('events')
-    .join('event_type_junction', 'event_type_junction.event_id', 'events.id')
+    .join('events_event_types_junction', 'events_event_types_junction.event_id', 'events.id')
     .join('event_types', 'event_types.type_id','types.id')
-    .where('event_types.id', 2)
+    .where('type_id', 2)
     .select()
 }
 
-function getEventsByCategoryName (category, testConn) {
+function getEventByName (eventName, testConn) {
+   const conn = testConn || connection
+   return conn('events')
+    .where('events.eventname', eventName)
+    .select()
+}
+
+function getEventsByCategoryId (category, testConn) {
   const conn = testConn || connection
   return conn('events')
   .join('events_categories_junction', 'events_categories_junction.event_id', 'events.id')
