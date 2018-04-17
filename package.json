@@ -2,7 +2,7 @@
   "name": "event-app",
   "version": "1.0.0",
   "description": "An app to find local hosted and community events.",
-  "main": "index.js",
+  "main": "server/index.js",
   "repository": "https://github.com/emilyparkes/event-app.git",
   "author": "Emily Parkes",
   "license": "MIT",

@@ -1,15 +1,22 @@
 import React from './react'
 
-const LocalEvents = () => {
-  
-  render() 
-  return (
-    <div className='localevents'>
-    {events.map(event => {
-      <Link key={events.id} to={'/event'} />
-    })}
-    </div>
-  )
+class LocalEvents extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      localEvents: []
+    }
+  }
+
+  render () {
+    return (
+      <div className='localevents'>
+        {this.props.events.map(event => {
+          <Link key={events.id} to={`/local-events/${events.events}`} />
+        })}
+      </div>
+    )
+  }
 }
 
 export default LocalEvents
