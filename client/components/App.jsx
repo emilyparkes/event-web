@@ -22,6 +22,15 @@ class App extends React.Component {
             <Route path='/profile' component={Profile} />
             <Route path='/public-events' component={PublicEvents} />
             <Route path='/local-events' component={LocalEvents} />
+            <Route path='/events/concerts' component={LocalEvents} />
+            <Route path='/events/gigs' component={LocalEvents} />
+            <Route path='/events/festivals' component={LocalEvents} />
+            <Route path='/events/art' component={LocalEvents} />
+            <Route path='/events/theatre' component={LocalEvents} />
+            <Route path='/events/food' component={LocalEvents} />
+            <Route path='/events/markets' component={LocalEvents} />
+            <Route path='/events/city-pop-ups' component={LocalEvents} />
+            <Route path='/events/community' component={LocalEvents} />
             
           </Switch>
         </div>
