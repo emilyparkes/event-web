@@ -1,19 +1,25 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class PublicEvents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      publicEvents: []
+      errorMessage: ''
     }
   }
 
-  render () {
+  render() {
     return (
       <div className='publiceventspg'>
-        {this.props.events.map(event => {
-          <Link key={events.id} to={`/public-events/${event.eventname}`} />
-        })}
+        <h1>Page with all public events, listed from most recent date (today) to furthest date.</h1>
+
+        <div className='page-section'>
+          {this.props.events.map(event => {
+            <Link key={events.id} to={`/public-events/${event.eventname}`} />
+          })}
+        </div>
+
       </div>
     )
   }
