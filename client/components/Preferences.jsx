@@ -21,40 +21,57 @@ class Preferences extends React.Component {
           <div className='page-content-section'>
 
             <div className='event-category'>
-              <div classname='category-name'>Concerts</div>
+              <div classname='category-name'>
+              <Link to={'/events/concerts'} >Concerts</Link></div>
               <div className='category-blurb'>music for large audiences.</div>
             </div>
+            
             <div className='event-category'>
-              <div classname='category-name'>Gigs</div>
+              <div classname='category-name'>
+              <Link to={'/events/gigs'} >Gigs</Link></div>
               <div className='category-blurb'>music at bars or clubs.</div>
             </div>
+
             <div className='event-category'>
-              <div classname='category-name'>Festivals</div>
+              <div classname='category-name'>
+              <Link to={'/events/festivals'} >Festivals</Link></div>
               <div className='category-blurb'>special, one or multi day celebration.</div>
             </div>
+
             <div className='event-category'>
-              <div classname='category-name'>Art</div>
+              <div classname='category-name'>
+              <Link to={'/events/art'}>Art</Link></div>
               <div className='category-blurb'>exhibitions, public displays.</div>
             </div>
+
             <div className='event-category'>
-              <div classname='category-name'>Theatre</div>
+              <div classname='category-name'>
+              <Link to={'/events/theatre'} >Theatre</Link></div>
               <div className='category-blurb'>plays, film premiere.</div>
             </div>
+
             <div className='event-category'>
-              <div classname='category-name'>Food</div>
+              <div classname='category-name'>
+              <Link to={'/events/food'} >Food</Link></div>
               <div className='category-blurb'>store openings, festivals.</div>
             </div>
+
             <div className='event-category'>
-              <div classname='category-name'>Markets</div>
+              <div classname='category-name'>
+              <Link to={'/events/markets'} >Markets</Link></div>
               <div className='category-blurb'>buy and sell commercial and handmade goods.</div>
             </div>
+
             <div className='event-category'>
-              <div classname='category-name'>City Pop-Ups</div>
+              <div classname='category-name'>
+              <Link to={'/events/city-pop-up'} >City Pop-Ups</Link></div>
               <div className='category-blurb'>organised one off events, store openings, first-time city events.</div>
             </div>
+
             <div className='event-category'>
-              <div classname='category-name'>Garage Sale</div>
-              <div className='category-blurb'>buy secand hand goods from a local.</div>
+              <div classname='category-name'>
+              <Link to={'/events/community'} >Community</Link></div>
+              <div className='category-blurb'>locally held events such as garage sales, fruit stalls etc.</div>
             </div>
 
           </div>
