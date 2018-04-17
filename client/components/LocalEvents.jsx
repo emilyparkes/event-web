@@ -1,4 +1,4 @@
-import React from './react'
+import React from 'react'
 
 class LocalEvents extends React.Component {
   constructor(props) {

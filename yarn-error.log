@@ -23,7 +23,7 @@ npm manifest:
     "author": "Emily Parkes",
     "license": "MIT",
     "scripts": {
-      "dev": "nodemon --watch server & yarn build --watch",
+      "dev": "nodemon --watch server & yarn build",
       "test": "jest test/client test/server",
       "start": "node server",
       "knex": "knex --knexfile ./server/db/knexfile.js",
@@ -6580,7 +6580,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c nodemon --watch server & yarn build --watch
+  Arguments: -c nodemon --watch server & yarn build
   Directory: /Users/emilyparkes/Desktop/Workspace/event-app
   Output:
   
