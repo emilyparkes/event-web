@@ -3,7 +3,7 @@ exports.up = (knex, Promise) => {
     if (!exists) {
       return knex.schema.createTable('categories', (table) => {
         table.increments('id').primary()
-        table.string('categoryname')
+        table.string('categoryName')
       })
     }
   })

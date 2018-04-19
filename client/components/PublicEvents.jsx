@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+// import {connect} from 'react-redux'
 
 class PublicEvents extends React.Component {
   constructor(props) {
@@ -12,11 +13,16 @@ class PublicEvents extends React.Component {
   render() {
     return (
       <div className='publiceventspg'>
-        <h1>Page with all public events, listed from most recent date (today) to furthest date.</h1>
+        <h1>Public Events</h1>
 
         <div className='page-section'>
           {this.props.events.map(event => {
-            <Link key={events.id} to={`/public-events/${event.eventname}`} />
+            <Link key={event.id} to={`/public-events/${event.eventname}`} >
+            <h3>{event.eventname}</h3>
+            <h6>{event.date}</h6>
+            <p>{event.location}</p>
+            <p>{event.blurb}</p>
+            </Link>
           })}
         </div>
 
@@ -24,6 +30,5 @@ class PublicEvents extends React.Component {
     )
   }
 }
-
 
 export default PublicEvents

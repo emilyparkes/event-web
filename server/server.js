@@ -11,8 +11,8 @@ const publicEventsRoutes = require('./routes/public-events')
 const localEventsRoutes = require('./routes/local-events')
 
 // these are the routes we have created
-server.use('/api/v1/1events', publicEventsRoutes)
-server.use('/api/v1/2events', localEventsRoutes)
+server.use('/api/v1/Pevents', publicEventsRoutes)
+server.use('/api/v1/Levents', localEventsRoutes)
 
 // Default route for non-API requests
 server.get('*', (req, res) => {

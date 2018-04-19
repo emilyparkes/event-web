@@ -9,7 +9,7 @@ module.exports = router
 router.use(bodyParser.json())
 
 router.get('/local-events', (req, res) => {
-  db.getLocalEvents(data)
+  db.getLocalEvents()
     .then((events) => {
       res.send(events)
     })

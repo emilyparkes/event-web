@@ -9,9 +9,9 @@ module.exports = router
 router.use(bodyParser.json())
 
 router.get('/public-events', (req, res) => {
-  db.getPublicEvents(data)
-    .then((sendthis) => {
-      res.send(sendthis)
+  db.getPublicEvents()
+    .then((events) => {
+      res.send(events)
     })
     .catch(err => {
       res.status(500).send(err.message)

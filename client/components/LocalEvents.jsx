@@ -12,11 +12,16 @@ class LocalEvents extends React.Component {
   render() {
     return (
       <div className='localeventspg'>
-        <h1>Page with all local events, listed from most recent date (today) to furthest date.</h1>
+        <h1>Local Events</h1>
 
         <div className='page-section'>
           {this.props.events.map(event => {
-            <Link key={event.id} id={event.id} to={`/local-events/${event.eventname}`} />
+            <Link key={event.id} to={`/public-events/${event.eventname}`} >
+              <h3>{event.eventname}</h3>
+              <h6>{event.date}</h6>
+              <p>{event.location}</p>
+              <p>{event.blurb}</p>
+            </Link>
           })}
         </div>
 

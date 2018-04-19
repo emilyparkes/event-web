@@ -1,9 +1,9 @@
 exports.up = (knex, Promise) => {
-  return knex.schema.hasTable('events').then(function (exists) {
+  return knex.schema.hasTable('local_events').then(function (exists) {
     if (!exists) {
-      return knex.schema.createTable('events', (table) => {
+      return knex.schema.createTable('local_events', (table) => {
         table.increments('id').primary()
-        table.string('eventname')
+        table.string('eventName')
         table.string('date')
         table.string('location')
         table.string('address')
@@ -17,5 +17,5 @@ exports.up = (knex, Promise) => {
 }
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('events')
+  return knex.schema.dropTable('local_events')
 }

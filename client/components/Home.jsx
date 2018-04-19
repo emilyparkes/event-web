@@ -14,55 +14,56 @@ class Home extends React.Component {
       publicEvents: [],
       errorMessage: ''
     }
-    this.getPublicEvents = this.getPublicEvents.bind(this)
-    this.getLocalEvents = this.getLocalEvents.bind(this)
+    this.onClick = this.onClick.bind(this)
   }
 
   componentWillMount() {
-    this.getPublicEvents()
-    this.getLocalEvents()
+    this.onClick()
   }
 
-  getPublicEvents() {
+  onClick() {
     return getPublicEvents()
       .then(publicEvents => {
-        this.setState({ publicEvents: publicEvents })
+        this.setState({
+          publicEvents: publicEvents
+        })
+      })
+    getLocalEvents()
+      .then(localEvents => {
+        this.setState({
+          localEvents: localEvents
+        })
       })
       .catch(err => {
-        this.setState({ errorMessage: err.message })
+        this.setState({
+          errorMessage: err.message
+        })
       })
   }
 
-  getLocalEvents() {
-    return getLocalEvents()
-      .then(localEvents => {
-        this.setState({ localEvents: localEvents })
-      })
-      .catch(err => {
-        this.setState({ errorMessage: err.message })
-      })
-  }
+
 
   render() {
+    const { publicEvents, localEvents } = this.state
     return (
       <div className='homepg'>
-        <h1>Home page with preferences based on selection.</h1>
+        <h1>Home</h1>
+        <h6>listed with events based on selection from preferences tab.</h6>
         <div className='page-section'>
           <Link to={'/public-events'}>
             <PublicEvents
-              events={this.state.publicEvents}
-              getEvents={this.getPublicEvents} /></Link></div>
-
+              events={publicEvents}
+              getEvents={this.onClick} /></Link></div>
         <div className='page-section'>
           <Link to={'/local-events'}>
             <LocalEvents
-              events={this.state.localEvents}
+              events={localEvents}
               getEvents={this.getLocalEvents} /></Link></div>
 
-        <div className='page-section'>
+        {/* <div className='page-section'>
           {this.state.errorMessage &&
             <h1>{this.state.errorMessage}</h1>
-          }</div>
+          }</div> */}
 
       </div>
     )
