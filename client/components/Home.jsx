@@ -14,37 +14,16 @@ class Home extends React.Component {
       publicEvents: [],
       errorMessage: ''
     }
-    this.onClick = this.onClick.bind(this)
   }
 
-  componentWillMount() {
-    this.onClick()
+  componentDidMount () {
+    this.props.dispatch(getLocalEvents())
+    this.props.dispatch(getPublicEvents())
   }
-
-  onClick() {
-    return getPublicEvents()
-      .then(publicEvents => {
-        this.setState({
-          publicEvents: publicEvents
-        })
-      })
-    getLocalEvents()
-      .then(localEvents => {
-        this.setState({
-          localEvents: localEvents
-        })
-      })
-      .catch(err => {
-        this.setState({
-          errorMessage: err.message
-        })
-      })
-  }
-
 
 
   render() {
-    const { publicEvents, localEvents } = this.state
+    const { publicEvents, localEvents } = this.props
     return (
       <div className='homepg'>
         <h1>Home</h1>
@@ -52,8 +31,8 @@ class Home extends React.Component {
         <div className='page-section'>
           <Link to={'/public-events'}>
             <PublicEvents
-              events={publicEvents}
-              getEvents={this.onClick} /></Link></div>
+               />
+               </Link></div>
         <div className='page-section'>
           <Link to={'/local-events'}>
             <LocalEvents
