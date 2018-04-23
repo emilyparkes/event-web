@@ -10,6 +10,10 @@ class PublicEvents extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.props.dispatch(getPublicEvents())
+  }
+
   render() {
     return (
       <div className='publiceventspg'>
@@ -17,8 +21,8 @@ class PublicEvents extends React.Component {
 
         <div className='page-section'>
           {this.props.events.map(event => {
-            <Link key={event.id} to={`/public-events/${event.eventname}`} >
-            <h3>{event.eventname}</h3>
+            <Link key={event.id} to={`/public-events/${event.eventName}`} >
+            <h3>{event.eventName}</h3>
             <h6>{event.date}</h6>
             <p>{event.location}</p>
             <p>{event.blurb}</p>
