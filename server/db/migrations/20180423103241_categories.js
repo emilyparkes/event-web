@@ -10,5 +10,5 @@ exports.up = (knex, Promise) => {
 }
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('events')
+  return knex.schema.dropTable('categories')
 }
