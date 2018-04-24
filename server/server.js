@@ -1,10 +1,10 @@
 const path = require('path')
 const express = require('express')
-const bodyParser = require('body-parser')
 // const passport = require('passport')
 
 const server = express()
-server.use(bodyParser.json())
+// server.use(bodyParser.json())
+server.use(express.urlencoded({extended: false}))
 server.use(express.static(path.join(__dirname, 'public')))
 
 const publicEventsRoutes = require('./routes/public-events')
