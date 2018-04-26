@@ -11,13 +11,13 @@ router.use(bodyParser.json())
 router.get('/public-events', (req, res) => {
   db.getPublicEvents()
     .then((publicevents) => {
-      res.send(publicevents)
+      res.send({publicevents})
     })
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
-
+console.log(db.getPublicEvents())
 
 
 // router.get('/:eventName', (req, res) => {

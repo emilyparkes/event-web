@@ -18,16 +18,16 @@ class PublicEvents extends React.Component {
   }
 
   render() {
-    const publicevents = this.props.publicevents
-    if (!publicevents) {
-      return null
-    }
+    // const publicevents = this.props.publicevents
+    // if (!publicevents) {
+    //   return null
+    // }
     return (
       <div className='publiceventspg'>
         <h1>Public Events</h1>
 
         <div className='page-section'>
-          {this.props.publicevents.map(pevent =>
+          {publicevents.map(pevent =>
             <Link key={pevent.id} to={`/public-events/${pevent.eventName}`} >
               <button className='public-events-buttons'>
                 {pevent.eventName}
