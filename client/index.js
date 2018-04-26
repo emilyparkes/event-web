@@ -5,20 +5,20 @@ import {createStore, applyMiddleware, compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import {BrowserRouter as Router} from 'react-router-dom'
 
-// import reducers from './reducers'
+import reducers from './reducers'
 import App from './components/App'
-// let store = createStore(reducers, compose(
-//   applyMiddleware(thunkMiddleware),
-//   window.devToolsExtension ? window.devToolsExtension() : f => f
-// ))
+let store = createStore(reducers, compose(
+  applyMiddleware(thunkMiddleware),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+))
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
-    // <Provider store={store}>
+    <Provider store={store}>
       <Router>
         <App />
-      </Router>,
-    // </Provider>,
+      </Router>
+    </Provider>,
     document.getElementById('app')
   )
 })

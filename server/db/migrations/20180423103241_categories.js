@@ -3,12 +3,12 @@ exports.up = (knex, Promise) => {
     if (!exists) {
       return knex.schema.createTable('categories', (table) => {
         table.increments('id').primary()
-        table.string('categoryname')
+        table.string('categoryName')
       })
     }
   })
 }
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('events')
+  return knex.schema.dropTable('categories')
 }

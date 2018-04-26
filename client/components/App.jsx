@@ -5,8 +5,10 @@ import Header from './Header'
 import Home from './Home'
 import EditProfile from './EditProfile'
 import Profile from './Profile'
-import PublicEvents from './PublicEvents'
-import LocalEvents from './LocalEvents'
+import PublicEventsList from './PublicEventsList'
+import PublicEvent from './PublicEvent'
+import LocalEventsList from './LocalEventsList'
+import LocalEvent from './LocalEvent'
 import Footer from './Footer'
 
 class App extends React.Component {
@@ -20,17 +22,12 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route path='/profile/edit' component={EditProfile} />
             <Route path='/profile' component={Profile} />
-            <Route path='/public-events' component={PublicEvents} />
-            <Route path='/local-events' component={LocalEvents} />
-            <Route path='/events/concerts' component={LocalEvents} />
-            <Route path='/events/gigs' component={LocalEvents} />
-            <Route path='/events/festivals' component={LocalEvents} />
-            <Route path='/events/art' component={LocalEvents} />
-            <Route path='/events/theatre' component={LocalEvents} />
-            <Route path='/events/food' component={LocalEvents} />
-            <Route path='/events/markets' component={LocalEvents} />
-            <Route path='/events/city-pop-ups' component={LocalEvents} />
-            <Route path='/events/community' component={LocalEvents} />
+            <Route path='/public-events' component={PublicEventsList} />
+            <Route path='/local-events' component={LocalEventsList} />
+            <Route path='/public-events/:eventName' component={PublicEvent} />
+            <Route path='/local-events/:eventName' component={LocalEvent} />
+
+            {/* <Route path='/events/:category/:eventName' component={PublicEvent} /> */}
             
           </Switch>
         </div>
