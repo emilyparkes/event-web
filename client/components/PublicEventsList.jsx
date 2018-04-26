@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+
+import { getPublicEvents } from '../actions/public-events'
 
 class PublicEvents extends React.Component {
   constructor(props) {
@@ -16,6 +18,10 @@ class PublicEvents extends React.Component {
   }
 
   render() {
+    const publicevents = this.props.publicevents
+    if (!publicevents) {
+      return null
+    }
     return (
       <div className='publiceventspg'>
         <h1>Public Events</h1>

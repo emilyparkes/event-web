@@ -14,9 +14,9 @@ export const receivePublicEvents = (publicevents) => {
 
 export function getPublicEvents () {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/publicevents`)
+    request('get', `${baseUrl}/api/v1/public-events`)
       .then(res => {
-        dispatch(receivePublicEvents(res.body.publicevents))
+        dispatch(receivePublicEvents(res.body))
       })
       .catch(() => {
         dispatch(showError('An unexpected error in getting event information'))

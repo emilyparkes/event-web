@@ -14,7 +14,7 @@ module.exports = {
 
 // PUBLIC EVENTS FUNCTIONS
 
-function getPublicEvents(publicevents, conn) {
+function getPublicEvents(conn) {
   const db = conn || connection
   return db('public_events')
     .select()

@@ -9,11 +9,6 @@ import { getLocalEvents, getPublicEvents } from '../../server/db/db'
 class Home extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      publicEvents: [],
-      localEvents: [],
-      errorMessage: ''
-    }
   }
 
   render() {
