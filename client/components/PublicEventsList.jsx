@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import {connect} from 'react-redux'
+import {connect} from 'react-redux'
 
 class PublicEvents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      publicevents: [],
       errorMessage: ''
     }
   }
@@ -20,14 +21,13 @@ class PublicEvents extends React.Component {
         <h1>Public Events</h1>
 
         <div className='page-section'>
-          {this.props.events.map(event => {
-            <Link key={event.id} to={`/public-events/${event.eventName}`} >
-            <h3>{event.eventName}</h3>
-            <h6>{event.date}</h6>
-            <p>{event.location}</p>
-            <p>{event.blurb}</p>
+          {this.props.publicevents.map(pevent =>
+            <Link key={pevent.id} to={`/public-events/${pevent.eventName}`} >
+              <button className='public-events-buttons'>
+                {pevent.eventName}
+              </button>
             </Link>
-          })}
+          )}
         </div>
 
       </div>
@@ -35,4 +35,10 @@ class PublicEvents extends React.Component {
   }
 }
 
-export default PublicEvents
+const mapStateToProps = (state) => {
+  return {
+    publicevents: state.publicevents
+  }
+}
+
+export default connect(mapStateToProps)(PublicEvents)

@@ -22,7 +22,7 @@ class Profile extends React.Component {
           </div>
 
           <div className='page-content-section'>
-
+            <Preferences />
             <div className='page-settings'>
               <span className='nav-link-individual-styling'>
                 <Link to='/edit'>edit profile</Link>

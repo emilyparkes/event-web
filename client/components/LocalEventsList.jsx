@@ -19,7 +19,7 @@ class LocalEvents extends React.Component {
         <h1>Local Events</h1>
 
         <div className='page-section'>
-          {this.props.events.map(event => {
+          {props.events.map(event => {
             <Link key={event.id} to={`/local-events/${event.eventName}`} >
               <h3>{event.eventName}</h3>
               <h6>{event.date}</h6>
