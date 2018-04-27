@@ -9,6 +9,8 @@ import PublicEventsList from './PublicEventsList'
 import PublicEvent from './PublicEvent'
 import LocalEventsList from './LocalEventsList'
 import LocalEvent from './LocalEvent'
+import Categories from './Categories'
+import Category from './Category'
 import Footer from './Footer'
 
 class App extends React.Component {
@@ -26,6 +28,8 @@ class App extends React.Component {
             <Route path='/local-events' component={LocalEventsList} />
             <Route path='/public-events/:eventName' component={PublicEvent} />
             <Route path='/local-events/:eventName' component={LocalEvent} />
+            <Route path='/events/categories' component={Categories} />
+            <Route path='/events/:category' component={Category} />
 
             {/* <Route path='/events/:category/:eventName' component={PublicEvent} /> */}
             

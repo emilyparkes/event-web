@@ -8,10 +8,10 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/public-events', (req, res) => {
+router.get('/', (req, res) => {
   db.getPublicEvents()
-    .then((publicevents) => {
-      res.send(publicevents)
+    .then((publicEvents) => {
+      res.send({publicEvents})
     })
     .catch(err => {
       res.status(500).send(err.message)

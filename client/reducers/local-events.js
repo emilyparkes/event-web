@@ -2,13 +2,13 @@ import { RECEIVE_LOCAL_EVENTS } from '../actions/local-events'
 
 const initialState = []
 
-const localEventsReducer = (state = initialState, action) => {
+const localEvents = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_LOCAL_EVENTS:
-      return action.event
+      return action.localEvents
     default:
       return state
   }
 }
 
-export default localEventsReducer
+export default localEvents
