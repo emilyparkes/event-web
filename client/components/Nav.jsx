@@ -20,7 +20,7 @@ const Nav = () => {
           <Link to='/local-events'>local events</Link>
         </span>
         <span className='nav-link-individual-styling'>
-          <Link to='/preferences'>preferences</Link>
+          <Link to='/events/categories'>categories</Link>
         </span>
       </div>
     </div>

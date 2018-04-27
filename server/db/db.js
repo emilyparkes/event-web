@@ -9,12 +9,14 @@ module.exports = {
   getLocalEvents,
   getLocalEventById,
   getLocalEventsByCategoryId,
-  getCategoryById
+  getCategories,
+  getCategoryById,
+  getCategoryByName
 }
 
 // PUBLIC EVENTS FUNCTIONS
 
-function getPublicEvents(conn) {
+function getPublicEvents(publicEvents, conn) {
   const db = conn || connection
   return db('public_events')
     .select()
@@ -64,10 +66,24 @@ function getLocalEventsByCategoryId(id, conn) {
 
 // CATEGORY FUNCTIONS
 
+function getCategories(categories, conn) {
+  const db = conn || connection
+  return db('categories')
+    .select()
+}
+
 function getCategoryById(id, conn) {
   const db = conn || connection
   return db('categories')
     .where('id', id)
+    .select('id', 'categoryName')
+    .first()
+}
+
+function getCategoryByName(category, conn) {
+  const db = conn || connection
+  return db('categories')
+    .where('category.categoryName', category)
     .select('id', 'categoryName')
     .first()
 }

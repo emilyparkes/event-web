@@ -1,8 +1,12 @@
-import {combineReducers} from 'redux'
-import publicEventsReducer from './public-events'
-import localEventsReducer from './local-events'
+import { combineReducers } from 'redux'
+import publicEvents from './public-events'
+import localEvents from './local-events'
+import {categories, peventsByCategory} from './categories'
+
 
 export default combineReducers({
-  publicEventsReducer,
-  localEventsReducer
+  publicEvents,
+  localEvents,
+  categories,
+  peventsByCategory
 })

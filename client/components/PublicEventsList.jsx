@@ -8,8 +8,7 @@ class PublicEvents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      publicevents: [],
-      errorMessage: ''
+      publicEvents: []
     }
   }
 
@@ -18,19 +17,19 @@ class PublicEvents extends React.Component {
   }
 
   render() {
-    // const publicevents = this.props.publicevents
-    // if (!publicevents) {
-    //   return null
-    // }
+    const publicEvents = this.props.publicEvents
+    if (!publicEvents) {
+      return null
+    }
     return (
       <div className='publiceventspg'>
         <h1>Public Events</h1>
 
         <div className='page-section'>
-          {publicevents.map(pevent =>
-            <Link key={pevent.id} to={`/public-events/${pevent.eventName}`} >
+          {this.props.publicEvents.map(pEvent =>
+            <Link key={pEvent.id} to={`/public-events/${pEvent.eventName}`} >
               <button className='public-events-buttons'>
-                {pevent.eventName}
+                {pEvent.eventName}
               </button>
             </Link>
           )}
@@ -43,7 +42,7 @@ class PublicEvents extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    publicevents: state.publicevents
+    publicEvents: state.publicEvents
   }
 }
 

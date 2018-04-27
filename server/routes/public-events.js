@@ -17,7 +17,7 @@ router.get('/public-events', (req, res) => {
       res.status(500).send(err.message)
     })
 })
-console.log(db.getPublicEvents())
+
 
 
 // router.get('/:eventName', (req, res) => {
