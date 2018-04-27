@@ -8,10 +8,10 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/local-events', (req, res) => {
+router.get('/', (req, res) => {
   db.getLocalEvents()
     .then((localEvents) => {
-      res.send(localEvents)
+      res.send({localEvents})
     })
     .catch(err => {
       res.status(500).send(err.message)

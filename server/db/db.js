@@ -16,7 +16,7 @@ module.exports = {
 
 // PUBLIC EVENTS FUNCTIONS
 
-function getPublicEvents(publicEvents, conn) {
+function getPublicEvents(conn) {
   const db = conn || connection
   return db('public_events')
     .select()
@@ -66,7 +66,7 @@ function getLocalEventsByCategoryId(id, conn) {
 
 // CATEGORY FUNCTIONS
 
-function getCategories(categories, conn) {
+function getCategories(conn) {
   const db = conn || connection
   return db('categories')
     .select()

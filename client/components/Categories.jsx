@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import { getCategories } from '../actions/categories'
 
 export class Categories extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      categories: []
-    }
-  }
+  // constructor (props) {
+  //   super(props)
+  //   this.state = {
+  //     categories: []
+  //   }
+  // }
 
   componentDidMount() {
-    this.props.dispatch(getCategories(this.state.categories))
+    this.props.dispatch(getCategories())
   }
 
   render () {

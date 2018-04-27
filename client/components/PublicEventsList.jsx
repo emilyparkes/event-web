@@ -5,22 +5,12 @@ import { connect } from 'react-redux'
 import { getPublicEvents } from '../actions/public-events'
 
 class PublicEvents extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      publicEvents: []
-    }
-  }
 
   componentDidMount() {
     this.props.dispatch(getPublicEvents())
   }
 
   render() {
-    const publicEvents = this.props.publicEvents
-    if (!publicEvents) {
-      return null
-    }
     return (
       <div className='publiceventspg'>
         <h1>Public Events</h1>
