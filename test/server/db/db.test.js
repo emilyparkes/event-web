@@ -33,12 +33,12 @@ test('getPublicEventByName returns the event given the name', () => {
     })
 })
 
-test('getPublicEventsByCategoryId returns the events with the associated category name', () => {
+test('getPublicEventsByCategory returns the events with the associated category name', () => {
   const expected = (
     'Balu Brigada', 
     'Comedy Fest'
   )
-  return db.getPublicEventsByCategoryId(2, testDb)
+  return db.getPublicEventsByCategory('Gig', testDb)
     .then(events => {
       expect(events.categoryName).toBe(expected)
     })
@@ -61,8 +61,8 @@ test('getLocalEventByName returns the event given the name', () => {
     })
 })
 
-test('getLocalEventsByCategoryId returns the event category name', () => {
-  return db.getLocalEventsByCategoryId(10, testDb)
+test('getLocalEventsByCategory returns the event name', () => {
+  return db.getLocalEventsByCategory('Sports & Outdoors', testDb)
     .then(events => {
       expect(events.eventName).toBe('Hockey Club Opening')
     })

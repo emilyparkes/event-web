@@ -20,9 +20,9 @@ router.get('/', (req, res) => {
 
 router.get('/:category', (req, res) => {
   const category = req.params.category
-  db.getCategoryById(category)
+  db.getCategoryByName(category)
     .then((category) => {
-      res.send(category)
+      res.send({category})
     })
     .catch(err => {
       res.status(500).send(err.message)

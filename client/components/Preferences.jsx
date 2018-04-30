@@ -1,12 +1,6 @@
 import React from 'react'
 
 class Preferences extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-
-    }
-  }
 
   render() {
     return (
@@ -19,58 +13,58 @@ class Preferences extends React.Component {
           </div>
 
           <div className='page-content-section'>
+            {/* create select box for each category that will display those categories in 'home page' */}
+            <div className='event-category'>
+              <div classname='category-name'>
+                <Link to={'/events/Concerts'} >Concerts</Link></div>
+              <div className='category-blurb'>music for large audiences.</div>
+            </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/concerts'} >Concerts</Link></div>
-              <div className='category-blurb'>music for large audiences.</div>
-            </div>
-            
-            <div className='event-category'>
-              <div classname='category-name'>
-              <Link to={'/events/gigs'} >Gigs</Link></div>
+                <Link to={'/events/Gigs'} >Gigs</Link></div>
               <div className='category-blurb'>music at bars or clubs.</div>
             </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/festivals'} >Festivals</Link></div>
+                <Link to={'/events/Festivals'} >Festivals</Link></div>
               <div className='category-blurb'>special, one or multi day celebration.</div>
             </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/art'}>Art</Link></div>
+                <Link to={'/events/Art'}>Art</Link></div>
               <div className='category-blurb'>exhibitions, public displays.</div>
             </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/theatre'} >Theatre</Link></div>
+                <Link to={'/events/Theatre'} >Theatre</Link></div>
               <div className='category-blurb'>plays, film premiere.</div>
             </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/food'} >Food</Link></div>
+                <Link to={'/events/Food'} >Food</Link></div>
               <div className='category-blurb'>store openings, festivals.</div>
             </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/markets'} >Markets</Link></div>
+                <Link to={'/events/Markets'} >Markets</Link></div>
               <div className='category-blurb'>buy and sell commercial and handmade goods.</div>
             </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/city-pop-up'} >City Pop-Ups</Link></div>
+                <Link to={'/events/City-pop-up'} >City Pop-Ups</Link></div>
               <div className='category-blurb'>organised one off events, store openings, first-time city events.</div>
             </div>
 
             <div className='event-category'>
               <div classname='category-name'>
-              <Link to={'/events/community'} >Community</Link></div>
+                <Link to={'/events/Community'} >Community</Link></div>
               <div className='category-blurb'>locally held events such as garage sales, fruit stalls etc.</div>
             </div>
 

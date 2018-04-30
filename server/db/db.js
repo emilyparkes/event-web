@@ -31,10 +31,10 @@ function getPublicEvents(conn) {
 //     .first()
 // }
 
-function getPublicEventByName(eventName, conn) {
+function getPublicEventByName(id, conn) {
   const db = conn || connection
   return db('public_events')
-    .where('eventName', eventName)
+    .where('id', id)
     .select('id', 'eventName', 'date', 'location',
     'address', 'time', 'tickets', 'website', 'blurb')
     .first()
@@ -96,7 +96,6 @@ function getCategoryById(id, conn) {
   return db('categories')
     .where('id', id)
     .select('id', 'categoryName')
-    .first()
 }
 
 function getCategoryByName(category, conn) {
