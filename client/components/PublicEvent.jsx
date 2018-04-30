@@ -2,18 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getPublicEventById } from '../actions/public-events'
+import { getPublicEventByName } from '../actions/public-events'
 
 class PublicEvent extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(getPublicEventById())
+    this.props.dispatch(getPublicEventByName(this.props.match.params.id))
   }
 
   render() {
     return (
       <div className='publiceventpg'>
-        <h1>{event.eventName}</h1>
+
+        <div className='page-heading-section'>
+          <div className='page-title-font'>
+            <h1>{eventName}</h1></div>
+        </div>
 
         <div className='page-section'>
           {event.date}

@@ -4,10 +4,10 @@ const connection = require('knex')(config)
 
 module.exports = {
   getPublicEvents,
-  getPublicEventById,
+  getPublicEventByName,
   getPublicEventsByCategory,
   getLocalEvents,
-  getLocalEventById,
+  getLocalEventByName,
   getLocalEventsByCategory,
   getCategories,
   getCategoryById,
@@ -22,22 +22,23 @@ function getPublicEvents(conn) {
     .select()
 }
 
-function getPublicEventById(id, conn) {
+// function getPublicEventById(id, conn) {
+//   const db = conn || connection
+//   return db('public_events')
+//     .where('id', id)
+//     .select('id', 'eventName', 'date', 'location',
+//      'address', 'time', 'tickets', 'website', 'blurb')
+//     .first()
+// }
+
+function getPublicEventByName(id, conn) {
   const db = conn || connection
   return db('public_events')
     .where('id', id)
     .select('id', 'eventName', 'date', 'location',
-     'address', 'time', 'tickets', 'website', 'blurb')
+    'address', 'time', 'tickets', 'website', 'blurb')
     .first()
 }
-
-// function getPublicEventByName(eventName, conn) {
-//   const db = conn || connection
-//   return db('public_events')
-//     .where('id', eventName)
-//     .select('id', 'eventName')
-//     .first()
-// }
 
 function getPublicEventsByCategory(category, conn) {
   const db = conn || connection
@@ -56,11 +57,20 @@ function getLocalEvents(conn) {
     .select()
 }
 
-function getLocalEventById(id, conn) {
+// function getLocalEventById(id, conn) {
+//   const db = conn || connection
+//   return db('local_events')
+//     .where('id', id)
+//     .select('id', 'eventName')
+//     .first()
+// }
+
+function getLocalEventByName(id, conn) {
   const db = conn || connection
   return db('local_events')
-    .where('id', id)
-    .select('id', 'eventName')
+    .where('event.id', id)
+    .select('id', 'eventName', 'date', 'location',
+    'address', 'time', 'tickets', 'website', 'blurb')
     .first()
 }
 

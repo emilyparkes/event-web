@@ -13,7 +13,11 @@ class LocalEvents extends React.Component {
   render() {
     return (
       <div className='localeventspg'>
-        <h1>Local Events</h1>
+      
+        <div className='page-heading-section'>
+          <div className='page-title-font'>
+            <h1>Local Events</h1></div>
+        </div>
 
         <div className='page-section'>
           {this.props.localEvents.map(lEvent =>

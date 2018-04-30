@@ -13,7 +13,11 @@ class Categories extends React.Component {
   render() {
     return (
       <div className='categoriespg' >
-        <h1>Categories</h1>
+
+        <div className='page-heading-section'>
+          <div className='page-title-font'>
+            <h1>Categories</h1></div>
+        </div>
 
         <div className='page-section'>
           {this.props.categories.map(category =>
@@ -24,7 +28,7 @@ class Categories extends React.Component {
             </Link>
           )}
         </div>
-        
+
       </div>
     )
   }

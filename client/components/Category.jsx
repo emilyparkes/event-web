@@ -16,10 +16,11 @@ export class Category extends React.Component {
       <div className='categoriespg' >
 
         <div className='page-heading-section'>
-          <div className='page-title-font'>{this.props.match.params.category}</div>
+          <div className='page-title-font'>
+          <h1>{this.props.match.params.category}</h1></div>
         </div>
 
-        <div className='categories-section' >
+        <div className='page-section' >
           {this.props.peventsbycategory.map(pEvents =>
             <Link key={pEvents.id} to={`/events/${this.props.match.params.category}/${pEvents.eventName}`} >
               <button className='categories-buttons'>

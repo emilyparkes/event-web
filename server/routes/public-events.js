@@ -10,9 +10,9 @@ router.use(bodyParser.json())
 
 router.get('/:id', (req, res) => {
   const id = req.params.id
-  db.getPublicEventById(id)
-    .then((pEvent) => {
-      res.send({pEvent})
+  db.getPublicEventByName(id)
+    .then((event) => {
+      res.send(event)
     })
     .catch(err => {
       res.status(500).send(err.message)

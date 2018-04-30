@@ -13,7 +13,11 @@ class PublicEvents extends React.Component {
   render() {
     return (
       <div className='publiceventspg'>
-        <h1>Public Events</h1>
+
+        <div className='page-heading-section'>
+          <div className='page-title-font'>
+            <h1>Public Events</h1></div>
+        </div>
 
         <div className='page-section'>
           {this.props.publicEvents.map(pEvent =>

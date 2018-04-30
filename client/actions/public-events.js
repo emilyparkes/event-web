@@ -4,7 +4,7 @@ import { showError } from './error'
 import baseUrl from '../lib/base-url'
 
 export const RECEIVE_PUBLIC_EVENTS = 'RECEIVE_PUBLIC_EVENTS'
-export const RECEIVE_PUBLIC_EVENT = 'RECEIVE_PUBLIC_EVENT'
+export const RECEIVE_PUBLIC_EVENT_BY_NAME = 'RECEIVE_PUBLIC_EVENT_BY_NAME'
 
 export const receivePublicEvents = (publicEvents) => {
   return {
@@ -25,18 +25,18 @@ export function getPublicEvents () {
   }
 }  
 
-export const receivePublicEvent = (event) => {
+export const receivePublicEventByName = (event) => {
   return {
-    type: RECEIVE_PUBLIC_EVENT,
+    type: RECEIVE_PUBLIC_EVENT_BY_NAME,
     event
   }
 }
 
-export function getPublicEventById () {
+export function getPublicEventByName (id) {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/public-events/${event.id}`)
+    request('get', `${baseUrl}/api/v1/public-events/${id}`)
       .then(res => {
-        dispatch(receivePublicEvent(res.body.event))
+        dispatch(receivePublicEventByName(res.body))
       })
       .catch(() => {
         dispatch(showError('An unexpected error in getting the event information'))
