@@ -25,16 +25,16 @@ export function getPublicEvents () {
   }
 }  
 
-export const receivePublicEventByName = (event) => {
+export const receivePublicEventByName = (pEvent) => {
   return {
     type: RECEIVE_PUBLIC_EVENT_BY_NAME,
-    event
+    pEvent
   }
 }
 
 export function getPublicEventByName (id) {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/public-events/${id}`)
+    request('get', `${baseUrl}/api/v1/public-events/${eventName}`)
       .then(res => {
         dispatch(receivePublicEventByName(res.body))
       })

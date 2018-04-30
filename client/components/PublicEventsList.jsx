@@ -21,7 +21,7 @@ class PublicEvents extends React.Component {
 
         <div className='page-section'>
           {this.props.publicEvents.map(pEvent =>
-            <Link key={pEvent.id} to={`/public-events/${pEvent.id}`} >
+            <Link key={pEvent.id} to={`/public-events/${pEvent.eventName}`} >
               <button className='public-events-buttons'>
                 {pEvent.eventName}
               </button>

@@ -7,7 +7,7 @@ import { getPublicEventByName } from '../actions/public-events'
 class PublicEvent extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(getPublicEventByName(this.props.match.params.id))
+    this.props.dispatch(getPublicEventByName(this.props.match.params.eventName))
   }
 
   render() {
@@ -16,17 +16,17 @@ class PublicEvent extends React.Component {
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>{eventName}</h1></div>
+            <h1>{pEvent.eventName}</h1></div>
         </div>
 
         <div className='page-section'>
-          {event.date}
-          {event.time}
-          {event.location}
-          {event.address}
-          {event.tickets}
-          {event.website}
-          {event.blurb}
+          {pEvent.date}
+          {pEvent.time}
+          {pEvent.location}
+          {pEvent.address}
+          {pEvent.tickets}
+          {pEvent.website}
+          {pEvent.blurb}
         </div>
 
       </div>
@@ -36,7 +36,7 @@ class PublicEvent extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    event: state.event
+    pEvent: state.pEvent
   }
 }
 

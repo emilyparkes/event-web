@@ -26,10 +26,10 @@ test('getPublicEvents returns 4 events', () => {
     })
 })
 
-test('getPublicEventById returns the event given the id', () => {
-  return db.getPublicEventById(1, testDb)
-    .then(event => {
-      expect(event.eventName).toBe('Farmers Market')
+test('getPublicEventByName returns the event given the name', () => {
+  return db.getPublicEventByName('Farmers Market', testDb)
+    .then(pEvent => {
+      expect(pEvent.eventName).toBe('Farmers Market')
     })
 })
 
@@ -54,10 +54,10 @@ test('getLocalEvents returns 4 events', () => {
     })
 })
 
-test('getLocalEventsById returns the event given the id', () => {
-  return db.getLocalEventById(2, testDb)
-    .then(events => {
-      expect(events.eventName).toBe('Community Garden Day')
+test('getLocalEventByName returns the event given the name', () => {
+  return db.getLocalEventByName('Community Garden Day', testDb)
+    .then(lEvent => {
+      expect(lEvent.eventName).toBe('Community Garden Day')
     })
 })
 

@@ -7,7 +7,7 @@ const publicEvents = (state = initialState, action) => {
     case RECEIVE_PUBLIC_EVENTS:
       return action.publicEvents
     case RECEIVE_PUBLIC_EVENT_BY_NAME:
-      return action.event
+      return action.pEvent
     default:
       return state
   }
