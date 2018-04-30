@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { getPublicEventsByCategoryId } from '../actions/categories'
 
 export class Category extends React.Component {
-  // get all events assosiated with that category
+  // get all events associated with that category
   componentDidMount() {
-    this.props.dispatch(getPublicEventsByCategoryId(this.props.match.params.category))
+    this.props.dispatch(getPublicEventsByCategory(this.props.match.params.category))
   }
 
 
@@ -20,10 +20,10 @@ export class Category extends React.Component {
         </div>
 
         <div className='categories-section' >
-          {this.props.publicEvents.map(pEvent =>
-            <Link key={pEvent.id} to={`/events/${this.props.match.params.category}/${pEvent.eventName}`} >
+          {this.props.peventsbycategory.map(pEvents =>
+            <Link key={pEvents.id} to={`/events/${this.props.match.params.category}/${pEvents.eventName}`} >
               <button className='categories-buttons'>
-                {pEvent.eventName}
+                {pEvents.eventName}
               </button>
             </Link>
           )}
@@ -36,7 +36,7 @@ export class Category extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    publicEvents: state.publicEvents
+    peventsbycategory: state.peventsbycategory
   }
 }
 

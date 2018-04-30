@@ -10,6 +10,9 @@ const Nav = () => {
         </Link>
       </div> */}
       <div className='nav-links'>
+      <span className='nav-link-individual-styling'>
+          <Link to='/'>home</Link>
+        </span>
         <span className='nav-link-individual-styling'>
           <Link to='/myprofile'>profile</Link>
         </span>

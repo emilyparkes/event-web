@@ -1,40 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { getPublicEventById } from '../actions/public-events'
 
 class PublicEvent extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      publicevents: []
-    }
-  }
 
   componentDidMount() {
-    this.props.dispatch(getPublicEventById(this.props.match.params.publicEvent))
+    this.props.dispatch(getPublicEventById())
   }
 
   render() {
     return (
       <div className='publiceventpg'>
-        {this.props.publicevents.map(pevent => (
-          <div key={pevent.id} className='interest-page-thumbnails'>
-            <div className='h3-class'>
-              {pevent.eventName}</div>
+        <h1>{event.eventName}</h1>
 
-            <div className='thumbnail-p-text'>
-              {pevent.time}
-              {pevent.date}
-              {pevent.blurb}
-            </div>
-          </div>
+        <div className='page-section'>
+          {event.date}
+          {event.time}
+          {event.location}
+          {event.address}
+          {event.tickets}
+          {event.website}
+          {event.blurb}
+        </div>
 
-        )
-        )}
       </div>
     )
   }
 }
 
-export default PublicEvent
+const mapStateToProps = (state) => {
+  return {
+    event: state.event
+  }
+}
+
+export default connect(mapStateToProps)(PublicEvent)
