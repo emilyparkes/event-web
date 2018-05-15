@@ -11,9 +11,9 @@ exports.seed = function(knex, Promise) {
         {id: 5, categoryName: 'Theatre'},
         {id: 6, categoryName: 'Food'},
         {id: 7, categoryName: 'Markets'},
-        {id: 8, categoryName: 'City Pop-Ups'},
+        {id: 8, categoryName: 'City-Pop-Ups'},
         {id: 9, categoryName: 'Community'},
-        {id: 10, categoryName: 'Sports & Outdoors'}
+        {id: 10, categoryName: 'Sports-&-Outdoors'}
       ])
     })
 }
