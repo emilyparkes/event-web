@@ -14,8 +14,13 @@ class Home extends React.Component {
   render() {
     return (
       <div className='homepg'>
-        <h1>Home</h1>
-        <h6>listed with events based on selection from preferences tab.</h6>
+        <div className='page-heading-section'>
+          <div className='page-title-font'>
+            <h1>Home</h1></div>
+            <h6>listed with events based on selection from preferences tab.</h6>
+        </div>
+
+       
         <div className='page-section'>
           <Link to={'/public-events'}>
             <button className='pevent-buttons'>

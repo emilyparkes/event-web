@@ -26,19 +26,19 @@ test('getPublicEvents returns 4 events', () => {
     })
 })
 
-test('getPublicEventById returns the event given the id', () => {
-  return db.getPublicEventById(1, testDb)
-    .then(event => {
-      expect(event.eventName).toBe('Farmers Market')
+test('getPublicEventByName returns the event given the name', () => {
+  return db.getPublicEventByName('Farmers Market', testDb)
+    .then(pEvent => {
+      expect(pEvent.eventName).toBe('Farmers Market')
     })
 })
 
-test('getPublicEventsByCategoryId returns the events with the associated category name', () => {
+test('getPublicEventsByCategory returns the events with the associated category name', () => {
   const expected = (
     'Balu Brigada', 
     'Comedy Fest'
   )
-  return db.getPublicEventsByCategoryId(2, testDb)
+  return db.getPublicEventsByCategory('Gig', testDb)
     .then(events => {
       expect(events.categoryName).toBe(expected)
     })
@@ -54,15 +54,15 @@ test('getLocalEvents returns 4 events', () => {
     })
 })
 
-test('getLocalEventsById returns the event given the id', () => {
-  return db.getLocalEventById(2, testDb)
-    .then(events => {
-      expect(events.eventName).toBe('Community Garden Day')
+test('getLocalEventByName returns the event given the name', () => {
+  return db.getLocalEventByName('Community Garden Day', testDb)
+    .then(lEvent => {
+      expect(lEvent.eventName).toBe('Community Garden Day')
     })
 })
 
-test('getLocalEventsByCategoryId returns the event category name', () => {
-  return db.getLocalEventsByCategoryId(10, testDb)
+test('getLocalEventsByCategory returns the event name', () => {
+  return db.getLocalEventsByCategory('Sports & Outdoors', testDb)
     .then(events => {
       expect(events.eventName).toBe('Hockey Club Opening')
     })

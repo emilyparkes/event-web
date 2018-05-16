@@ -4,28 +4,31 @@ import { connect } from 'react-redux'
 
 import { getCategories } from '../actions/categories'
 
-export class Categories extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  //   this.state = {
-  //     categories: []
-  //   }
-  // }
+class Categories extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(getCategories())
   }
 
-  render () {
+  render() {
     return (
       <div className='categoriespg' >
-        {this.props.categories.map(category =>
-          <Link key={category.id} to={`/events/${category.categoryName}`} >
-            <button className='categories-buttons'>
-              {category.categoryName}
-            </button>
-          </Link>
-        )}
+
+        <div className='page-heading-section'>
+          <div className='page-title-font'>
+            <h1>Categories</h1></div>
+        </div>
+
+        <div className='page-section'>
+          {this.props.categories.map(category =>
+            <Link key={category.id} to={`/events/${category.categoryName}`} >
+              <button className='categories-buttons'>
+                {category.categoryName}
+              </button>
+            </Link>
+          )}
+        </div>
+
       </div>
     )
   }

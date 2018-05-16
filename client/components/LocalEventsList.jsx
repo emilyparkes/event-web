@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { getLocalEvents } from '../actions/local-events'
+import Map from './map/Map'
 
 class LocalEvents extends React.Component {
 
@@ -13,7 +14,11 @@ class LocalEvents extends React.Component {
   render() {
     return (
       <div className='localeventspg'>
-        <h1>Local Events</h1>
+      
+        <div className='page-heading-section'>
+          <div className='page-title-font'>
+            <h1>Local Events</h1></div>
+        </div>
 
         <div className='page-section'>
           {this.props.localEvents.map(lEvent =>
@@ -23,6 +28,10 @@ class LocalEvents extends React.Component {
               </button>
             </Link>
           )}
+          <br/>
+          <div className='map-section'>
+            <Map />
+          </div>
         </div>
 
       </div>
