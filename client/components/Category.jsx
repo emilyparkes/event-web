@@ -7,7 +7,7 @@ import {  } from '../actions/categories'
 export class Category extends React.Component {
   // get all events associated with that category
   componentDidMount() {
-    this.props.dispatch()
+    this.props.dispatch(getPublicEventsByCategory(this.match,params.category))
   }
 
 
@@ -21,7 +21,7 @@ export class Category extends React.Component {
         </div>
 
         <div className='page-section' >
-          {this.props.hey.map(pEvents =>
+          {this.props.categories.map(pEvents =>
             <Link key={pEvents.id} to={`/events/${this.props.match.params.category}/${pEvents.eventName}`} >
               <button className='categories-buttons'>
                 {pEvents.eventName}

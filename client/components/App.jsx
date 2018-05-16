@@ -29,9 +29,10 @@ class App extends React.Component {
             <Route path='/local-events/:eventName' component={LocalEvent} />
             <Route path='/public-events' component={PublicEventsList} />
             <Route path='/local-events' component={LocalEventsList} />
+            <Route path='/events/categories' component={Categories} />
             <Route path='/events/:category/:eventName' component={EventByCategory} />
             <Route path='/events/:category' component={Category} />
-            <Route path='/events/categories' component={Categories} />
+            
 
           </Switch>
         </div>
