@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getLocalEventByName } from '../actions/local-events'
+import { getLocalEventByName } from '../actions/l-event'
 
 class LocalEvent extends React.Component {
  
@@ -16,6 +16,7 @@ class LocalEvent extends React.Component {
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
+            <h1>Local Event...</h1>
             <h1>{event.eventName}</h1></div>
         </div>
 
