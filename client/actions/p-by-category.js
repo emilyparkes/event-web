@@ -5,10 +5,10 @@ import baseUrl from '../lib/base-url'
 
 export const RECEIVE_PUBLIC_EVENTS_BY_CATEGORY = 'RECEIVE_PUBLIC_EVENTS_BY_CATEGORY'
 
-export const receivePublicEventsByCategory = (categoryType) => {
+export const receivePublicEventsByCategory = (category) => {
   return {
     type: RECEIVE_PUBLIC_EVENTS_BY_CATEGORY,
-    categoryType
+    category
   }
 }
 
