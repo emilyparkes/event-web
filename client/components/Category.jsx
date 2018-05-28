@@ -20,7 +20,7 @@ export class Category extends React.Component {
           <h1>Category related events</h1>
           <h2>{this.props.match.params.category}</h2></div>
         </div>
-
+        {/* public events */}
         <div className='page-section' >
           {this.props.category.map(pEvents =>
             <Link key={pEvents.id} to={`/events/${this.props.match.params.category}/${pEvents.eventName}`} >
@@ -30,6 +30,17 @@ export class Category extends React.Component {
             </Link>
           )}
         </div>
+
+         {/* local events */}
+         {/* <div className='page-section' >
+          {this.props.category.map(pEvents =>
+            <Link key={pEvents.id} to={`/events/${this.props.match.params.category}/${pEvents.eventName}`} >
+              <button className='categories-buttons'>
+                {pEvents.eventName}
+              </button>
+            </Link>
+          )}
+        </div> */}
 
       </div>
     )
