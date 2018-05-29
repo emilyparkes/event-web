@@ -8,21 +8,21 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/', (req, res) => {
-  db.getCategories()
-    .then((categories) => {
-      res.send({categories})
+router.get('/:category', (req, res) => {
+  const category = req.params.category
+  db.getCategoryByName(category)
+    .then((category) => {
+      res.send(category)
     })
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
 
-router.get('/:category', (req, res) => {
-  const category = req.params.category
-  db.getCategoryByName(category)
-    .then((category) => {
-      res.send({category})
+router.get('/', (req, res) => {
+  db.getCategories()
+    .then((categories) => {
+      res.send({categories})
     })
     .catch(err => {
       res.status(500).send(err.message)
