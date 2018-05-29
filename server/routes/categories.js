@@ -11,8 +11,8 @@ router.use(bodyParser.json())
 router.get('/:category', (req, res) => {
   const category = req.params.category
   db.getCategoryByName(category)
-    .then((categoryType) => {
-      res.send(categoryType)
+    .then((category) => {
+      res.send(category)
     })
     .catch(err => {
       res.status(500).send(err.message)
