@@ -14,7 +14,7 @@ export const receivePublicEventByName = (pEvent) => {
 
 export function getPublicEventByName (id) {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/public-events/${id}`)
+    request.get(`${baseUrl}/api/v1/public-events/${id}`)
       .then(res => {
         dispatch(receivePublicEventByName(res.body))
       })

@@ -14,7 +14,7 @@ export const receivePublicEvents = (publicEvents) => {
 
 export function getPublicEvents () {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/public-events`)
+    request.get(`${baseUrl}/api/v1/public-events`)
       .then(res => {
         dispatch(receivePublicEvents(res.body.publicEvents))
       })
