@@ -13,7 +13,7 @@ server.use(bodyParser.json())
 // these are the routes we have created
 server.use('/api/v1/public-events', publicEventsRoutes)
 server.use('/api/v1/local-events', localEventsRoutes)
-server.use('/api/v1/eventcategories', eventCategoriesRoutes)
+server.use('/api/v1/eventscategories', eventCategoriesRoutes)
 
 // Default route for non-API requests
 server.get('*', (req, res) => {
