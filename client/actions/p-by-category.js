@@ -14,11 +14,14 @@ export const receivePublicEventsByCategory = (category) => {
 
 export function getPublicEventsByCategory (category) {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/eventscategories/${category}`)
+    // console.log('get something', `${baseUrl}/api/v1/eventscategories/${category}`)
+    request.get(`${baseUrl}/api/v1/eventscategories/${category}`)
       .then(res => {
-        dispatch(receivePublicEventsByCategory(res.body))
+        // console.log(res.body)
+        dispatch(receivePublicEventsByCategory(res.body.publicEventsByCategory))
       })
-      .catch(() => {
+      .catch((e) => {
+        // console.log(e.message)
         dispatch(showError('An unexpected error in getting category information'))
       })
   }
