@@ -14,7 +14,7 @@ export const receiveCategories = (categories) => {
 
 export function getCategories () {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/eventcategories`)
+    request.get(`${baseUrl}/api/v1/eventscategories`)
       .then(res => {
         dispatch(receiveCategories(res.body.categories))
       })

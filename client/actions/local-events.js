@@ -14,7 +14,7 @@ export const receiveLocalEvents = (localEvents) => {
 
 export function getLocalEvents() {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/local-events`)
+    request.get(`${baseUrl}/api/v1/local-events`)
       .then(res => {
         dispatch(receiveLocalEvents(res.body.localEvents))
       })

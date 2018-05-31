@@ -14,7 +14,7 @@ export const receiveLocalEventByName = (event) => {
 
 export function getLocalEventByName(eventName) {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/local-events/${eventName}`)
+    request.get(`${baseUrl}/api/v1/local-events/${eventName}`)
       .then(res => {
         dispatch(receiveLocalEventByName(res.body))
       })

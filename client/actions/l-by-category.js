@@ -5,16 +5,16 @@ import baseUrl from '../lib/base-url'
 
 export const RECEIVE_LOCAL_EVENTS_BY_CATEGORY = 'RECEIVE_LOCAL_EVENTS_BY_CATEGORY'
 
-export const receiveLocalEventsByCategory = (categoryType) => {
+export const receiveLocalEventsByCategory = (category) => {
   return {
     type: RECEIVE_LOCAL_EVENTS_BY_CATEGORY,
-    categoryType
+    category
   }
 }
 
-export function getLocalEventsByCategory(categoryType) {
+export function getLocalEventsByCategory(category) {
   return (dispatch) => {
-    request('get', `${baseUrl}/api/v1/eventscategories/${category}`)
+    request.get(`${baseUrl}/api/v1/eventscategories/${category}`)
       .then(res => {
         dispatch(receiveLocalEventsByCategory(res.body))
       })

@@ -34,13 +34,14 @@ test('getPublicEventByName returns the event given the name', () => {
 })
 
 test('getPublicEventsByCategory returns the events with the associated category name', () => {
-  const expected = (
-    'Balu Brigada', 
-    'Comedy Fest'
-  )
+  const expected = [
+    { eventName: 'Balu Brigada' },
+    { eventName: 'Comedy Fest' }
+  ]
+
   return db.getPublicEventsByCategory('Gig', testDb)
     .then(events => {
-      expect(events.categoryName).toBe(expected)
+      expect(events).toBe(expected)
     })
 })
 

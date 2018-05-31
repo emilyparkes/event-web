@@ -19,8 +19,8 @@ class App extends React.Component {
   render () {
     return (
       <div className='app'>
+        <Header />
         <div className='app-box'>
-          <Header />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/profile/edit' component={ProfileEdit} />
@@ -32,7 +32,7 @@ class App extends React.Component {
             <Route path='/events/categories' component={Categories} />
             <Route path='/events/:category/:eventName' component={EventByCategory} />
             <Route path='/events/:category' component={Category} />
-            
+
 
           </Switch>
         </div>
