@@ -21,7 +21,7 @@ class PublicEvent extends React.Component {
         </div>
 
         <div className='page-section'>
-          {eventName}
+          {this.props.pEvent.eventName}
           {pEvent.date}
           {this.props.time}
           {this.props.location}

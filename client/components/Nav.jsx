@@ -6,7 +6,7 @@ const Nav = () => {
     <div className='nav-header'>
       {/* <div className='nav-logo'>
         <Link to='/'>
-          <img src='/images/marama-logo.png' className='marama-logo' />
+          <img src='/images/' className='logo' />
         </Link>
       </div> */}
       <div className='nav-links'>
