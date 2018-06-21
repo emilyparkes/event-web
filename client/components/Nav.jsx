@@ -10,12 +10,20 @@ const Nav = () => {
         </Link>
       </div> */}
       <div className='nav-links'>
-      <span className='nav-link-individual-styling'>
+
+        <span className='nav-link-individual-styling'>
           <Link to='/'>home</Link>
         </span>
         <span className='nav-link-individual-styling'>
-          <Link to='/myprofile'>profile</Link>
+          <Link to='/profile'>profile</Link>
         </span>
+        <span className='nav-link-individual-styling'>
+          <Link to='/calendar'>calendar</Link>
+        </span>
+        <span className='nav-link-individual-styling'>
+          <Link to='/map'>map</Link>
+        </span>
+
         <span className='nav-link-individual-styling'>
           <Link to='/public-events'>public events</Link>
         </span>
@@ -25,6 +33,7 @@ const Nav = () => {
         <span className='nav-link-individual-styling'>
           <Link to='/events/categories'>categories</Link>
         </span>
+
       </div>
     </div>
   )
