@@ -3,12 +3,18 @@ import { Route, Switch } from 'react-router-dom'
 
 import Header from './Header'
 import Home from './Home'
+
 import ProfileEdit from './profile/ProfileEdit'
 import Profile from './profile/Profile'
+
+import Calendar from './Calendar'
+import AklMap from './map/AklMap'
+
 import PublicEventsList from './PublicEventsList'
 import PublicEvent from './PublicEvent'
 import LocalEventsList from './LocalEventsList'
 import LocalEvent from './LocalEvent'
+
 import Categories from './Categories'
 import Category from './Category'
 import EventByCategory from './EventByCategory'
@@ -23,17 +29,21 @@ class App extends React.Component {
         <div className='app-box'>
           <Switch>
             <Route exact path='/' component={Home} />
+
             <Route path='/profile/edit' component={ProfileEdit} />
             <Route path='/profile' component={Profile} />
+
+            <Route path='/calendar' component={Calendar} />
+            <Route path='/map' component={AklMap} />
+
             <Route path='/public-events/:eventName' component={PublicEvent} />
             <Route path='/local-events/:eventName' component={LocalEvent} />
             <Route path='/public-events' component={PublicEventsList} />
             <Route path='/local-events' component={LocalEventsList} />
+
             <Route path='/events/categories' component={Categories} />
             <Route path='/events/:category/:eventName' component={EventByCategory} />
             <Route path='/events/:category' component={Category} />
-
-
           </Switch>
         </div>
         <div className='sticky-footer'>
