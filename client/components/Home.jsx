@@ -1,11 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import PublicEventsList from './PublicEventsList'
-import LocalEventsList from './LocalEventsList'
-
-import { getLocalEvents, getPublicEvents } from '../../server/db/db'
-
 class Home extends React.Component {
   constructor(props) {
     super(props)
