@@ -1,26 +1,21 @@
 import React from 'react'
 
 class ProfileEdit extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-
-    }
-  }
-
+  
   render() {
     return (
       <div className='profileeditpg'>
         <div className='page-section'>
 
           <div className='page-heading-section'>
-            <div className='page-title-font'>Profile</div>
+            <div className='page-title-font'>
+            <h1>Profile Edit</h1></div>
             {/* edit  */}
             <div className='profile-picture'>
-              <img src={profilePic} alt='profile picture' />
+              {/* <img src={profilePic} alt='profile picture' /> */}
             </div>
             {/* edit */}
-            <div className='profile-name'>{firstName}</div>
+            {/* <div className='profile-name'>{firstName}</div> */}
           </div>
 
           {/* edit */}
