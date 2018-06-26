@@ -2,9 +2,26 @@
 A web app to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
 
-### To run clone down this repo and:
+### Getting Started:
+- create your own branch off of master
+- pull down any changes
+```shell
+git pull origin development
+```
+- install dependencies
 ```shell
 yarn
+```
+- create your database
+```shell
+yarn migrate
+yarn seed
+```
+- using auth
+  - check the .env.example file
+  - change the JWT_SECRET
+- start the server
+```shell
 yarn dev
 ```
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getPublicEventByName } from '../actions/p-event'
+import { getPublicEventByName } from '../../actions/p-event'
 
 class PublicEvent extends React.Component {
 

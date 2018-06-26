@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getLocalEventByName } from '../actions/l-event'
+import { getLocalEventByName } from '../../actions/l-event'
 
 class LocalEvent extends React.Component {
  

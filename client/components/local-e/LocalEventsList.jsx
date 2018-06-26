@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getLocalEvents } from '../actions/local-events'
-import Map from './map/AklMap'
+import { getLocalEvents } from '../../actions/local-events'
 
 class LocalEvents extends React.Component {
 

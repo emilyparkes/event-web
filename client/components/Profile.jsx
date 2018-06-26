@@ -1,7 +1,7 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
 
-// import Preferences from './Preferences'
+// import Preferences from './profile/Preferences'
 
 const Profile = () => {
   return (
