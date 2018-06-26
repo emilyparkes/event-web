@@ -36,9 +36,9 @@ class App extends React.Component {
             <Route path='/popular' component={Popular} />
             <Route path='/map' component={AklMap} />
             <Route path='/calendar' component={Calendar} />
-            <Route path='/profile' component={Profile} />
-
+            
             <Route path='/profile/edit' component={ProfileEdit} />
+            <Route path='/profile' component={Profile} />
 
             <Route path='/public-events/:eventName' component={PublicEvent} />
             <Route path='/public-events' component={PublicEventsList} />
