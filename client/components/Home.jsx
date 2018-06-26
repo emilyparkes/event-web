@@ -11,7 +11,8 @@ class Home extends React.Component {
       <div className='homepg'>
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>Home</h1></div>
+            <h1>Home</h1>
+            </div>
             <h6>listed with events based on selection from preferences tab.</h6>
         </div>
 
