@@ -12,7 +12,7 @@ router.get('/:eventName', (req, res) => {
   const eventName = req.params.eventName
   db.getLocalEventByName(eventName)
     .then((event) => {
-      res.send(event)
+      res.send({event})
     })
     .catch(err => {
       res.status(500).send(err.message)
