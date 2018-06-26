@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import { getLocalEvents } from '../../actions/local-events'
 
 class LocalEvents extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount() {
     this.props.dispatch(getLocalEvents())
@@ -22,9 +25,7 @@ class LocalEvents extends React.Component {
         <div className='page-section'>
           {this.props.localEvents.map(lEvent =>
             <Link key={lEvent.id} to={`/local-events/${lEvent.eventName}`} >
-              <button className='local-events-buttons'>
-                {lEvent.eventName}
-              </button>
+              <button className='local-events-buttons'>{lEvent.eventName}</button>
             </Link>
           )}
         </div>
