@@ -5,21 +5,21 @@ import baseUrl from '../lib/base-url'
 
 export const RECEIVE_PUBLIC_EVENT_BY_NAME = 'RECEIVE_PUBLIC_EVENT_BY_NAME'
 
-export const receivePublicEventByName = (pEvent) => {
+export const receivePublicEventByName = (event) => {
   return {
     type: RECEIVE_PUBLIC_EVENT_BY_NAME,
-    pEvent
+    event
   }
 }
 
-export function getPublicEventByName (id) {
+export function getPublicEventByName(eventName) {
   return (dispatch) => {
-    request.get(`${baseUrl}/api/v1/public-events/${id}`)
+    request.get(`${baseUrl}/api/v1/public-events/${eventName}`)
       .then(res => {
         dispatch(receivePublicEventByName(res.body))
       })
       .catch(() => {
-        dispatch(showError('An unexpected error in getting the event information'))
+        dispatch(showError('An unexpected error in getting the pevent information'))
       })
   }
 }   

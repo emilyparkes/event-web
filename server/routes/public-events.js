@@ -8,11 +8,11 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/:id', (req, res) => {
-  const id = req.params.id
-  db.getPublicEventByName(id)
-    .then((pEvent) => {
-      res.send(pEvent)
+router.get('/:eventName', (req, res) => {
+  const eventName = req.params.eventName
+  db.getPublicEventByName(eventName)
+    .then((event) => {
+      res.send({event})
     })
     .catch(err => {
       res.status(500).send(err.message)
