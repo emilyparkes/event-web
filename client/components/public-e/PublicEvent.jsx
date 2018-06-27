@@ -1,13 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { getPublicEventByName } from '../../actions/p-event'
 
 class PublicEvent extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount() {
-    this.props.dispatch(getPublicEventByName(this.props.match.params.id))
+    this.props.dispatch(getPublicEventByName(this.props.match.params.eventName))
   }
 
   render() {
@@ -16,19 +19,19 @@ class PublicEvent extends React.Component {
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>The One Event</h1>
+            <h1>Public Event...</h1>
+            <h1>{event.eventName}</h1>
           </div>
         </div>
 
         <div className='page-section'>
-          {this.props.pEvent.eventName}
-          {pEvent.date}
-          {this.props.time}
-          {this.props.location}
-          {this.props.address}
-          {this.props.tickets}
-          {this.props.website}
-          {this.props.blurb}
+          {event.date}
+          {event.time}
+          {event.location}
+          {event.address}
+          {event.tickets}
+          {event.website}
+          {event.blurb}
         </div>
 
       </div>
