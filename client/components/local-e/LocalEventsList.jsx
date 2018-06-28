@@ -6,7 +6,10 @@ import { getLocalEvents } from '../../actions/local-events'
 
 class LocalEvents extends React.Component {
   constructor(props) {
-  super(props)
+    super(props)
+    this.state = {
+      LocalEvents: []
+    }
   }
 
   componentDidMount() {
@@ -15,7 +18,7 @@ class LocalEvents extends React.Component {
 
   render() {
     return (
-      <div className='localeventspg'>
+      <div className='localeventspg' >
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
@@ -23,10 +26,11 @@ class LocalEvents extends React.Component {
         </div>
 
         <div className='page-section'>
-          {this.props.localEvents.map(lEvent =>
-            <Link key={lEvent.id} to={`/local-events/${lEvent.eventName}`} >
+          {this.props.localEvents.map(event =>
+            <Link key={event.id} to={`/local-events/${event.eventName}`} >
               <button className='local-events-buttons'>
-              {lEvent.eventName}</button>
+                {event.eventName}
+              </button>
             </Link>
           )}
         </div>

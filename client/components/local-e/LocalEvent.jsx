@@ -6,12 +6,13 @@ import { getLocalEventByName } from '../../actions/l-event'
 
 class LocalEvent extends React.Component {
   constructor(props) {
-  super(props)
+    super(props)
   }
- 
+
   componentDidMount() {
     this.props.dispatch(getLocalEventByName(this.props.match.params.eventName))
   }
+
 
   render() {
     return (
@@ -19,14 +20,13 @@ class LocalEvent extends React.Component {
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>Local Event...</h1>
-            <h1>{event.eventName}</h1></div>
+            <h1>{this.props.match.params.eventName}</h1></div>
         </div>
 
         <div className='page-section'>
-          <h1>{event.date}</h1>
-          {event.time}
-          {event.location}
+          <h1>{this.props.lEvent.date}</h1>
+          {this.props.lEvent.time}
+          {this.props.lEvent.location}
           {event.address}
           {event.tickets}
           {event.website}
@@ -40,7 +40,7 @@ class LocalEvent extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    event: state.event
+    lEvent: state.lEvent
   }
 }
 

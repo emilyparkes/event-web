@@ -84,6 +84,6 @@ test('getLocalEventsByCategory returns the categorys assosiated events', () => {
 test.skip('getCategoryById returns the category given the id', () => {
   return db.getCategoryById(1, testDb)
     .then(category => {
-      expect(categories.categoryName).toBe('Concerts')
+      expect(category.categoryName).toBe('Concerts')
     })
 })
