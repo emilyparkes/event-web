@@ -34,6 +34,11 @@ const Nav = () => {
           <Link to='/events/categories'>categories</Link>
         </span>
 
+
+        <span className='nav-link-individual-styling'>
+          <Link to='/log-in'>log in</Link>
+        </span>
+
       </div>
     </div>
   )
