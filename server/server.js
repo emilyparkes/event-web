@@ -17,7 +17,7 @@ server.use('/api/v1/public-events', publicEventsRoutes)
 server.use('/api/v1/local-events', localEventsRoutes)
 server.use('/api/v1/eventscategories', eventCategoriesRoutes)
 
-server.use('/api/v1/auth/register', authRoutes)
+server.use('/api/v1/auth', authRoutes)
 
 // Default route for non-API requests
 server.get('*', (req, res) => {

@@ -29,7 +29,7 @@ class ProfileEdit extends React.Component {
         {/* <Preferences /> */}
 
         {/* edit */}
-        <div className='username'>change username</div>
+        <div className='username'> change username</div>
         <div className='pswrd'>change password</div>
         <button>
           <Link to='/profile'>save changes</Link>
