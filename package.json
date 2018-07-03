@@ -13,7 +13,10 @@
     "start": "node server",
     "knex": "knex --knexfile ./server/db/knexfile.js",
     "seed": "yarn knex seed:run",
-    "migrate": "yarn knex migrate:latest"
+    "migrate": "yarn knex migrate:latest",
+    "h:data": "heroku run bash & yarn migrate & yarn seed",
+    "h:deploy": "git push heroku master"
+
   },
   "babel": {
     "presets": [
