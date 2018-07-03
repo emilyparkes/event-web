@@ -7,7 +7,7 @@ const initialState = {}
 const localEvent = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_LOCAL_EVENT_BY_NAME:
-      return action.event
+      return action.lEvent
     default:
       return state
   }
