@@ -19,19 +19,18 @@ class PublicEvent extends React.Component {
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>Public Event...</h1>
-            <h1>{event.eventName}</h1>
+            <h1>{this.props.match.params.eventName}</h1>
           </div>
         </div>
 
         <div className='page-section'>
-          {event.date}
-          {event.time}
-          {event.location}
-          {event.address}
-          {event.tickets}
-          {event.website}
-          {event.blurb}
+          {this.props.pEvent.date}
+          {this.props.pEvent.time}
+          {this.props.pEvent.location}
+          {this.props.pEvent.address}
+          {this.props.pEvent.tickets}
+          {this.props.pEvent.website}
+          {this.props.pEvent.blurb}
         </div>
 
       </div>

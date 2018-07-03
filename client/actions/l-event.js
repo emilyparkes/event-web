@@ -19,7 +19,8 @@ export function getLocalEventByName(eventName) {
         console.log(res.body)
         dispatch(receiveLocalEventByName(res.body))
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e.message)
         dispatch(showError('An unexpected error in getting the levent information'))
       })
   }
