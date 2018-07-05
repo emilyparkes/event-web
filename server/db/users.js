@@ -10,11 +10,11 @@ module.exports = {
   getUserByName
 }
 
-function createUser (username, password, conn) {
-  const passwordHash = hash.getHash(password)
+function createUser (displayname, email, username, password, conn) {
+  const passwordHash = hash.generate(password)
   const db = conn || connection
   return db('users')
-    .insert({username, hash: passwordHash})
+    .insert({displayname, email, username, hash: passwordHash})
 }
 
 function userExists (username, conn) {
