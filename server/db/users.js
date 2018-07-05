@@ -20,10 +20,10 @@ function createUser (displayname, email, username, password, conn) {
 function userExists (username, conn) {
   const db = conn || connection
   return db('users')
-    .count('id as n')
     .where('username', username)
+    .count('id')
     .then(count => {
-      return count[0].n > 0
+      return count[0].id > 0
     })
 }
 
