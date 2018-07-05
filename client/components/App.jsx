@@ -4,6 +4,9 @@ import { Route, Switch } from 'react-router-dom'
 import Header from './sections/Header'
 
 import Home from './Home'
+
+import Register from './auth/Register'
+
 import Popular from './Popular'
 import AklMap from './AklMap'
 import Calendar from './Calendar'
@@ -32,6 +35,8 @@ class App extends React.Component {
         <div className='app-box'>
           <Switch>
             <Route exact path='/' component={Home} />
+
+            <Route path='/register' component={Register} />
 
             <Route path='/popular' component={Popular} />
             <Route path='/map' component={AklMap} />

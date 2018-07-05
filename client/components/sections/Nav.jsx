@@ -36,7 +36,7 @@ const Nav = () => {
 
 
         <span className='nav-link-individual-styling'>
-          <Link to='/log-in'>log in</Link>
+          <Link to='/register'>register</Link>
         </span>
 
       </div>

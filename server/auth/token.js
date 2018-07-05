@@ -3,7 +3,10 @@ const jwt = require('jsonwebtoken')
 const db = require('../db/users').default
 
 module.exports = {
-  issue
+  issue,
+  createToken,
+  decode,
+  getSecret
 }
 
 function issue (req, res) {
@@ -24,4 +27,14 @@ function createToken (user, secret) {
   }, secret, {
     expiresIn: '1d'
   })
+}
+
+function decode (req, res, next) {
+  verifyJwt({
+    secret: getSecret
+  })(req, res, next)
+}
+
+function getSecret (req, payload, done) {
+  done(null, process.env.JWT_SECRET)
 }

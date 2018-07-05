@@ -11,7 +11,7 @@ module.exports = {
 }
 
 function createUser (username, password, conn) {
-  const passwordHash = hash.generate(password)
+  const passwordHash = hash.getHash(password)
   const db = conn || connection
   return db('users')
     .insert({username, hash: passwordHash})
