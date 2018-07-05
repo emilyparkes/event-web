@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 
 const publicEventsRoutes = require('./routes/public-events')
@@ -11,6 +12,8 @@ const authRoutes = require('./routes/auth')
 const server = express()
 server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.json())
+server.use(passport.initialize())
+server.use(express.json())
 
 // these are the routes we have created
 server.use('/api/v1/public-events', publicEventsRoutes)
