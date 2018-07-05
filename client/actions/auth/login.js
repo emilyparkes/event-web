@@ -38,7 +38,7 @@ export function loginUser (creds) {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(creds))
 
-    return request('post', '/signin', creds)
+    return request('post', '/login', creds)
       .then((response) => {
         if (!response.ok) {
           // If there was a problem, we want to
@@ -51,6 +51,6 @@ export function loginUser (creds) {
           // Dispatch the success action
           dispatch(receiveLogin(userInfo))
         }
-      }).catch(err => dispatch(loginError(err.response.body.message)))
+      }).catch(err => dispatch(loginError(err.message)))
   }
 }
