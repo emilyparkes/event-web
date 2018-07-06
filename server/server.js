@@ -1,19 +1,26 @@
 const path = require('path')
 const express = require('express')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 
 const publicEventsRoutes = require('./routes/public-events')
 const localEventsRoutes = require('./routes/local-events')
 const eventCategoriesRoutes = require('./routes/categories')
 
+const authRoutes = require('./routes/auth')
+
 const server = express()
 server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.json())
+server.use(passport.initialize())
+server.use(express.json())
 
 // these are the routes we have created
 server.use('/api/v1/public-events', publicEventsRoutes)
 server.use('/api/v1/local-events', localEventsRoutes)
 server.use('/api/v1/eventscategories', eventCategoriesRoutes)
+
+server.use('/api/v1/auth', authRoutes)
 
 // Default route for non-API requests
 server.get('*', (req, res) => {

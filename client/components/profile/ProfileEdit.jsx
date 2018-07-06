@@ -1,33 +1,43 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class ProfileEdit extends React.Component {
-  
+
   render() {
     return (
-      <div className='profileeditpg'>
-        <div className='page-section'>
-
-          <div className='page-heading-section'>
-            <div className='page-title-font'>
-            <h1>Profile Edit</h1></div>
-            {/* edit  */}
-            <div className='profile-picture'>
-              {/* <img src={profilePic} alt='profile picture' /> */}
-            </div>
+      <div className='profilepg'>
+        <div className='page-heading-section'>
+          
+             {/* edit */}
+          <div className='profile-pic'>
+            <img src="" alt="" />
+          </div>
+         
             {/* edit */}
-            {/* <div className='profile-name'>{firstName}</div> */}
+          <div className='display-name'>
+            <h1>Emily Parkes</h1>
           </div>
-
-          {/* edit */}
-          <div className='page-content-section'>
-            <div className='form-username'>Change Username</div>
-            <div className='form-password'>Update Password</div>
+         
+            {/* edit */}
+          <div className='location'>
+            <h5>Auckland</h5>
           </div>
-
-
 
         </div>
+
+       <div className='settings' >
+        {/* <Preferences /> */}
+
+        {/* edit */}
+        <div className='username'> change username</div>
+        <div className='pswrd'>change password</div>
+        <button>
+          <Link to='/profile'>save changes</Link>
+        </button>
       </div>
+
+
+      </div >
     )
   }
 }

@@ -34,6 +34,11 @@ const Nav = () => {
           <Link to='/events/categories'>categories</Link>
         </span>
 
+
+        <span className='nav-link-individual-styling'>
+          <Link to='/register'>register</Link>
+        </span>
+
       </div>
     </div>
   )
