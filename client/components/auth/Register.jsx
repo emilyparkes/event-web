@@ -43,7 +43,7 @@ class Register extends React.Component {
   render() {
     const { displayname, email, username, password, confirm } = this.state
     return (
-      <div>
+      <form>
         <p><input name='displayname' placeholder='displayname'
           onChange={this.handleChange} value={displayname} /></p>
 
@@ -62,7 +62,7 @@ class Register extends React.Component {
         <button onClick={this.handleClick}>Register</button>
 
         {/* <ErrorMessage reducer='auth' /> */}
-      </div>
+      </form>
     )
   }
 }
