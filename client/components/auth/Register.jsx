@@ -45,10 +45,10 @@ class Register extends React.Component {
     const { displayname, email, username, password, confirm } = this.state
     return (
       <form>
-        <p><input name='displayname' placeholder='displayname' 
+        <p><input name='displayname' placeholder='Display Name' 
           onChange={this.handleChange} value={displayname} /></p>
 
-        <p><input name='email' placeholder='email' autoComplete='email'
+        <p><input name='email' placeholder='Email' autoComplete='email'
           onChange={this.handleChange} value={email} /></p>
 
         <p><input name='username' placeholder='Username' 
