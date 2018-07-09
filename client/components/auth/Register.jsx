@@ -25,7 +25,7 @@ class Register extends React.Component {
     })
   }
 
-  handleClick(event) {
+  handleClick(e) {
     const { displayname, email, username, password, confirm } = this.state
     if (password !== confirm) {
       this.props.registerError('Passwords do not match!')
@@ -38,39 +38,31 @@ class Register extends React.Component {
       password: password.trim()
     }
     this.props.registerUser(creds)
+    e.preventDefault()
   }
-
+  
   render() {
     const { displayname, email, username, password, confirm } = this.state
     return (
-      <div className='registerpg'>
-      <div className='register-title'>
-      <h2>Register with Eventer</h2></div>
-
-      <div className='error-msg'>
-      <ErrorMessage />
-      </div>
-
       <form>
-        <p><input name='displayname' placeholder='displayname' autoComplete='name'
+        <p><input name='displayname' placeholder='displayname' 
           onChange={this.handleChange} value={displayname} /></p>
 
         <p><input name='email' placeholder='email' autoComplete='email'
           onChange={this.handleChange} value={email} /></p>
 
-        <p><input name='username' placeholder='Username' autoComplete='username'
+        <p><input name='username' placeholder='Username' 
           onChange={this.handleChange} value={username} /></p>
 
-        <p><input type='password' name='password' placeholder='Password' autoComplete='new-password'
+        <p><input type='password' name='password' placeholder='Password' 
           onChange={this.handleChange} value={password} /></p>
 
-        <p><input type='password' name='confirm' placeholder='Confirm' autoComplete='new-password'
+        <p><input type='password' name='confirm' placeholder='Confirm' 
           onChange={this.handleChange} value={confirm} /></p>
 
         <button onClick={this.handleClick}>Register</button>
 
       </form>
-      </div>
     )
   }
 }
