@@ -1,15 +1,12 @@
 const express = require('express')
-const bodyParser = require('body-parser')
-const router = express.Router()
-
-const hash = require('../auth/hash')
-const {userExists, createUser, getUserByName} = require('../db/users')
+const {
+  userExists,
+  getUserByName,
+  createUser} = require('../db/users')
 const token = require('../auth/token')
+const hash = require('../auth/hash')
 
-module.exports = router
-
-router.use(bodyParser.json())
-
+const router = express.Router()
 
 router.post('/register', register, token.issue)
 router.post('/signin', signIn, token.issue)

@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
-import {clearError} from '../../actions/error'
+import { clearError } from '../../actions/error'
 
 class ErrorMessage extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     props.history.listen(() => {
@@ -14,7 +14,7 @@ class ErrorMessage extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div className='error-message red error pl3'>
         {this.props.errorMessage}
@@ -31,8 +31,10 @@ ErrorMessage.propTypes = {
   errorMessage: PropTypes.string
 }
 
-function mapStateToProps ({errorMessage}) {
-  return {errorMessage}
+function mapStateToProps({ errorMessage }) {
+  return { errorMessage }
 }
 
-export default withRouter(connect(mapStateToProps)(ErrorMessage))
+export default withRouter(
+  connect(mapStateToProps)(ErrorMessage)
+)

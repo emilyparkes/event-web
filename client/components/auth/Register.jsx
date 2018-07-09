@@ -1,79 +1,87 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { registerUser, registerError } from '../../actions/auth/register'
-import ErrorMessage from './ErrorMessage'
+import { register } from '../../actions/auth'
+import { showError, clearError } from '../../actions/error'
 
 class Register extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      displayname: '',
-      email: '',
       username: '',
       password: '',
-      confirm: ''
+      confirm: '',
+      match: false,
+      showMatch: false
+    }
+    this.styles = {
+      match: {
+        color: 'red'
+      }
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(e) {
+    const { name, value } = e.target
+    let match = this.state.match
+    match = name === 'password' ? value === this.state.confirm : match
+    match = name === 'confirm' ? value === this.state.password : match
     this.setState({
-      ...this.state,
-      [e.target.name]: e.target.value
+      [name]: value,
+      showMatch: this.state.showMatch || name === 'confirm',
+      match: match
     })
   }
 
-  handleClick(e) {
-    const { displayname, email, username, password, confirm } = this.state
-    if (password !== confirm) {
-      this.props.registerError('Passwords do not match!')
-      return
-    }
-    const creds = {
-      displayname: displayname.trim(),
-      email: email.trim(),
-      username: username.trim(),
-      password: password.trim()
-    }
-    this.props.registerUser(creds)
+  handleSubmit(e) {
+    const { register } = this.props
+    const { username, password, confirm } = this.state
+    register(username, password, confirm)
     e.preventDefault()
   }
-  
+
   render() {
-    const { displayname, email, username, password, confirm } = this.state
+    const { username, password, confirm, showMatch, match } = this.state
     return (
-      <form>
-        <p><input name='displayname' placeholder='Display Name' 
-          onChange={this.handleChange} value={displayname} /></p>
+      <div className='register'>
+        <form className='pure-form pure-form-stacked'>
+          <fieldset>
+            <legend>Register</legend>
 
-        <p><input name='email' placeholder='Email' autoComplete='email'
-          onChange={this.handleChange} value={email} /></p>
+            <label htmlFor='username'>Username</label>
+            <input id='username' name='username' placeholder='username'
+              onChange={this.handleChange} value={username} />
 
-        <p><input name='username' placeholder='Username' 
-          onChange={this.handleChange} value={username} /></p>
+            <label htmlFor='password'>Password</label>
+            <input id='password' name='password'
+              type='password' placeholder='password'
+              onChange={this.handleChange} value={password} />
 
-        <p><input type='password' name='password' placeholder='Password' 
-          onChange={this.handleChange} value={password} /></p>
+            <label htmlFor='confirm'>Confirm password</label>
+            <input id='confirm' name='confirm'
+              type='password' placeholder='confirm password'
+              onChange={this.handleChange} value={confirm} />
 
-        <p><input type='password' name='confirm' placeholder='Confirm' 
-          onChange={this.handleChange} value={confirm} /></p>
-
-        <button onClick={this.handleClick}>Register</button>
-
-      </form>
+            {showMatch && !match && <span style={this.styles.match}>*</span>}
+            <button className='pure-button pure-button-primary'
+              onClick={this.handleSubmit}>Register</button>
+          </fieldset>
+        </form>
+      </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
   return {
-    registerUser: (creds) => {
-      return dispatch(registerUser(creds))
-    },
-    registerError: (message) => {
-      dispatch(registerError(message))
+    register: (username, password, confirm) => {
+      if (password === confirm) {
+        dispatch(clearError())
+        return dispatch(register({ username, password }))
+      }
+      dispatch(showError('Password and confirmation don\'t match'))
     }
   }
 }
