@@ -1,16 +1,38 @@
-// import React from 'react'
-// import {connect} from 'react-redux'
+import React from 'react'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
-// const ErrorMessage = (props) => {
-//   return (
-//     <p>{props.message}</p>
-//   )
-// }
+import {clearError} from '../../actions/error'
 
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     message: state[ownProps.reducer].errorMessage
-//   }
-// }
+class ErrorMessage extends React.Component {
+  constructor (props) {
+    super(props)
 
-// export default connect(mapStateToProps)(ErrorMessage)
+    props.history.listen(() => {
+      props.dispatch(clearError())
+    })
+  }
+
+  render () {
+    return (
+      <div className='error-message red error pl3'>
+        {this.props.errorMessage}
+      </div>
+    )
+  }
+}
+
+ErrorMessage.propTypes = {
+  dispatch: PropTypes.func,
+  history: PropTypes.shape({
+    listen: PropTypes.func
+  }),
+  errorMessage: PropTypes.string
+}
+
+function mapStateToProps ({errorMessage}) {
+  return {errorMessage}
+}
+
+export default withRouter(connect(mapStateToProps)(ErrorMessage))
