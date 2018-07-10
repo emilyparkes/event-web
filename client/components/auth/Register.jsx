@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { registerUser, registerError } from '../../actions/auth/register'
-// import ErrorMessage from './ErrorMessage'
+import ErrorMessage from './ErrorMessage'
 
 class Register extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Register extends React.Component {
     })
   }
 
-  handleClick(event) {
+  handleClick(e) {
     const { displayname, email, username, password, confirm } = this.state
     if (password !== confirm) {
       this.props.registerError('Passwords do not match!')
@@ -38,31 +38,31 @@ class Register extends React.Component {
       password: password.trim()
     }
     this.props.registerUser(creds)
+    e.preventDefault()
   }
-
+  
   render() {
     const { displayname, email, username, password, confirm } = this.state
     return (
-      <div>
-        <p><input name='displayname' placeholder='displayname'
+      <form>
+        <p><input name='displayname' placeholder='Display Name' 
           onChange={this.handleChange} value={displayname} /></p>
 
-        <p><input name='email' placeholder='email'
+        <p><input name='email' placeholder='Email' autoComplete='email'
           onChange={this.handleChange} value={email} /></p>
 
-        <p><input name='username' placeholder='Username'
+        <p><input name='username' placeholder='Username' 
           onChange={this.handleChange} value={username} /></p>
 
-        <p><input type='password' name='password' placeholder='Password'
+        <p><input type='password' name='password' placeholder='Password' 
           onChange={this.handleChange} value={password} /></p>
 
-        <p><input type='password' name='confirm' placeholder='Confirm'
+        <p><input type='password' name='confirm' placeholder='Confirm' 
           onChange={this.handleChange} value={confirm} /></p>
 
         <button onClick={this.handleClick}>Register</button>
 
-        {/* <ErrorMessage reducer='auth' /> */}
-      </div>
+      </form>
     )
   }
 }
