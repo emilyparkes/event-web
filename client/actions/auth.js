@@ -84,7 +84,7 @@ export function register (newUser) {
         const res = err.response.body
         const msg = 'This username is unavailable'
         if (res && res.errorType === 'USERNAME_UNAVAILABLE') {
-          return dispatch(showError(msg))
+          return dispatch(showError(message))
         }
         dispatch(showError('An unexpected error has occurred.'))
       })
@@ -104,9 +104,9 @@ export function signIn (user, confirmSuccess) {
       })
       .catch(err => {
         const res = err.response.body
-        const msg = 'Username and password don\'t match an existing user'
+        const message = 'Username and password don\'t match an existing user'
         if (res && res.errorType === 'INVALID_CREDENTIALS') {
-          return dispatch(showError(msg))
+          return dispatch(showError(message))
         }
         dispatch(showError('An unexpected error has occurred.'))
       })
