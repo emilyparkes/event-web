@@ -12,7 +12,7 @@ module.exports = {
   updateUser
 }
 
-function createUser(username, password, conn) {
+function createUser(displayname, email, username, password, conn) {
   const db = conn || connection
   return userExists(username, db)
     .then(exists => {
@@ -23,7 +23,7 @@ function createUser(username, password, conn) {
     .then(() => {
       const passwordHash = hash.generate(password)
       return db('users')
-        .insert({ username, hash: passwordHash })
+        .insert({ displayname, email, username, hash: passwordHash })
     })
 }
 
