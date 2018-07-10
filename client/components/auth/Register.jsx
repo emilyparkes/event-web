@@ -8,6 +8,8 @@ class Register extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      displayname: '',
+      email: '',
       username: '',
       password: '',
       confirm: '',
@@ -37,33 +39,41 @@ class Register extends React.Component {
 
   handleSubmit(e) {
     const { register } = this.props
-    const { username, password, confirm } = this.state
-    register(username, password, confirm)
+    const { displayname, email,  username, password, confirm } = this.state
+    register(displayname, email, username, password, confirm)
     e.preventDefault()
   }
 
   render() {
-    const { username, password, confirm, showMatch, match } = this.state
+    const { displayname, email, username, password, confirm, showMatch, match } = this.state
     return (
       <div className='register'>
         <form className='pure-form pure-form-stacked'>
           <fieldset>
             <legend>Register</legend>
 
+            <label htmlFor='displayname'>Display Name</label>
+            <input id='displayname' name='displayname' placeholder='Display Name'
+              onChange={this.handleChange} value={displayname} />
+            <br />
+            <label htmlFor='email'>Email</label>
+            <input id='email' name='email' placeholder='Email'
+              onChange={this.handleChange} value={email} />
+            <br />
             <label htmlFor='username'>Username</label>
             <input id='username' name='username' placeholder='username'
               onChange={this.handleChange} value={username} />
-
+            <br />
             <label htmlFor='password'>Password</label>
             <input id='password' name='password'
               type='password' placeholder='password'
               onChange={this.handleChange} value={password} />
-
-            <label htmlFor='confirm'>Confirm password</label>
+            <br />
+            <label htmlFor='confirm'>Confirm Password</label>
             <input id='confirm' name='confirm'
               type='password' placeholder='confirm password'
               onChange={this.handleChange} value={confirm} />
-
+            <br />
             {showMatch && !match && <span style={this.styles.match}>*</span>}
             <button className='pure-button pure-button-primary'
               onClick={this.handleSubmit}>Register</button>
@@ -76,10 +86,10 @@ class Register extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    register: (username, password, confirm) => {
+    register: (displayname, email, username, password, confirm) => {
       if (password === confirm) {
         dispatch(clearError())
-        return dispatch(register({ username, password }))
+        return dispatch(register({ displayname, email, username, password }))
       }
       dispatch(showError('Password and confirmation don\'t match'))
     }

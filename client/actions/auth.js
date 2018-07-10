@@ -73,7 +73,7 @@ const receiveUpdateProfile = () => {
 export function register (newUser) {
   return (dispatch) => {
     dispatch(requestUserRegistration())
-    return request('post', '/register', newUser)
+    return request('post', '/auth/register', newUser)
       .then(res => {
         const token = saveAuthToken(res.body.token)
         dispatch(receiveUserRegistration(res.body))
@@ -94,7 +94,7 @@ export function register (newUser) {
 export function signIn (user, confirmSuccess) {
   return (dispatch) => {
     dispatch(requestSignIn())
-    request('post', '/signin', user)
+    request('post', '/auth/signin', user)
       .then(res => {
         const token = saveAuthToken(res.body.token)
         dispatch(receiveSignIn(res.body))
