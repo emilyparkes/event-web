@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 
 import auth from './auth'
+import error from './error'
 
 import categories from './categories'
 
@@ -14,6 +15,7 @@ import publicEvents from './public-events'
 
 export default combineReducers({
   auth,
+  error,
   categories,
   localEventsByCategory,
   lEvent,
