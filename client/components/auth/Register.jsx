@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { registerUser, registerError } from '../../actions/auth/register'
+import { register } from '../../actions/auth'
+import { showError, clearError } from '../../actions/error'
 import ErrorMessage from './ErrorMessage'
 
 class Register extends React.Component {
@@ -12,68 +13,93 @@ class Register extends React.Component {
       email: '',
       username: '',
       password: '',
-      confirm: ''
+      confirm: '',
+      match: false,
+      showMatch: false
+    }
+    this.styles = {
+      match: {
+        color: 'red'
+      }
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(e) {
+    const { name, value } = e.target
+    let match = this.state.match
+    match = name === 'password' ? value === this.state.confirm : match
+    match = name === 'confirm' ? value === this.state.password : match
     this.setState({
-      ...this.state,
-      [e.target.name]: e.target.value
+      [name]: value,
+      showMatch: this.state.showMatch || name === 'confirm',
+      match: match
     })
   }
 
-  handleClick(e) {
+  handleSubmit(e) {
+    const { register } = this.props
     const { displayname, email, username, password, confirm } = this.state
-    if (password !== confirm) {
-      this.props.registerError('Passwords do not match!')
-      return
-    }
-    const creds = {
-      displayname: displayname.trim(),
-      email: email.trim(),
-      username: username.trim(),
-      password: password.trim()
-    }
-    this.props.registerUser(creds)
+    register(displayname, email, username, password, confirm)
     e.preventDefault()
   }
-  
+
   render() {
-    const { displayname, email, username, password, confirm } = this.state
+    const { displayname, email, username, password, confirm, showMatch, match } = this.state
     return (
-      <form>
-        <p><input name='displayname' placeholder='Display Name' 
-          onChange={this.handleChange} value={displayname} /></p>
+      <div className='register'>
+        <form className='pure-form pure-form-stacked'>
+          <fieldset>
+            <legend>Register</legend>
 
-        <p><input name='email' placeholder='Email' autoComplete='email'
-          onChange={this.handleChange} value={email} /></p>
+            <label htmlFor='error'>
+              <ErrorMessage /></label>
 
-        <p><input name='username' placeholder='Username' 
-          onChange={this.handleChange} value={username} /></p>
-
-        <p><input type='password' name='password' placeholder='Password' 
-          onChange={this.handleChange} value={password} /></p>
-
-        <p><input type='password' name='confirm' placeholder='Confirm' 
-          onChange={this.handleChange} value={confirm} /></p>
-
-        <button onClick={this.handleClick}>Register</button>
-
-      </form>
+            {/* <label htmlFor='conirm-error'>
+            {showMatch && !match && <span style={this.styles.match}>* Password and confirmation don't match</span>}
+            </label> */}
+            
+            <br />
+            <label htmlFor='displayname'>Display Name</label>
+            <input id='displayname' name='displayname' placeholder='Display Name'
+              onChange={this.handleChange} value={displayname} />
+            <br />
+            <label htmlFor='email'>Email</label>
+            <input id='email' name='email' placeholder='Email'
+              onChange={this.handleChange} value={email} />
+            <br />
+            <label htmlFor='username'>Username</label>
+            <input id='username' name='username' placeholder='username'
+              onChange={this.handleChange} value={username} />
+            <br />
+            <label htmlFor='password'>Password</label>
+            <input id='password' name='password'
+              type='password' placeholder='password'
+              onChange={this.handleChange} value={password} />
+            <br />
+            <label htmlFor='confirm'>Confirm Password</label>
+            <input id='confirm' name='confirm'
+              type='password' placeholder='confirm password'
+              onChange={this.handleChange} value={confirm} />
+            <br />
+            <button className='pure-button pure-button-primary'
+              onClick={this.handleSubmit}>Register</button>
+          </fieldset>
+        </form>
+      </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
   return {
-    registerUser: (creds) => {
-      return dispatch(registerUser(creds))
-    },
-    registerError: (message) => {
-      dispatch(registerError(message))
+    register: (displayname, email, username, password, confirm) => {
+      if (password === confirm) {
+        dispatch(clearError())
+        return dispatch(register({ displayname, email, username, password }))
+      }
+      dispatch(showError('Password and confirmation don\'t match'))
     }
   }
 }

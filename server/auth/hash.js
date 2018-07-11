@@ -2,10 +2,10 @@ const sodium = require('sodium').api
 
 module.exports = {
   generate,
-  verifyUser
+  verify
 }
 
-function generate (password) {
+function generate(password) {
   const passwordBuffer = Buffer.from(password, 'utf8')
   return sodium.crypto_pwhash_str(
     passwordBuffer,
@@ -14,7 +14,7 @@ function generate (password) {
   )
 }
 
-function verifyUser (hash, password) {
-    const passwordBuffer = Buffer.from(password, 'utf8')
-    return sodium.crypto_pwhash_str_verify(hash, passwordBuffer)
-  }
+function verify(hash, password) {
+  const passwordBuffer = Buffer.from(password, 'utf8')
+  return sodium.crypto_pwhash_str_verify(hash, passwordBuffer)
+}

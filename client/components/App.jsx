@@ -6,6 +6,7 @@ import Header from './sections/Header'
 import Home from './Home'
 
 import Register from './auth/Register'
+import SignIn from './auth/SignIn'
 
 import Popular from './Popular'
 import AklMap from './AklMap'
@@ -37,6 +38,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
 
             <Route path='/register' component={Register} />
+            <Route path='/signin' component={SignIn} />
 
             <Route path='/popular' component={Popular} />
             <Route path='/map' component={AklMap} />

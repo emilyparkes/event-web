@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
 
-import register from './auth/register'
-import login from './auth/login'
-import logout from './auth/logout'
+import auth from './auth'
+import errorMessage from './error'
 
 import categories from './categories'
 
@@ -15,9 +14,8 @@ import pEvent from './p-event'
 import publicEvents from './public-events'
 
 export default combineReducers({
-  register,
-  login,
-  logout,
+  auth,
+  errorMessage,
   categories,
   localEventsByCategory,
   lEvent,
