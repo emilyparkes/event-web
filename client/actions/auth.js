@@ -1,5 +1,5 @@
 import request from '../lib/apiClient'
-import {showError, clearError} from './error'
+import { showSuccess, showError, clearError} from './error'
 import {saveAuthToken, logOff as logOffUser} from '../lib/auth'
 
 export const LOG_OFF = 'LOG_OFF'
@@ -78,13 +78,14 @@ export function register (newUser) {
         const token = saveAuthToken(res.body.token)
         dispatch(receiveUserRegistration(res.body))
         dispatch(getUserDetails(token.id))
-        dispatch(clearError())
+        // added code
+        history.push('/signin')
+        dispatch(showSuccess('Registration successful'))
       })
       .catch(err => {
         const res = err.response.body
-        const msg = 'This username is unavailable'
         if (res && res.errorType === 'USERNAME_UNAVAILABLE') {
-          return dispatch(showError(message))
+          return dispatch(showError('This username is unavailable.'))
         }
         dispatch(showError('An unexpected error has occurred.'))
       })
@@ -101,12 +102,13 @@ export function signIn (user, confirmSuccess) {
         dispatch(getUserDetails(token.id))
         dispatch(clearError())
         confirmSuccess()
+        // added code
+        dispatch(showSuccess('You are signed in.'))
       })
       .catch(err => {
         const res = err.response.body
-        const message = 'Username and password don\'t match an existing user'
         if (res && res.errorType === 'INVALID_CREDENTIALS') {
-          return dispatch(showError(message))
+          return dispatch(showError('Username and password don\'t match an existing user.'))
         }
         dispatch(showError('An unexpected error has occurred.'))
       })
