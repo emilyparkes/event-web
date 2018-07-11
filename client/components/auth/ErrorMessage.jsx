@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import { clearError } from '../../actions/error'
+import { showError } from '../../actions/error'
 
 class ErrorMessage extends React.Component {
   constructor(props) {
     super(props)
 
     props.history.listen(() => {
-      props.dispatch(clearError())
+      props.dispatch(showError())
     })
   }
 

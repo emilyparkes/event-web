@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { register } from '../../actions/auth'
 import { showError, clearError } from '../../actions/error'
+import ErrorMessage from './ErrorMessage'
 
 class Register extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Register extends React.Component {
 
   handleSubmit(e) {
     const { register } = this.props
-    const { displayname, email,  username, password, confirm } = this.state
+    const { displayname, email, username, password, confirm } = this.state
     register(displayname, email, username, password, confirm)
     e.preventDefault()
   }
@@ -52,6 +53,14 @@ class Register extends React.Component {
           <fieldset>
             <legend>Register</legend>
 
+            <label htmlFor='error'>
+              <ErrorMessage /></label>
+
+            {/* <label htmlFor='conirm-error'>
+            {showMatch && !match && <span style={this.styles.match}>* Password and confirmation don't match</span>}
+            </label> */}
+            
+            <br />
             <label htmlFor='displayname'>Display Name</label>
             <input id='displayname' name='displayname' placeholder='Display Name'
               onChange={this.handleChange} value={displayname} />
@@ -74,7 +83,6 @@ class Register extends React.Component {
               type='password' placeholder='confirm password'
               onChange={this.handleChange} value={confirm} />
             <br />
-            {showMatch && !match && <span style={this.styles.match}>*</span>}
             <button className='pure-button pure-button-primary'
               onClick={this.handleSubmit}>Register</button>
           </fieldset>
