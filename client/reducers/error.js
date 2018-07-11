@@ -1,11 +1,14 @@
-import { SHOW_ERROR, CLEAR_ERROR } from '../actions/error'
+import { SHOW_SUCCESS, SHOW_ERROR, CLEAR_ERROR } from '../actions/error'
 
 const initialState = ''
 
-const error = (state = initialState, action) => {
+const errorMessage = (state = initialState, action) => {
   switch (action.type) {
+    case SHOW_SUCCESS:
+      return action.message
+
     case SHOW_ERROR:
-      return action.errorMessage
+      return action.message
 
     case CLEAR_ERROR:
       return state
@@ -15,4 +18,4 @@ const error = (state = initialState, action) => {
   }
 }
 
-export default error
+export default errorMessage
