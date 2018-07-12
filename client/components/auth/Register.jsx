@@ -9,7 +9,6 @@ class Register extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      displayname: '',
       email: '',
       username: '',
       password: '',
@@ -32,13 +31,13 @@ class Register extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const { register } = this.props
-    const { displayname, email, username, password, confirm } = this.state
+    const { email, username, password, confirm } = this.state
     this.setState({ submitted: true })
-    register(displayname, email, username, password, confirm)
+    register (email, username, password, confirm)
   }
 
   render() {
-    const { displayname, email, username, password, confirm, showMatch, match, submitted } = this.state
+    const { email, username, password, confirm, submitted } = this.state
     return (
       <div className='register'>
         <form className='pure-form pure-form-stacked'>
@@ -49,12 +48,6 @@ class Register extends React.Component {
 
             <label htmlFor='error'>
               <ErrorMessage /></label>
-
-            <br />
-
-            <label htmlFor='displayname'>Display Name</label>
-            <input id='displayname' name='displayname' placeholder='Display Name'
-              onChange={this.handleChange} value={displayname} required />
 
             <br />
 
@@ -95,20 +88,20 @@ class Register extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    register: (displayname, email, username, password, confirm) => {
+    register: (email, username, password, confirm) => {
       if (password != confirm) {
         dispatch(clearError())
         dispatch(showError('Password and confirmation don\'t match'))
-      } else if (!displayname || !email || !username || !password || !confirm) {
+      } else if (!email || !username || !password || !confirm) {
         dispatch(clearError())
         dispatch(showError('Please fill in all fields.'))
-      } else if (password != confirm && !displayname || !email || !username || !password || !confirm) {
+      } else if (password != confirm && !email || !username || !password || !confirm) {
         dispatch(clearError())
         dispatch(showError('Password and confirmation don\'t match'))
         dispatch(showError('Please fill in all fields.'))
       } else if (password === confirm) {
         dispatch(clearError())
-        return dispatch(register({ displayname, email, username, password }))
+        return dispatch(register({ email, username, password }))
       }
     }
   }
