@@ -12,9 +12,9 @@ module.exports = {
   updateUser
 }
 
-function createUser(displayname, email, username, password, conn) {
+function createUser(email, username, password, conn) {
   const db = conn || connection
-  return userExists(username, db)
+  return userExists(username, email, db)
     .then(exists => {
       if (exists) {
         return Promise.reject(new Error('User exists'))
@@ -23,15 +23,16 @@ function createUser(displayname, email, username, password, conn) {
     .then(() => {
       const passwordHash = hash.generate(password)
       return db('users')
-        .insert({ displayname, email, username, hash: passwordHash })
+        .insert({ email, username, hash: passwordHash })
     })
 }
 
-function userExists(username, conn) {
+function userExists(username, email, conn) {
   const db = conn || connection
   return db('users')
     .count('id as n')
     .where('username', username)
+    .where('email', email)
     .then(count => {
       return count[0].n > 0
     })

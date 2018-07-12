@@ -19,7 +19,7 @@ function register (req, res, next) {
           errorType: 'USERNAME_UNAVAILABLE'
         })
       }
-      createUser(req.body.displayname, req.body.email, req.body.username, req.body.password)
+      createUser(req.body.email, req.body.username, req.body.password)
         .then(() => next())
     })
     .catch(() => {
