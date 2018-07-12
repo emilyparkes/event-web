@@ -1,45 +1,86 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import AccountDetails from './AccountDetails'
+
 class ProfileEdit extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      userId: 1,
+      username: '',
+      location: '',
+      displayname: '',
+      email: '',
+      username: '',
+      password: '',
+      confirm: ''
+    }
+  }
 
   render() {
     return (
       <div className='profilepg'>
-        <div className='page-heading-section'>
-          
-             {/* edit */}
-          <div className='profile-pic'>
-            <img src="" alt="" />
-          </div>
-         
-            {/* edit */}
-          <div className='display-name'>
-            <h1>Emily Parkes</h1>
-          </div>
-         
-            {/* edit */}
-          <div className='location'>
-            <h5>Auckland</h5>
-          </div>
+        <form className='pure-form pure-form-stacked'>
+          <h3>Edit Profile</h3>
+          <fieldset>
 
-        </div>
+            <div className='heading-section'>
+              <div className='welcome-preferred-name'>
+                Editing Profile!
+                {/* {preferredName} */}
+              </div>
+            </div>
 
-       <div className='settings' >
-        {/* <Preferences /> */}
+            <div className='user-section'>
+              <div className='profile-pic'>
+                <img src='' alt='Profile Picture' />
+              </div>
 
-        {/* edit */}
-        <div className='username'> change username</div>
-        <div className='pswrd'>change password</div>
-        <button>
-          <Link to='/profile'>save changes</Link>
-        </button>
+              <div className='first-name'>
+                <h5>first name</h5>
+                {/* {firstName} */}
+              </div>
+
+              <div className='surname'>
+                <h5>last name</h5>
+                {/* {surname} */}
+              </div>
+
+              <div className='location'>
+                <h5>Auckland</h5>
+                {/* {location} */}
+              </div>
+
+              <div className='bio'>
+                <h5>bio</h5>
+                {/* {bio} */}
+              </div>
+
+            </div>
+
+            <div className='settings-section'>
+              <button>
+                <AccountDetails />
+              </button>
+            </div>
+
+            <div className='notify-section'>
+              {/* nothing here to edit */}
+            </div>
+
+            <button className='pure-button pure-button-primary'
+              onClick={this.handleSubmit}>
+              Save Profile Changes
+            </button>
+
+          </fieldset>
+        </form>
+
       </div>
-
-
-      </div >
     )
   }
 }
 
-export default ProfileEdit
+export default connect()(ProfileEdit)
