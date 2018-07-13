@@ -7,14 +7,14 @@ class AccountDetails extends React.Component {
     this.state = {
       username: '',
       email: '',
-      oldpassword: '',
+      currentPassword: '',
       newPassword: '',
-      confirmnew: ''
+      confirmNew: ''
     }
   }
 
   render() {
-    const { email, username, oldpassword, newPassword, confirmnew } = this.state
+    const { email, username, currentPassword, newPassword, confirmNew } = this.state
     return (
       <div className='account-section'>
 
@@ -29,29 +29,29 @@ class AccountDetails extends React.Component {
             <br />
 
             <label htmlFor='email'>Email</label>
-            <input id='email' name='email' placeholder='Email'
+            <input id='email' name='email' placeholder={email}
               onChange={this.handleChange} value={email} />
 
             <br />
 
             <label htmlFor='confirm'>Current Password</label>
             <input id='currentPassword' name='currentPassword'
-              type='password' placeholder='password'
+              type='password' placeholder='current password'
               onChange={this.handleChange} value={currentPassword} />
 
             <br />
 
             <label htmlFor='confirm'>New Password</label>
-            <input id='newPassword' name='password'
-              type='password' placeholder='password'
+            <input id='newPassword' name='newPassword'
+              type='password' placeholder='new password'
               onChange={this.handleChange} value={newPassword} />
 
             <br />
 
             <label htmlFor='confirm'>Confirm New Password</label>
-            <input id='confirm' name='confirm'
-              type='password' placeholder='confirm password'
-              onChange={this.handleChange} value={confirmnew} />
+            <input id='confirmNew' name='confirmNew'
+              type='password' placeholder='confirm new password'
+              onChange={this.handleChange} value={confirmNew} />
 
             <br />
 
