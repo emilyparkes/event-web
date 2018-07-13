@@ -1,6 +1,6 @@
 # Event Web
-Introduction  
-Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.
+Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.  
+
 >A web app to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
 
