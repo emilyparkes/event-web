@@ -8,8 +8,9 @@ exports.up = (knex, Promise) => {
         table.string('preferredName')
         table.string('surname')
         table.string('profilePic')
-        table.string('phone')
         table.string('bio')
+        table.string('phone')
+        table.string('location')
       })
     }
   })
