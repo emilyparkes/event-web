@@ -1,8 +1,13 @@
 # Event Web
 Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.  
 
->A web app to see events happening in your city, big organised and local community events.
+> A web app to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
+
+### Eventify
+
+> Colour Palette  
+
 
 ### Getting Started:
 - create your own branch off of master
