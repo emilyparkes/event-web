@@ -7,9 +7,6 @@ import { getLocalEvents } from '../../actions/local-events'
 class LocalEvents extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      LocalEvents: []
-    }
   }
 
   componentDidMount() {
