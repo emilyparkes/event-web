@@ -76,14 +76,15 @@ export function register (newUser) {
     return request('post', '/auth/register', newUser)
       .then(res => {
         const token = saveAuthToken(res.body.token)
+        dispatch(clearError())
         dispatch(receiveUserRegistration(res.body))
         dispatch(getUserDetails(token.id))
         // added code
-        history.push('/signin')
         dispatch(showSuccess('Registration successful'))
       })
       .catch(err => {
         const res = err.response.body
+        console.log(res)
         if (res && res.errorType === 'USERNAME_UNAVAILABLE') {
           return dispatch(showError('This username is unavailable.'))
         }
