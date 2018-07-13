@@ -6,6 +6,7 @@ import Header from './sections/Header'
 import Home from './Home'
 
 import Register from './auth/Register'
+import SignIn from './auth/SignIn'
 
 import Popular from './Popular'
 import AklMap from './AklMap'
@@ -37,13 +38,14 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
 
             <Route path='/register' component={Register} />
+            <Route path='/signin' component={SignIn} />
 
             <Route path='/popular' component={Popular} />
             <Route path='/map' component={AklMap} />
             <Route path='/calendar' component={Calendar} />
             
-            <Route path='/profile/edit' component={ProfileEdit} />
-            <Route path='/profile' component={Profile} />
+            <Route path='/profile/:id/edit' component={ProfileEdit} />
+            <Route path='/profile/:id' component={Profile} />
 
             <Route path='/public-events/:eventName' component={PublicEvent} />
             <Route path='/public-events' component={PublicEventsList} />

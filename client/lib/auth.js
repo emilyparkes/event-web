@@ -1,7 +1,7 @@
 import decode from 'jwt-decode'
-import {getToken, saveToken} from './token'
+import { saveToken, getToken } from './token'
 
-export function isAuthenticated () {
+export function isAuthenticated() {
   const authToken = getToken()
 
   if (authToken) {
@@ -18,53 +18,20 @@ export function isAuthenticated () {
   }
 }
 
-export function saveAuthToken (authToken) {
+export function saveAuthToken(authToken) {
   saveToken(authToken)
   return decode(authToken)
 }
 
-export function getAuthToken () {
+export function getAuthToken() {
   const authToken = getToken()
   return authToken ? decode(authToken) : null
 }
 
-export function getEncodedToken () {
+export function getEncodedToken() {
   return getToken()
 }
 
-export function logOff () {
+export function logOff() {
   saveToken(null)
 }
-
-// export function isAuthenticated () {
-//   const token = getToken('token')
-
-//   if (token) {
-//     const payload = decode(token)
-//     const expiry = payload.exp
-
-//     if (expiry < new Date().getTime() / 1000) {
-//       removeUser() // Our token has expired, so lets remove it from storage
-//       return false
-//     }
-//     return true
-//   } else {
-//     return false
-//   }
-// }
-
-// export function saveAuthToken (token) {
-//   saveToken('token', token)
-//   return decode(token)
-// }
-
-// export function getUserTokenInfo () {
-//   const token = getToken('token')
-//   return token ? decode(token) : null
-// }
-
-// export function removeUser () {
-//   saveToken('token', null)
-// }
-
-

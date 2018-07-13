@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken')
+const verifyJwt = require('express-jwt')
 
 const db = require('../db/users')
+const jwtTestSecret = require('../../test/server/routes/jwt-secret.test.js')
 
 module.exports = {
   issue,
-  createToken,
   decode,
-  getSecret
+  createToken // exported for testing
 }
 
 function issue (req, res) {
@@ -20,6 +21,12 @@ function issue (req, res) {
     })
 }
 
+function decode (req, res, next) {
+  verifyJwt({
+    secret: getSecret
+  })(req, res, next)
+}
+
 function createToken (user, secret) {
   return jwt.sign({
     id: user.id,
@@ -29,12 +36,10 @@ function createToken (user, secret) {
   })
 }
 
-function decode (req, res, next) {
-  verifyJwt({
-    secret: getSecret
-  })(req, res, next)
-}
-
 function getSecret (req, payload, done) {
-  done(null, process.env.JWT_SECRET)
+  const secret = process.env.JWT_SECRET || jwtTestSecret
+  if (secret === jwtTestSecret) {
+    // console.warn('ATTENTION: Using the JWT Test secret')
+  }
+  done(null, secret)
 }
