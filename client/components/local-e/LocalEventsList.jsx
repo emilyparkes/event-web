@@ -1,15 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { getLocalEvents } from '../../actions/local-events'
 
 class LocalEvents extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      LocalEvents: []
-    }
   }
 
   componentDidMount() {

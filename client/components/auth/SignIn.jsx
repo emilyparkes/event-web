@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
-import {signIn} from '../../actions/auth'
-import {clearError} from '../../actions/error'
+import { signIn } from '../../actions/auth'
+import { clearError } from '../../actions/error'
+import ErrorMessage from './ErrorMessage'
 
 class SignIn extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       username: '',
@@ -17,42 +18,51 @@ class SignIn extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange (e) {
-    const {name, value} = e.target
+  handleChange(e) {
+    const { name, value } = e.target
     this.setState({
       [name]: value
     })
   }
 
-  handleSubmit (e) {
-    const {username, password} = this.state
+  handleSubmit(e) {
+    const { username, password } = this.state
     const goToHome = () => this.props.history.push('/')
     this.props.signIn(username, password, goToHome)
     e.preventDefault()
   }
 
-  render () {
-    const {username, password} = this.state
+  render() {
+    const { username, password } = this.state
     return (
       <div className='sign-in'>
-            <form className='pure-form pure-form-stacked'>
-              <fieldset>
-                <legend>Sign in</legend>
+        <form className='pure-form pure-form-stacked'>
+          <fieldset>
+            <legend>Sign in</legend>
 
-                <label htmlFor='username'>Username</label>
-                <input id='username' name='username' placeholder='username'
-                  onChange={this.handleChange} value={username} />
+            <label htmlFor='error'>
+              <ErrorMessage /></label>
 
-                <label htmlFor='password'>Password</label>
-                <input id='password' name='password'
-                  type='password' placeholder='password'
-                  onChange={this.handleChange} value={password} />
+            <br />
 
-                <button name='sign-in-button' className='pure-button pure-button-primary'
-                  onClick={this.handleSubmit}>Sign in</button>
-              </fieldset>
-            </form>
-          </div>
+            <label htmlFor='username'>Username</label>
+            <input id='username' name='username' placeholder='username'
+              onChange={this.handleChange} value={username} />
+
+            <br />
+
+            <label htmlFor='password'>Password</label>
+            <input id='password' name='password'
+              type='password' placeholder='password'
+              onChange={this.handleChange} value={password} />
+
+            <br />
+
+            <button name='sign-in-button' className='pure-button pure-button-primary'
+              onClick={this.handleSubmit}>Sign in</button>
+          </fieldset>
+        </form>
+      </div>
     )
   }
 }
@@ -64,11 +74,11 @@ SignIn.propTypes = {
   signIn: PropTypes.func
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     signIn: (username, password, onSuccess) => {
       dispatch(clearError())
-      dispatch(signIn({username, password}, onSuccess))
+      dispatch(signIn({ username, password }, onSuccess))
     }
   }
 }

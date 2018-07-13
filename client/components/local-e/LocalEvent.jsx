@@ -1,6 +1,6 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+// import { Link } from 'react-router-dom'
 
 import { getLocalEventByName } from '../../actions/l-event'
 
@@ -15,6 +15,7 @@ class LocalEvent extends React.Component {
 
 
   render() {
+    const { lEvent } = this.props
     return (
       <div className='localeventpg'>
 
@@ -24,13 +25,13 @@ class LocalEvent extends React.Component {
         </div>
 
         <div className='page-section'>
-          {this.props.lEvent.date}
-          {this.props.lEvent.time}
-          {this.props.lEvent.location}
-          {this.props.lEvent.address}
-          {this.props.lEvent.tickets}
-          {this.props.lEvent.website}
-          {this.props.lEvent.blurb}
+          {lEvent.date}
+          {lEvent.time}
+          {lEvent.location}
+          {lEvent.address}
+          {lEvent.tickets}
+          {lEvent.website}
+          {lEvent.blurb}
         </div>
 
       </div>

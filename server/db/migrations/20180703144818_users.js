@@ -3,7 +3,6 @@ exports.up = (knex, Promise) => {
     if (!exists) {
       return knex.schema.createTable('users', (table) => {
         table.increments('id').primary()
-        table.string('displayname')
         table.string('email')
         table.string('username')
         table.string('hash')
