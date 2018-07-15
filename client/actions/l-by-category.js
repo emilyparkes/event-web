@@ -19,7 +19,7 @@ export function getLocalEventsByCategory(category) {
         dispatch(receiveLocalEventsByCategory(res.body))
       })
       .catch(() => {
-        dispatch(showError('An unexpected error in getting local category information'))
+        dispatch(showError('An unexpected error in getting category information'))
       })
   }
 }

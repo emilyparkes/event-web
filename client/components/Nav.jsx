@@ -6,24 +6,16 @@ const Nav = () => {
     <div className='nav-header'>
       {/* <div className='nav-logo'>
         <Link to='/'>
-          <img src='/images/' className='logo' />
+          <img src='/images/marama-logo.png' className='marama-logo' />
         </Link>
       </div> */}
       <div className='nav-links'>
-
-        <span className='nav-link-individual-styling'>
+      <span className='nav-link-individual-styling'>
           <Link to='/'>home</Link>
         </span>
         <span className='nav-link-individual-styling'>
-          <Link to='/profile/1'>profile</Link>
+          <Link to='/myprofile'>profile</Link>
         </span>
-        <span className='nav-link-individual-styling'>
-          <Link to='/calendar'>calendar</Link>
-        </span>
-        <span className='nav-link-individual-styling'>
-          <Link to='/map'>map</Link>
-        </span>
-
         <span className='nav-link-individual-styling'>
           <Link to='/public-events'>public events</Link>
         </span>
@@ -33,12 +25,6 @@ const Nav = () => {
         <span className='nav-link-individual-styling'>
           <Link to='/events/categories'>categories</Link>
         </span>
-
-
-        <span className='nav-link-individual-styling'>
-          <Link to='/register'>register</Link>
-        </span>
-
       </div>
     </div>
   )

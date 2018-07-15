@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ProfileEdit extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -10,26 +10,26 @@ class ProfileEdit extends React.Component {
 
   render() {
     return (
-      <div className='profileeditpg'>
+      <div className='profilepg'>
         <div className='page-section'>
 
           <div className='page-heading-section'>
             <div className='page-title-font'>Profile</div>
-            {/* edit  */}
             <div className='profile-picture'>
               <img src={profilePic} alt='profile picture' />
             </div>
-            {/* edit */}
             <div className='profile-name'>{firstName}</div>
           </div>
 
-          {/* edit */}
           <div className='page-content-section'>
-            <div className='form-username'>Change Username</div>
-            <div className='form-password'>Update Password</div>
+            <Preferences />
+            <div className='page-settings'>
+              <span className='nav-link-individual-styling'>
+                <Link to='/edit'>edit profile</Link>
+              </span>
+            </div>
+
           </div>
-
-
 
         </div>
       </div>
@@ -37,4 +37,4 @@ class ProfileEdit extends React.Component {
   }
 }
 
-export default ProfileEdit
+export default Profile

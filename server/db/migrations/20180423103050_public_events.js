@@ -11,7 +11,6 @@ exports.up = (knex, Promise) => {
         table.string('tickets')
         table.string('website')
         table.string('blurb')
-        table.string('imageUrl')
       })
     }
   })

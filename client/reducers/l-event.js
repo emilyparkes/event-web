@@ -1,13 +1,11 @@
-import {
-  RECEIVE_LOCAL_EVENT_BY_NAME
-} from '../actions/l-event'
+import { RECEIVE_LOCAL_EVENT } from '../actions/l-event'
 
-const initialState = {}
+const initialState = []
 
 const localEvent = (state = initialState, action) => {
   switch (action.type) {
-    case RECEIVE_LOCAL_EVENT_BY_NAME:
-      return action.lEvent
+    case RECEIVE_LOCAL_EVENT:
+      return action.event
     default:
       return state
   }

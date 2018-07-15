@@ -18,11 +18,11 @@ export function getPublicEventsByCategory (category) {
     request.get(`${baseUrl}/api/v1/eventscategories/${category}`)
       .then(res => {
         // console.log(res.body)
-        dispatch(receivePublicEventsByCategory(res.body))
+        dispatch(receivePublicEventsByCategory(res.body.publicEventsByCategory))
       })
       .catch((e) => {
         // console.log(e.message)
-        dispatch(showError('An unexpected error in getting public category information'))
+        dispatch(showError('An unexpected error in getting category information'))
       })
   }
 }

@@ -2,17 +2,17 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const router = express.Router()
 
-const db = require('../db/events')
+const db = require('../db/db.js')
 
 module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/:eventName', (req, res) => {
-  const eventName = req.params.eventName
-  db.getPublicEventByName(eventName)
-    .then((event) => {
-      res.send(event)
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  db.getPublicEventByName(id)
+    .then((pEvent) => {
+      res.send(pEvent)
     })
     .catch(err => {
       res.status(500).send(err.message)

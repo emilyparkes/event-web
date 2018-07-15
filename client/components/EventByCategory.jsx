@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getPublicEventsByEventByCategory } from '../../actions/categories'
+import { getPublicEventsByEventByCategory } from '../actions/categories'
 
 export class EventByCategory extends React.Component {
   // get all events associated with that EventByCategory

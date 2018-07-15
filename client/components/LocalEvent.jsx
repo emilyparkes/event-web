@@ -1,37 +1,33 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-// import { Link } from 'react-router-dom'
 
-import { getLocalEventByName } from '../../actions/l-event'
+import { getLocalEventByName } from '../actions/l-event'
 
 class LocalEvent extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
+ 
   componentDidMount() {
     this.props.dispatch(getLocalEventByName(this.props.match.params.eventName))
   }
 
-
   render() {
-    const { lEvent } = this.props
     return (
       <div className='localeventpg'>
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>{this.props.match.params.eventName}</h1></div>
+            <h1>Local Event...</h1>
+            <h1>{this.props.event.eventName}</h1></div>
         </div>
 
         <div className='page-section'>
-          {lEvent.date}
-          {lEvent.time}
-          {lEvent.location}
-          {lEvent.address}
-          {lEvent.tickets}
-          {lEvent.website}
-          {lEvent.blurb}
+          {event.date}
+          {event.time}
+          {event.location}
+          {event.address}
+          {event.tickets}
+          {event.website}
+          {event.blurb}
         </div>
 
       </div>
@@ -41,7 +37,7 @@ class LocalEvent extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    lEvent: state.lEvent
+    event: state.event
   }
 }
 

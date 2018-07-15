@@ -1,31 +1,18 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Header from './sections/Header'
-
+import Header from './Header'
 import Home from './Home'
-
-import Register from './auth/Register'
-import SignIn from './auth/SignIn'
-
-import Popular from './Popular'
-import AklMap from './AklMap'
-import Calendar from './Calendar'
-import Profile from './Profile'
-
 import ProfileEdit from './profile/ProfileEdit'
-
-import PublicEventsList from './public-e/PublicEventsList'
-import PublicEvent from './public-e/PublicEvent'
-
-import LocalEventsList from './local-e/LocalEventsList'
-import LocalEvent from './local-e/LocalEvent'
-
-import Categories from './category/Categories'
-import Category from './category/Category'
-import EventByCategory from './category/EventByCategory'
-
-import Footer from './sections/Footer'
+import Profile from './profile/Profile'
+import PublicEventsList from './PublicEventsList'
+import PublicEvent from './PublicEvent'
+import LocalEventsList from './LocalEventsList'
+import LocalEvent from './LocalEvent'
+import Categories from './Categories'
+import Category from './Category'
+import EventByCategory from './EventByCategory'
+import Footer from './Footer'
 
 class App extends React.Component {
 
@@ -36,26 +23,17 @@ class App extends React.Component {
         <div className='app-box'>
           <Switch>
             <Route exact path='/' component={Home} />
-
-            <Route path='/register' component={Register} />
-            <Route path='/signin' component={SignIn} />
-
-            <Route path='/popular' component={Popular} />
-            <Route path='/map' component={AklMap} />
-            <Route path='/calendar' component={Calendar} />
-            
-            <Route path='/profile/:id/edit' component={ProfileEdit} />
-            <Route path='/profile/:id' component={Profile} />
-
+            <Route path='/profile/edit' component={ProfileEdit} />
+            <Route path='/profile' component={Profile} />
             <Route path='/public-events/:eventName' component={PublicEvent} />
-            <Route path='/public-events' component={PublicEventsList} />
-
             <Route path='/local-events/:eventName' component={LocalEvent} />
+            <Route path='/public-events' component={PublicEventsList} />
             <Route path='/local-events' component={LocalEventsList} />
-
             <Route path='/events/categories' component={Categories} />
             <Route path='/events/:category/:eventName' component={EventByCategory} />
             <Route path='/events/:category' component={Category} />
+
+
           </Switch>
         </div>
         <div className='sticky-footer'>

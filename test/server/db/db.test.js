@@ -26,17 +26,22 @@ test('getPublicEvents returns 4 events', () => {
     })
 })
 
-test.skip('getPublicEventByName returns the event given the name', () => {
+test('getPublicEventByName returns the event given the name', () => {
   return db.getPublicEventByName('Farmers Market', testDb)
     .then(pEvent => {
       expect(pEvent.eventName).toBe('Farmers Market')
     })
 })
 
-test.skip('getPublicEventsByCategory returns the events with the associated category name', () => {
+test('getPublicEventsByCategory returns the events with the associated category name', () => {
+  const expected = [
+    { eventName: 'Balu Brigada' },
+    { eventName: 'Comedy Fest' }
+  ]
+
   return db.getPublicEventsByCategory('Gig', testDb)
     .then(events => {
-      expect(events).toBe(2)
+      expect(events).toBe(expected)
     })
 })
 
@@ -50,38 +55,23 @@ test('getLocalEvents returns 4 events', () => {
     })
 })
 
-test.skip('getLocalEventByName returns the event given the name', () => {
+test('getLocalEventByName returns the event given the name', () => {
   return db.getLocalEventByName('Community Garden Day', testDb)
     .then(lEvent => {
       expect(lEvent.eventName).toBe('Community Garden Day')
     })
 })
 
-test.skip('getLocalEventsByCategory returns the categorys assosiated events', () => {
+test('getLocalEventsByCategory returns the event name', () => {
   return db.getLocalEventsByCategory('Sports & Outdoors', testDb)
-    .then(lEvents => {
-      expect(lEvents.length).toBe(2)
+    .then(events => {
+      expect(events.eventName).toBe('Hockey Club Opening')
     })
 })
 
-// function getLocationStockByLocationId (locationId, testDb) {
-//   const connection = testDb || knex
-//   return connection('location_stock')
-//     .join('stock', 'location_stock.item_id', 'stock.id')
-//     .where('location_id', locationId)
-//     .select('location_stock.id as locationStockId', 'stock.id as stockId', 'location_stock.location_id', 'stock.item', 'location_stock.quantity')
-// }
-
-// test('getLocationStockByLocationId returns a locations items', () => {
-//   return stock.getLocationStockByLocationId(1, testDb)
-//     .then(location => {
-//       expect(location[0].quantity).toBe(30)
-//     })
-// })
-
 // CATEGORIES TEST
 
-test.skip('getCategoryById returns the category given the id', () => {
+test('getCategoryById returns the category given the id', () => {
   return db.getCategoryById(1, testDb)
     .then(category => {
       expect(category.categoryName).toBe('Concerts')

@@ -1,6 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import PublicEventsList from './PublicEventsList'
+import LocalEventsList from './LocalEventsList'
+
+import { getLocalEvents, getPublicEvents } from '../../server/db/db'
+
 class Home extends React.Component {
   constructor(props) {
     super(props)
@@ -11,9 +16,8 @@ class Home extends React.Component {
       <div className='homepg'>
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>Home</h1>
-            </div>
-            <h6>Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.</h6>
+            <h1>Home</h1></div>
+            <h6>listed with events based on selection from preferences tab.</h6>
         </div>
 
        

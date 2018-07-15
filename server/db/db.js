@@ -31,20 +31,20 @@ function getPublicEvents(conn) {
 //     .first()
 // }
 
-function getPublicEventByName(eventName, conn) {
+function getPublicEventByName(id, conn) {
   const db = conn || connection
   return db('public_events')
-    .where('eventName', eventName)
+    .where('id', id)
     .select('id', 'eventName', 'date', 'location',
-      'address', 'time', 'tickets', 'website', 'blurb')
+    'address', 'time', 'tickets', 'website', 'blurb')
     .first()
 }
 
 function getPublicEventsByCategory(category, conn) {
   const db = conn || connection
-  return db('categories')
-    .join('public_events_categories_junction', 'public_events_categories_junction.category_id', '=', 'categories.id')
-    .join('public_events', 'public_events.id', '=', 'public_events_categories_junction.event_id')
+  return db('public_events')
+    .join('public_events_categories_junction', 'public_events_categories_junction.event_id', '=', 'public_events.id')
+    .join('categories', 'categories.id', '=', 'public_events_categories_junction.category_id')
     .where('categories.categoryName', category)
     .select()
 }
@@ -70,17 +70,17 @@ function getLocalEventByName(eventName, conn) {
   return db('local_events')
     .where('eventName', eventName)
     .select('id', 'eventName', 'date', 'location',
-      'address', 'time', 'tickets', 'website', 'blurb')
+    'address', 'time', 'tickets', 'website', 'blurb')
     .first()
 }
 
 function getLocalEventsByCategory(category, conn) {
   const db = conn || connection
-  return conn('categories')
-    .join('local_events_categories_junction', 'local_events_categories_junction.category_id', '=', 'categories.id')
-    .join('local_events', 'local_events.id', '=', 'local_events_categories_junction.event_id')
+  return conn('local_events')
+    .join('local_events_categories_junction', 'local_events_categories_junction.event_id', 'local_events.id')
+    .join('categories', 'local_events_categories_junction.category_id', 'categories.id')
     .where('categories.categoryName', category)
-    .select('local_events.eventName as eventName', 'local_events.date as date', 'local_events.location as location', 'local_events.time as time')
+    .select()
 }
 
 // CATEGORY FUNCTIONS
@@ -101,7 +101,7 @@ function getCategoryById(id, conn) {
 function getCategoryByName(category, conn) {
   const db = conn || connection
   return db('categories')
-    .where('categories.categoryName', category)
+    .where('category.categoryName', category)
     .select('id', 'categoryName')
     .first()
 }
