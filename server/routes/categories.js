@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const router = express.Router()
 
-const db = require('../db/db')
+const db = require('../db/events')
 
 module.exports = router
 
@@ -39,5 +39,3 @@ router.get('/', (req, res) => {
 //       res.status(500).send(err.message)
 //     })
 // })
-
-
