@@ -1,7 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { showError } from '../../actions/error'
 
@@ -36,5 +36,5 @@ function mapStateToProps({ errorMessage }) {
 }
 
 export default withRouter(
-  connect(mapStateToProps)(ErrorMessage)
+connect(mapStateToProps)(ErrorMessage)
 )

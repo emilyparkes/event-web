@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { getPublicEventsByCategory } from '../../actions/p-by-category'
 import { getLocalEventsByCategory } from '../../actions/l-by-category'

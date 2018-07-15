@@ -12,4 +12,3 @@ const categories = (state = initialState, action) => {
 }
 
 export default categories
-
