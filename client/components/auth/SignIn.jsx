@@ -1,7 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { signIn } from '../../actions/auth'
 import { clearError } from '../../actions/error'
@@ -84,5 +84,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default withRouter(
-  connect(null, mapDispatchToProps)(SignIn)
+connect(null, mapDispatchToProps)(SignIn)
 )
