@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import { getLocalEvents } from '../actions/local-events'
-import Map from './map/Map'
+import { getLocalEvents } from '../../actions/local-events'
 
 class LocalEvents extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount() {
     this.props.dispatch(getLocalEvents())
@@ -13,25 +15,21 @@ class LocalEvents extends React.Component {
 
   render() {
     return (
-      <div className='localeventspg'>
-      
+      <div className='localeventspg' >
+
         <div className='page-heading-section'>
           <div className='page-title-font'>
             <h1>Local Events</h1></div>
         </div>
 
         <div className='page-section'>
-          {this.props.localEvents.map(lEvent =>
-            <Link key={lEvent.id} to={`/local-events/${lEvent.eventName}`} >
+          {this.props.localEvents.map(event =>
+            <Link key={event.id} to={`/local-events/${event.eventName}`} >
               <button className='local-events-buttons'>
-                {lEvent.eventName}
+                {event.eventName}
               </button>
             </Link>
           )}
-          <br/>
-          <div className='map-section'>
-            <Map />
-          </div>
         </div>
 
       </div>

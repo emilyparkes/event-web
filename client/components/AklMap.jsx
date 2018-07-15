@@ -1,7 +1,7 @@
 import React from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
-class Auckland extends React.Component {
+class AklMap extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -43,4 +43,4 @@ class Auckland extends React.Component {
   }
 }
 
-export default Auckland
+export default AklMap

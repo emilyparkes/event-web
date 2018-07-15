@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import { getCategories } from '../actions/categories'
+import { getCategories } from '../../actions/categories'
 
 class Categories extends React.Component {
 

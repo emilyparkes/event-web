@@ -12,14 +12,14 @@ export const receivePublicEventByName = (pEvent) => {
   }
 }
 
-export function getPublicEventByName (id) {
+export function getPublicEventByName(eventName) {
   return (dispatch) => {
-    request.get(`${baseUrl}/api/v1/public-events/${id}`)
+    request.get(`${baseUrl}/api/v1/public-events/${eventName}`)
       .then(res => {
         dispatch(receivePublicEventByName(res.body))
       })
       .catch(() => {
-        dispatch(showError('An unexpected error in getting the event information'))
+        dispatch(showError('An unexpected error in getting the pevent information'))
       })
   }
 }   
