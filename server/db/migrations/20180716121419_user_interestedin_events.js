@@ -4,8 +4,7 @@ exports.up = (knex, Promise) => {
       return knex.schema.createTable('user_interestedin_events', (table) => {
         table.increments('id').primary()
         table.integer('user_id').references('users.id')
-        table.integer('local_event_id').references('local_events.id')
-        table.integer('public_event_id').references('public_events.id')
+        table.integer('event_id').references('events.id')
       })
     }
   })
