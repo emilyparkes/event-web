@@ -15,7 +15,7 @@ const Nav = () => {
           <Link to='/'>home</Link>
         </span>
         <span className='nav-link-individual-styling'>
-          <Link to='/profile/1'>profile</Link>
+          <Link to='/profile/emilycoco'>profile</Link>
         </span>
         <span className='nav-link-individual-styling'>
           <Link to='/calendar'>calendar</Link>

@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import AccountDetails from './AccountDetails'
+import { getProfile } from '../../actions/user-profile'
 
 class ProfileEdit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      userId: 1,
+      username: 'emilycoco',
       firstName: '',
       surname: '',
       preferredName: '',
@@ -18,6 +18,13 @@ class ProfileEdit extends React.Component {
       location: '',
       showAccountDetails: false
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleOpenAccount = this.handleOpenAccount.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getProfile('emilycoco'))
   }
 
   handleOpenAccount(e) {
@@ -134,4 +141,10 @@ class ProfileEdit extends React.Component {
   }
 }
 
-export default connect()(ProfileEdit)
+const mapStateToProps = (state) => {
+  return {
+    profile: state.profile
+  }
+}
+
+export default connect(mapStateToProps)(ProfileEdit)

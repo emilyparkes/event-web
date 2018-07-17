@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const verifyJwt = require('express-jwt')
 
 const db = require('../db/users')
-const jwtTestSecret = require('../../test/server/routes/jwt-secret.test.js')
+const jwtTestSecret = require('../../test/server/routes/jwt-test-secret.js')
 
 module.exports = {
   issue,

@@ -44,8 +44,8 @@ class App extends React.Component {
             <Route path='/map' component={AklMap} />
             <Route path='/calendar' component={Calendar} />
             
-            <Route path='/profile/:id/edit' component={ProfileEdit} />
-            <Route path='/profile/:id' component={Profile} />
+            <Route path='/profile/:username/edit' component={ProfileEdit} />
+            <Route path='/profile/:username' component={Profile} />
 
             <Route path='/public-events/:eventName' component={PublicEvent} />
             <Route path='/public-events' component={PublicEventsList} />
