@@ -12,7 +12,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getProfile(1))
+    this.props.dispatch(getProfile('emilycoco'))
   }
 
   render() {
@@ -73,7 +73,7 @@ class Profile extends React.Component {
         </div>
 
         <button className='pure-button pure-button-primary'>
-          <Link to='/profile/edit'>Edit Profile</Link>
+          <Link to={`/profile/${'emilycoco'}/edit`}>Edit Profile</Link>
         </button >
 
       </div>
