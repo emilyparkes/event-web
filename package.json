@@ -14,6 +14,7 @@
     "knex": "knex --knexfile ./server/db/knexfile.js",
     "seed": "yarn knex seed:run",
     "migrate": "yarn knex migrate:latest",
+    "rollback": "yarn knex migrate:rollback",
     "h:data": "heroku run bash & yarn migrate & yarn seed",
     "h:deploy": "git push heroku master"
   },
