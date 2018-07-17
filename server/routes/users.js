@@ -8,11 +8,23 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/profile/:id', (req, res) => {
-  const userId = req.params.id
-  db.getUserProfile(userId)
+router.get('/profile/:username', (req, res) => {
+  const username = req.params.username
+  db.getUserProfile(username)
     .then((profile) => {
       res.send(profile)
+    })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
+
+router.post('/profile/:username', (req, res) => {
+  const username = req.params.username
+  const updatedProfile = req.body
+  db.updateUserProfile(updatedProfile, username)
+    .then(() => { 
+      res.sendStatus(200)
     })
     .catch(err => {
       res.status(500).send(err.message)
