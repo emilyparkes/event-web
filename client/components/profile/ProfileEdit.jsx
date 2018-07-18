@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import AccountDetails from './AccountDetails'
-import { getProfile } from '../../actions/user-profile'
+import { getProfile, saveUserProfile } from '../../actions/user-profile'
+import { getUserDetails } from '../../actions/auth'
 
 class ProfileEdit extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class ProfileEdit extends React.Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(getUserDetails(1))
     this.props.dispatch(getProfile('emilycoco'))
   }
 
@@ -47,9 +49,20 @@ class ProfileEdit extends React.Component {
   }
 
   handleSubmit(e) {
+    const user = {
+      firstName: this.state.firstName,
+      surname: this.state.surname,
+      preferredName: this.state.preferredName,
+      profilePic: this.state.profilePic,
+      bio: this.state.bio,
+      phone: this.state.phone,
+      location: this.state.location
+    }
+    this.props.dispatch(saveUserProfile(user))
     e.preventDefault()
-
   }
+
+
 
   render() {
     const { firstName, surname, preferredName, profilePic, bio, phone, location, showAccountDetails } = this.state
@@ -61,24 +74,24 @@ class ProfileEdit extends React.Component {
 
             <div className='heading-section'>
               <div className='welcome-preferred-name'>
-                Hey {preferredName}! Remember these details are visible to your friends.
+                Hey! Remember these details are visible to your friends.
               </div>
             </div>
 
             <br />
 
             <div className='user-section'>
-              <div className='profile-pic'>
+              {/* <div className='profile-pic'>
                 <label htmlFor='profilePic'>Profile Picture</label>
                 <input id='profilePic' name='profilePic'
-                  type='file' placeholder='image url'
+                  type='file' placeholder='image file'
                   onChange={this.handleChange} value={profilePic} />
-              </div>
+              </div> */}
 
               <div className='first-name'>
                 <label htmlFor='firstName'>First Name</label>
                 <input id='firstName' name='firstName'
-                  placeholder='e.g Jane'
+                  placeholder='emily'
                   onChange={this.handleChange} value={firstName} />
               </div>
 
@@ -92,27 +105,27 @@ class ProfileEdit extends React.Component {
               <div className='preferred-name'>
                 <label htmlFor='preferredName'>Preferred Name</label>
                 <input id='preferredName' name='preferredName'
-                  placeholder='Janey'
+                  placeholder={preferredName}
                   onChange={this.handleChange} value={preferredName} />
               </div>
 
               <div className='location'>
                 <label htmlFor='location'>Location</label>
-                <input id='location' name='location' placeholder='Auckland'
+                <input id='location' name='location' placeholder={location}
                   onChange={this.handleChange} value={location} />
               </div>
 
               <div className='bio'>
                 <label htmlFor='bio'>Bio</label>
                 <input id='bio' name='bio'
-                  placeholder='I am your bio'
+                  placeholder={bio}
                   onChange={this.handleChange} value={bio} />
               </div>
 
               <div className='phone'>
-                <label htmlFor='phone'>phone</label>
+                <label htmlFor='phone'>Phone</label>
                 <input id='phone' name='phone'
-                  placeholder='phone'
+                  placeholder={phone}
                   onChange={this.handleChange} value={phone} />
               </div>
 
