@@ -2,14 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { getPublicEventsByCategory } from '../../actions/p-by-category'
-import { getLocalEventsByCategory } from '../../actions/l-by-category'
+import { getEventsByCategory } from '../../actions/events-by-category'
 
 export class Category extends React.Component {
   // get all events associated with that category
   componentDidMount() {
-    this.props.dispatch(getPublicEventsByCategory(this.props.match.params.category))
-    this.props.dispatch(getLocalEventsByCategory(this.props.match.params.category))
+    this.props.dispatch(getEventsByCategory(this.props.match.params.category))
   }
 
 
@@ -23,26 +21,13 @@ export class Category extends React.Component {
             <h3>Category related events</h3>
             <h2>{this.props.match.params.category}</h2></div>
         </div>
-        
+
         <div className='page-section' >
-
-        {/* public events */}
-          <div className='public-section' >
-            {this.props.publicEventsByCategory.map(pEvents =>
-              <Link key={pEvents.id} to={`/events/${this.props.match.params.category}/${pEvents.eventName}`} >
+          <div className='section' >
+            {this.props.eventsInCategory.map(event =>
+              <Link key={event.id} to={`/categories/${this.props.match.params.category}/${event.eventName}`} >
                 <button className='categories-buttons'>
-                  {pEvents.eventName}
-                </button>
-              </Link>
-            )}
-          </div>
-
-          {/* local events */}
-          <div className='local-section' >
-            {this.props.localEventsByCategory.map(lEvents =>
-              <Link key={lEvents.id} to={`/events/${this.props.match.params.category}/${lEvents.eventName}`} >
-                <button className='categories-buttons'>
-                  {lEvents.eventName}
+                  {event.eventName}
                 </button>
               </Link>
             )}
@@ -57,8 +42,7 @@ export class Category extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    publicEventsByCategory: state.publicEventsByCategory,
-    localEventsByCategory: state.localEventsByCategory
+    eventsInCategory: state.eventsInCategory
   }
 }
 
