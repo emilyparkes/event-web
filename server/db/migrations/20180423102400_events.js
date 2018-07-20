@@ -4,14 +4,15 @@ exports.up = (knex, Promise) => {
       return knex.schema.createTable('events', (table) => {
         table.increments('id').primary()
         table.string('eventName')
+        table.string('imageUrl')
         table.string('date')
         table.string('location')
         table.string('address')
         table.string('time')
-        table.string('tickets')
+        table.string('ticketInfo')
+        table.string('ticketUrl')
         table.string('website')
         table.string('blurb')
-        table.string('imageUrl')
         table.integer('eventType')
       })
     }
