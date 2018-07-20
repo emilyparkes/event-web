@@ -1,13 +1,24 @@
-import { RECEIVE_USER_PROFILE, RECEIVE_SAVE_PROFILE} from '../actions/user-profile'
+import { RECEIVE_USER_PROFILE, RECEIVE_SAVE_PROFILE } from '../actions/user-profile'
 
-const initialState = {}
+const initialState = {
+  firstName: '',
+  surname: '',
+  preferredName: '',
+  profilePic: '',
+  bio: '',
+  phone: '',
+  location: ''
+}
 
 const profile = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_USER_PROFILE:
       return action.userProfile
     case RECEIVE_SAVE_PROFILE:
-      return action.profile
+      return {
+        ...state,
+        profile: action.profile
+      }
     default:
       return state
   }
