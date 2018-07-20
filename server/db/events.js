@@ -5,10 +5,9 @@ const connection = require('knex')(config)
 module.exports = {
   getPublicEvents,
   getPublicEventByName,
-  getPublicEventsByCategory,
+  getEventsByCategory,
   getLocalEvents,
   getLocalEventByName,
-  getLocalEventsByCategory,
   getCategories,
   getCategoryById,
   getCategoryByName
@@ -42,16 +41,6 @@ function getPublicEventByName(eventName, conn) {
     .first()
 }
 
-function getPublicEventsByCategory(category, conn) {
-  const db = conn || connection
-  return db('categories')
-    .join('events_categories_junction', 'events_categories_junction.category_id', '=', 'categories.id')
-    .join('events', 'events.id', '=', 'events_categories_junction.event_id')
-    .where('categories.categoryName', category)
-    .where('events.eventType', 1)
-    .select()
-}
-
 // LOCAL EVENTS FUNCTIONS
 
 function getLocalEvents(conn) {
@@ -79,15 +68,15 @@ function getLocalEventByName(eventName, conn) {
     .first()
 }
 
-function getLocalEventsByCategory(category, conn) {
-  const db = conn || connection
-  return conn('categories')
-    .join('events_categories_junction', 'events_categories_junction.category_id', '=', 'categories.id')
-    .join('events', 'events.id', '=', 'events_categories_junction.event_id')
-    .where('categories.categoryName', category)
-    .where('events.eventType', 2)
-    .select('events.eventName as eventName', 'events.date as date', 'events.location as location', 'events.time as time')
-}
+// function getLocalEventsByCategory(category, conn) {
+//   const db = conn || connection
+//   return conn('categories')
+//     .join('events_categories_junction', 'events_categories_junction.category_id', '=', 'categories.id')
+//     .join('events', 'events.id', '=', 'events_categories_junction.event_id')
+//     .where('categories.categoryName', category)
+//     .where('events.eventType', 2)
+//     .select('events.eventName as eventName', 'events.date as date', 'events.location as location', 'events.time as time')
+// }
 
 // CATEGORY FUNCTIONS
 
@@ -110,4 +99,22 @@ function getCategoryByName(category, conn) {
     .where('categories.categoryName', category)
     .select('id', 'categoryName')
     .first()
+}
+
+// function getEventsByCategory(categoryId, conn) {
+//   const db = conn || connection
+//   return db('categories')
+//     .join('events_categories_junction', 'events_categories_junction.category_id', '=', 'categories.id')
+//     .join('events', 'events.id', '=', 'events_categories_junction.event_id')
+//     .where('events_categories_junction.category_id', categoryId)
+//     .select()
+// }
+
+function getEventsByCategory(category, conn) {
+  const db = conn || connection
+  return db('events')
+  .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
+  .join('categories', 'categories.id', 'events_categories_junction.category_id' )
+  .where('categories.id', category)
+  .select()
 }
