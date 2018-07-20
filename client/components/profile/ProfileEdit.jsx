@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import AccountDetails from './AccountDetails'
-import { clearError } from '../../actions/error'
 import { Redirect } from 'react-router-dom'
 import { getProfile, saveUserProfile } from '../../actions/user-profile'
 import { getUserDetails } from '../../actions/auth'
