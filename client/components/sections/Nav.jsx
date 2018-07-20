@@ -31,7 +31,7 @@ const Nav = () => {
           <Link to='/local-events'>local events</Link>
         </span>
         <span className='nav-link-individual-styling'>
-          <Link to='/events/categories'>categories</Link>
+          <Link to='/categories'>categories</Link>
         </span>
 
 
