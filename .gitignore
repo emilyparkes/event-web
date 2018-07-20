@@ -4,3 +4,4 @@ bundle*
 yarn-error*
 *.sqlite
 .env
+dev.sq*

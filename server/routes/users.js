@@ -19,7 +19,7 @@ router.get('/profile/:username', (req, res) => {
     })
 })
 
-router.post('/profile/:username', (req, res) => {
+router.put('/profile/:username', (req, res) => {
   const username = req.params.username
   const updatedProfile = req.body
   db.updateUserProfile(updatedProfile, username)

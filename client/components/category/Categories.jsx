@@ -21,7 +21,7 @@ class Categories extends React.Component {
 
         <div className='page-section'>
           {this.props.categories.map(category =>
-            <Link key={category.id} to={`/events/${category.categoryName}`} >
+            <Link key={category.id} to={`/categories/${category.categoryName}`} >
               <button className='categories-buttons'>
                 {category.categoryName}
               </button>

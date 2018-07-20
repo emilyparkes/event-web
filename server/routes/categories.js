@@ -8,11 +8,11 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/:category', (req, res) => {
+router.get('/categories/:category', (req, res) => {
   const category = req.params.category
-  db.getCategoryByName(category)
-    .then((category) => {
-      res.send(category)
+  db.getEventsByCategory(2)
+    .then((events) => {
+      res.send(events)
     })
     .catch(err => {
       res.status(500).send(err.message)
@@ -28,14 +28,3 @@ router.get('/', (req, res) => {
       res.status(500).send(err.message)
     })
 })
-
-// router.get('/:category/:eventName', (req, res) => {
-//   const eventName = req.params.eventName
-//   db.getEventByName(eventName)
-//     .then((event) => {
-//       res.send(event)
-//     })
-//     .catch(err => {
-//       res.status(500).send(err.message)
-//     })
-// })
