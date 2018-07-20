@@ -6,12 +6,11 @@ import errorMessage from './error'
 import profile from './user-profile'
 
 import categories from './categories'
+import eventsInCategory from './events-by-category'
 
-import localEventsByCategory from './l-by-category'
 import lEvent from './l-event'
 import localEvents from './local-events'
 
-import publicEventsByCategory from './p-by-category'
 import pEvent from './p-event'
 import publicEvents from './public-events'
 
@@ -20,10 +19,9 @@ export default combineReducers({
   errorMessage,
   profile,
   categories,
-  localEventsByCategory,
+  eventsInCategory,
   lEvent,
   localEvents,
-  publicEventsByCategory,
   pEvent,
   publicEvents
 })
