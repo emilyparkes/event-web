@@ -45,17 +45,17 @@ class App extends React.Component {
             <Route path='/calendar' component={Calendar} />
             
             <Route path='/profile/:username/edit' component={ProfileEdit} />
-            <Route path='/profile/:username' component={Profile} />
+            <Route exact path='/profile/:username' component={Profile} />
 
             <Route path='/public-events/:eventName' component={PublicEvent} />
-            <Route path='/public-events' component={PublicEventsList} />
+            <Route exact path='/public-events' component={PublicEventsList} />
 
             <Route path='/local-events/:eventName' component={LocalEvent} />
-            <Route path='/local-events' component={LocalEventsList} />
+            <Route exact path='/local-events' component={LocalEventsList} />
 
-            <Route path='/events/categories' component={Categories} />
-            <Route path='/events/:category/:eventName' component={EventByCategory} />
-            <Route path='/events/:category' component={Category} />
+            <Route path='/categories/:category/:eventName' component={EventByCategory} />
+            <Route path='/categories/:category' component={Category} />
+            <Route exact path='/categories' component={Categories} />
           </Switch>
         </div>
         <div className='sticky-footer'>

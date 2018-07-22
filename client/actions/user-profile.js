@@ -47,10 +47,10 @@ export const receiveSaveProfile = (updatedProfile) => {
   }
 }
 
-export function saveUserProfile (username) {
+export function saveUserProfile (updatedProfile, username) {
   return (dispatch) => {
     dispatch(requestSaveProfile())
-    request.post(`${baseUrl}/api/v1/users/profile/${username}`)
+    request.put(`${baseUrl}/api/v1/users/profile/${username}`, updatedProfile )
       .then(res => {
         console.log(res.body)
         dispatch(receiveSaveProfile(res.body))

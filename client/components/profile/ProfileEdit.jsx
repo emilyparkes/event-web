@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import AccountDetails from './AccountDetails'
+import { Redirect } from 'react-router-dom'
 import { getProfile, saveUserProfile } from '../../actions/user-profile'
 import { getUserDetails } from '../../actions/auth'
 
@@ -10,14 +11,15 @@ class ProfileEdit extends React.Component {
     super(props)
     this.state = {
       username: 'emilycoco',
-      firstName: '',
-      surname: '',
-      preferredName: '',
-      profilePic: '',
-      bio: '',
-      phone: '',
-      location: '',
-      showAccountDetails: false
+      firstName: this.props.profile.firstName,
+      surname: this.props.profile.surname,
+      preferredName: this.props.profile.preferredName,
+      profilePic: this.props.profile.profilePic,
+      bio: this.props.profile.bio,
+      phone: this.props.profile.phone,
+      location: this.props.profile.location,
+      showAccountDetails: false,
+      submitted: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleOpenAccount = this.handleOpenAccount.bind(this)
@@ -44,12 +46,13 @@ class ProfileEdit extends React.Component {
   handleChange(e) {
     const { name, value } = e.target
     this.setState({
-      [name]: value,
+      [name]: value
     })
   }
 
   handleSubmit(e) {
-    const user = {
+    e.preventDefault()
+    const updatedProfile = {
       firstName: this.state.firstName,
       surname: this.state.surname,
       preferredName: this.state.preferredName,
@@ -58,99 +61,105 @@ class ProfileEdit extends React.Component {
       phone: this.state.phone,
       location: this.state.location
     }
-    this.props.dispatch(saveUserProfile(user))
-    e.preventDefault()
+    this.setState({ submitted: true })
+    this.props.dispatch(saveUserProfile(updatedProfile, 'emilycoco'))
   }
 
 
 
   render() {
-    const { firstName, surname, preferredName, profilePic, bio, phone, location, showAccountDetails } = this.state
-    return (
-      <div className='profilepg'>
-        <form className='pure-form pure-form-stacked'>
-          <h3>Edit Profile</h3>
-          <fieldset>
+    if (this.state.submitted) {
+      return (
+        <Redirect to='/profile/emilycoco' />
+      )
+    } else {
+      const { firstName, surname, preferredName, profilePic, bio, phone, location, showAccountDetails } = this.state
+      return (
+        <div className='profilepg'>
+          <form className='pure-form pure-form-stacked'>
+            <h3>Edit Profile</h3>
+            <fieldset>
 
-            <div className='heading-section'>
-              <div className='welcome-preferred-name'>
-                Hey! Remember these details are visible to your friends.
+              <div className='heading-section'>
+                <div className='welcome-preferred-name'>
+                  Hey! Remember these details are visible to your friends.
               </div>
-            </div>
+              </div>
 
-            <br />
+              <br />
 
-            <div className='user-section'>
-              {/* <div className='profile-pic'>
+              <div className='user-section'>
+                {/* <div className='profile-pic'>
                 <label htmlFor='profilePic'>Profile Picture</label>
                 <input id='profilePic' name='profilePic'
                   type='file' placeholder='image file'
                   onChange={this.handleChange} value={profilePic} />
               </div> */}
 
-              <div className='first-name'>
-                <label htmlFor='firstName'>First Name</label>
-                <input id='firstName' name='firstName'
-                  placeholder='emily'
-                  onChange={this.handleChange} value={firstName} />
+                <div className='first-name'>
+                  <label htmlFor='firstName'>First Name</label>
+                  <input id='firstName' name='firstName'
+                    placeholder='emily'
+                    onChange={this.handleChange} value={firstName} />
+                </div>
+
+                <div className='surname'>
+                  <label htmlFor='surname'>Surname</label>
+                  <input id='surname' name='surname'
+                    placeholder='e.g Doe'
+                    onChange={this.handleChange} value={surname} />
+                </div>
+
+                <div className='preferred-name'>
+                  <label htmlFor='preferredName'>Preferred Name</label>
+                  <input id='preferredName' name='preferredName'
+                    placeholder={preferredName}
+                    onChange={this.handleChange} value={preferredName} />
+                </div>
+
+                <div className='location'>
+                  <label htmlFor='location'>Location</label>
+                  <input id='location' name='location' placeholder={location}
+                    onChange={this.handleChange} value={location} />
+                </div>
+
+                <div className='bio'>
+                  <label htmlFor='bio'>Bio</label>
+                  <input id='bio' name='bio'
+                    placeholder={bio}
+                    onChange={this.handleChange} value={bio} />
+                </div>
+
+                <div className='phone'>
+                  <label htmlFor='phone'>Phone</label>
+                  <input id='phone' name='phone'
+                    placeholder={phone}
+                    onChange={this.handleChange} value={phone} />
+                </div>
+
               </div>
 
-              <div className='surname'>
-                <label htmlFor='surname'>Surname</label>
-                <input id='surname' name='surname'
-                  placeholder='e.g Doe'
-                  onChange={this.handleChange} value={surname} />
-              </div>
-
-              <div className='preferred-name'>
-                <label htmlFor='preferredName'>Preferred Name</label>
-                <input id='preferredName' name='preferredName'
-                  placeholder={preferredName}
-                  onChange={this.handleChange} value={preferredName} />
-              </div>
-
-              <div className='location'>
-                <label htmlFor='location'>Location</label>
-                <input id='location' name='location' placeholder={location}
-                  onChange={this.handleChange} value={location} />
-              </div>
-
-              <div className='bio'>
-                <label htmlFor='bio'>Bio</label>
-                <input id='bio' name='bio'
-                  placeholder={bio}
-                  onChange={this.handleChange} value={bio} />
-              </div>
-
-              <div className='phone'>
-                <label htmlFor='phone'>Phone</label>
-                <input id='phone' name='phone'
-                  placeholder={phone}
-                  onChange={this.handleChange} value={phone} />
-              </div>
-
-            </div>
-
-            <div className='settings-section'>
-              <button onClick={this.handleOpenAccount}>Edit Account Details
+              <div className='settings-section'>
+                <button onClick={this.handleOpenAccount}>Edit Account Details
                 {showAccountDetails ? <AccountDetails /> : null}
-              </button>
-            </div>
+                </button>
+              </div>
 
-            <div className='notify-section'>
-              {/* nothing here to edit */}
-            </div>
+              <div className='notify-section'>
+                {/* nothing here to edit */}
+              </div>
 
-            <button className='pure-button pure-button-primary'
-              onClick={this.handleSubmit}>
-              Save Profile Changes
+              <button className='pure-button pure-button-primary'
+                onClick={this.handleSubmit}>
+                Save Profile Changes
             </button>
 
-          </fieldset>
-        </form>
+            </fieldset>
+          </form>
 
-      </div>
-    )
+        </div>
+      )
+    }
   }
 }
 

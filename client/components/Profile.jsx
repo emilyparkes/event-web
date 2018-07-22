@@ -22,7 +22,7 @@ class Profile extends React.Component {
 
         <div className='heading-section'>
           <div className='welcome-preferred-name'>
-          Welcome to your profile {profile.preferredName}!
+            Welcome to your profile {profile.preferredName}!
           </div>
         </div>
 
@@ -54,8 +54,9 @@ class Profile extends React.Component {
         </div>
 
         <div className='settings-section'>
-
         </div>
+
+        <br />
 
         <div className='notify-section'>
           <div className='invites'>
