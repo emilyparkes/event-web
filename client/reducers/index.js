@@ -7,6 +7,7 @@ import profile from './user-profile'
 
 import categories from './categories'
 import eventsInCategory from './events-by-category'
+import eventFromCategory from './event-from-category'
 
 import lEvent from './l-event'
 import localEvents from './local-events'
@@ -20,6 +21,7 @@ export default combineReducers({
   profile,
   categories,
   eventsInCategory,
+  eventFromCategory,
   lEvent,
   localEvents,
   pEvent,

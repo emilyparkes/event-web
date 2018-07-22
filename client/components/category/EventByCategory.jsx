@@ -1,13 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
-import { getPublicEventsByEventByCategory } from '../../actions/categories'
+import { getEventFromCategory } from '../../actions/event-from-category'
 
 export class EventByCategory extends React.Component {
   // get all events associated with that EventByCategory
   componentDidMount() {
-    this.props.dispatch(getPublicEventsByEventByCategory(this.props.match.params.EventByCategory))
+    this.props.dispatch(getEventFromCategory(this.props.match.params.category, this.props.match.params.eventName))
   }
 
 
@@ -17,17 +16,17 @@ export class EventByCategory extends React.Component {
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
-          <h1>{this.props.match.params.EventByCategory}</h1></div>
+          <h1>{this.props.match.params.eventName}</h1></div>
         </div>
 
         <div className='page-section' >
-          {this.props.peventsbyEventByCategory.map(pEvents =>
-            <Link key={pEvents.id} to={`/events/${this.props.match.params.EventByCategory}/${pEvents.eventName}`} >
-              <button className='categories-buttons'>
-                {pEvents.eventName}
-              </button>
-            </Link>
-          )}
+          {event.date}
+          {event.time}
+          {event.location}
+          {event.address}
+          {event.tickets}
+          {event.website}
+          {event.blurb}
         </div>
 
       </div>
@@ -37,7 +36,7 @@ export class EventByCategory extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    peventsbyEventByCategory: state.peventsbyEventByCategory
+    eventFromCategory: state.eventFromCategory
   }
 }
 
