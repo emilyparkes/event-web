@@ -23,7 +23,7 @@ import LocalEvent from './local-e/LocalEvent'
 
 import Categories from './category/Categories'
 import Category from './category/Category'
-import EventByCategory from './category/EventByCategory'
+import EventFromCategory from './category/EventFromCategory'
 
 import Footer from './sections/Footer'
 
@@ -53,7 +53,7 @@ class App extends React.Component {
             <Route path='/local-events/:eventName' component={LocalEvent} />
             <Route exact path='/local-events' component={LocalEventsList} />
 
-            <Route path='/categories/:category/:eventName' component={EventByCategory} />
+            <Route path='/categories/:category/:eventName' component={EventFromCategory} />
             <Route path='/categories/:category' component={Category} />
             <Route exact path='/categories' component={Categories} />
           </Switch>

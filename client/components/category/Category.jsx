@@ -12,7 +12,6 @@ export class Category extends React.Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <div className='categoriespg' >
 
@@ -25,7 +24,7 @@ export class Category extends React.Component {
         <div className='page-section' >
           <div className='section' >
             {this.props.eventsInCategory.map(event =>
-              <Link key={event.id} to={`/categories/${this.props.match.params.category}/${event.eventName}`} >
+              <Link key={event.event_id} to={`/categories/${this.props.match.params.category}/${event.eventName}`} >
                 <button className='categories-buttons'>
                   {event.eventName}
                 </button>

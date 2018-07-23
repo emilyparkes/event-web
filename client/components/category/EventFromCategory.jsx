@@ -4,7 +4,10 @@ import { connect } from 'react-redux'
 import { getEventFromCategory } from '../../actions/event-from-category'
 
 export class EventByCategory extends React.Component {
-  // get all events associated with that EventByCategory
+  constructor(props) {
+    super(props)
+  }
+
   componentDidMount() {
     this.props.dispatch(getEventFromCategory(this.props.match.params.category, this.props.match.params.eventName))
   }
@@ -20,13 +23,13 @@ export class EventByCategory extends React.Component {
         </div>
 
         <div className='page-section' >
-          {event.date}
-          {event.time}
-          {event.location}
-          {event.address}
-          {event.tickets}
-          {event.website}
-          {event.blurb}
+          {this.props.eventFromCategory.date}
+          {this.props.eventFromCategory.time}
+          {this.props.eventFromCategory.location}
+          {this.props.eventFromCategory.address}
+          {this.props.eventFromCategory.tickets}
+          {this.props.eventFromCategory.website}
+          {this.props.eventFromCategory.blurb}
         </div>
 
       </div>
