@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const router = express.Router()
 
-const db = require('../db/func/user-profiles')
+const db = require('../db/user-profiles')
 
 module.exports = router
 

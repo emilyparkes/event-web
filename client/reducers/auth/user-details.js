@@ -2,7 +2,7 @@ import {
   LOG_OFF,
   REQUEST_USER_DETAILS,
   RECEIVE_USER_DETAILS
-} from '../../actions/auth'
+} from '../../actions/auth/auth'
 
 const userDetails = (state = null, action) => {
   switch (action.type) {

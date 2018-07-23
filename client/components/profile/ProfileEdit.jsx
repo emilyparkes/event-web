@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 import AccountDetails from './AccountDetails'
 import { Redirect } from 'react-router-dom'
-import { getProfile, saveUserProfile } from '../../actions/user-profile'
-import { getUserDetails } from '../../actions/auth'
+import { getProfile, saveUserProfile } from '../../actions/auth/user-profile'
+import { getUserDetails } from '../../actions/auth/auth'
 
 class ProfileEdit extends React.Component {
   constructor(props) {

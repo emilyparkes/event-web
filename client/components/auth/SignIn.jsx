@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import { signIn } from '../../actions/auth'
+import { signIn } from '../../actions/auth/auth'
 import { clearError } from '../../actions/error'
 import ErrorMessage from './ErrorMessage'
 

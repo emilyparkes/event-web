@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { getProfile } from '../actions/user-profile'
+import { getProfile } from '../actions/auth/user-profile'
 
 import FriendsList from './notify-section/FriendsList'
 

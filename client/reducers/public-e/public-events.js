@@ -1,6 +1,6 @@
 import { 
   RECEIVE_PUBLIC_EVENTS, 
-  RECEIVE_PUBLIC_EVENT_BY_NAME } from '../actions/public-events'
+  RECEIVE_PUBLIC_EVENT_BY_NAME } from '../../actions/public-e/public-events'
 
 const initialState = []
 

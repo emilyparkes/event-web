@@ -5,7 +5,7 @@ import {
   REQUEST_USER_DETAILS,
   RECEIVE_USER_DETAILS,
   REQUEST_USER_REGISTRATION,
-  RECEIVE_USER_REGISTRATION} from '../actions/auth'
+  RECEIVE_USER_REGISTRATION} from '../../actions/auth/auth'
 
 const auth = (state = false, action) => {
   switch (action.type) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { getEventFromCategory } from '../../actions/event-from-category'
+import { getEventFromCategory } from '../../actions/categories/event-from-category'
 
 export class EventByCategory extends React.Component {
   constructor(props) {

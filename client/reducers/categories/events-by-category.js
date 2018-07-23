@@ -1,5 +1,5 @@
 import { 
-  RECEIVE_EVENTS_BY_CATEGORY } from '../../actions/events-by-category'
+  RECEIVE_EVENTS_BY_CATEGORY } from '../../actions/categories/events-by-category'
 
 const initialState = []
 

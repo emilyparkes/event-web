@@ -1,5 +1,5 @@
 import { 
-  RECEIVE_CATEGORIES } from '../../actions/categories'
+  RECEIVE_CATEGORIES } from '../../actions/categories/categories'
 
 const initialState = []
 
