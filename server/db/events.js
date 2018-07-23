@@ -37,8 +37,7 @@ function getPublicEventByName(eventName, conn) {
   return db('events')
     .where('eventType', 1)
     .where('eventName', eventName)
-    .select('id', 'eventName', 'date', 'location',
-      'address', 'time', 'tickets', 'website', 'blurb')
+    .select()
     .first()
 }
 
@@ -47,8 +46,8 @@ function getPublicEventByName(eventName, conn) {
 function getLocalEvents(conn) {
   const db = conn || connection
   return db('events')
-    .select()
     .where('eventType', 2)
+    .select()
 }
 
 // function getLocalEventById(id, conn) {
@@ -64,8 +63,7 @@ function getLocalEventByName(eventName, conn) {
   return db('events')
     .where('eventType', 2)
     .where('eventName', eventName)
-    .select('id', 'eventName', 'date', 'location',
-      'address', 'time', 'tickets', 'website', 'blurb')
+    .select()
     .first()
 }
 
