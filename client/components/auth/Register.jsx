@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { register } from '../../actions/auth'
+import { register } from '../../actions/auth/auth'
 import { showError, clearError } from '../../actions/error'
 import ErrorMessage from './ErrorMessage'
 
