@@ -1,7 +1,7 @@
 import request from 'superagent'
 
-import { showError } from './error'
-import baseUrl from '../lib/base-url'
+import { showError } from '../error'
+import baseUrl from '../../lib/base-url'
 
 export const REQUEST_USER_PROFILE = 'REQUEST_USER_PROFILE'
 export const RECEIVE_USER_PROFILE = 'RECEIVE_USER_PROFILE'

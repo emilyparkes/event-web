@@ -1,4 +1,5 @@
-import { RECEIVE_EVENT_FROM_CATEGORY } from '../actions/event-from-category'
+import { 
+  RECEIVE_EVENT_FROM_CATEGORY } from '../../actions/event-from-category'
 
 const initialState = {}
 

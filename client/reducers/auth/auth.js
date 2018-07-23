@@ -1,4 +1,4 @@
-import {SHOW_ERROR} from '../actions/error'
+import {SHOW_ERROR} from '../../actions/error'
 import {
   REQUEST_SIGNIN,
   RECEIVE_SIGNIN,

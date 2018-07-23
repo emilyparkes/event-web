@@ -1,4 +1,6 @@
-import { RECEIVE_PUBLIC_EVENTS, RECEIVE_PUBLIC_EVENT_BY_NAME } from '../actions/public-events'
+import { 
+  RECEIVE_PUBLIC_EVENTS, 
+  RECEIVE_PUBLIC_EVENT_BY_NAME } from '../actions/public-events'
 
 const initialState = []
 

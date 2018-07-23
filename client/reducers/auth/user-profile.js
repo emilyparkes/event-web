@@ -1,4 +1,4 @@
-import { RECEIVE_USER_PROFILE, RECEIVE_SAVE_PROFILE } from '../actions/user-profile'
+import { RECEIVE_USER_PROFILE, RECEIVE_SAVE_PROFILE } from '../../actions/user-profile'
 
 const initialState = {
   firstName: '',

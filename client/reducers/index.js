@@ -1,23 +1,23 @@
 import { combineReducers } from 'redux'
 
-import auth from './auth'
 import errorMessage from './error'
 
-import profile from './user-profile'
+import auth from './auth/auth'
+import profile from './auth/user-profile'
 
-import categories from './categories'
-import eventsInCategory from './events-by-category'
-import eventFromCategory from './event-from-category'
+import categories from './categories/categories'
+import eventsInCategory from './categories/events-by-category'
+import eventFromCategory from './categories/event-from-category'
 
-import lEvent from './l-event'
-import localEvents from './local-events'
+import lEvent from './local-e/l-event'
+import localEvents from './local-e/local-events'
 
-import pEvent from './p-event'
-import publicEvents from './public-events'
+import pEvent from './public-e/p-event'
+import publicEvents from './public-e/public-events'
 
 export default combineReducers({
-  auth,
   errorMessage,
+  auth,
   profile,
   categories,
   eventsInCategory,
