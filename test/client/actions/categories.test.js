@@ -1,6 +1,6 @@
 /* global test expect */
 
-import { receiveCategories } from '../../../client/actions/categories'
+import { receiveCategories } from '../../../client/actions/categories/categories'
 
 test('receiveCategories returns the correct action type', () => {
   const expected = 'RECEIVE_CATEGORIES'
