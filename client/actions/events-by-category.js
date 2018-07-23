@@ -16,11 +16,9 @@ export function getEventsByCategory (category) {
   return (dispatch) => {
     request.get(`${baseUrl}/api/v1/eventscategories/categories/${category}`)
       .then(res => {
-        console.log(res.body)
         dispatch(receiveEventsByCategory(res.body))
       })
       .catch((err) => {
-        console.log(e.message)
         dispatch(showError(err.message))
       })
   }
