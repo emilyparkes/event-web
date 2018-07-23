@@ -109,4 +109,5 @@ function getEventFromCategory(category, eventName, conn) {
   .where('categories.categoryName', category)
   .where('events.eventName', eventName)
   .select()
+  .first()
 }
