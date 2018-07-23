@@ -2,7 +2,7 @@ const express = require('express')
 const {
   userExists,
   getUserByName,
-  createUser} = require('../db/users')
+  createUser} = require('../db/func/users')
 const token = require('../auth/token')
 const hash = require('../auth/hash')
 

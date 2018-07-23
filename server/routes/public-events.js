@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const router = express.Router()
 
-const db = require('../db/events')
+const db = require('../db/func/events')
 
 module.exports = router
 
