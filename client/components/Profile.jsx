@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 import { getProfile } from '../actions/user-profile'
 
+import FriendsList from './notify-section/FriendsList'
+
 // import Preferences from './profile/Preferences'
 
 class Profile extends React.Component {
@@ -63,7 +65,7 @@ class Profile extends React.Component {
             invites{/* <img className='icon-invite' src='/icons/icon-invite.png' /> */}
           </div>
           <div className='friends-list'>
-            friends{/* <img className='icon-invite' src='/icons/icon-invite.png' /> */}
+            <FriendsList />
           </div>
           <div className='interested-in'>
             interested in events{/* <img className='icon-invite' src='/icons/icon-invite.png' /> */}
