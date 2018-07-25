@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { getProfile } from '../actions/auth/user-profile'
 
 import FriendsList from './notify-section/FriendsList'
+import InterestedIn from './notify-section/InterestedIn'
 
 // import Preferences from './profile/Preferences'
 
@@ -68,7 +69,7 @@ class Profile extends React.Component {
             <FriendsList />
           </div>
           <div className='interested-in'>
-            interested in events{/* <img className='icon-invite' src='/icons/icon-invite.png' /> */}
+            <InterestedIn />
           </div>
           <div className='going-to'>
             going to events{/* <img className='icon-invite' src='/icons/icon-invite.png' /> */}
