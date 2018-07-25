@@ -7,8 +7,10 @@ module.exports = {
 }
 
 
-function getFriendsList(conn) {
+function getFriendsList(id, conn) {
   const db = conn || connection
   return db('user_friends')
+    .join('users', 'users.id', 'friend_id')
+    .where('user_id', id)
     .select()
 }
