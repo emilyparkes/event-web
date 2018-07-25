@@ -8,10 +8,20 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/', (req, res) => {
+router.get('/friends', (req, res) => {
   db.getFriendsList(1)
     .then((friendsList) => {
-      res.send({friendsList})
+      res.send({ friendsList })
+    })
+  .catch(err => {
+    res.status(500).send(err.message)
+  })
+})
+
+router.get('/interests', (req, res) => {
+  db.getInterestedInList(1)
+    .then((interestedIn) => {
+      res.send({interestedIn})
     })
     .catch(err => {
       res.status(500).send(err.message)
