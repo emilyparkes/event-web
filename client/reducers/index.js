@@ -7,6 +7,8 @@ import profile from './auth/user-profile'
 
 import friendsList from './notify/friends-list'
 import interestedIn from './notify/interested-in'
+import goingTo from './notify/going-to'
+import invitedTo from './notify/invited-to'
 
 import categories from './categories/categories'
 import eventsInCategory from './categories/events-by-category'
@@ -24,6 +26,8 @@ export default combineReducers({
   profile,
   friendsList,
   interestedIn,
+  goingTo,
+  invitedTo,
   categories,
   eventsInCategory,
   eventFromCategory,
