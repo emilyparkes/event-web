@@ -39,7 +39,10 @@ yarn dev
 ```
 
 ### Testing
-coming soon...
+```shell
+yarn test
+```
+
 
 #### References
 [Colour Palette](https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=4527A0&secondary.color=4DD0E1)
