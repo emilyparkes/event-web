@@ -14,7 +14,7 @@ _Coming soon -> Inspiration was drawn from ... for this look_
 - create your own branch off of master
 - pull down any changes
 ```shell
-git pull origin development
+git pull origin dev
 ```
 - install dependencies
 ```shell
