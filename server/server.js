@@ -10,6 +10,8 @@ const eventCategoriesRoutes = require('./routes/categories')
 const usersRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
 
+const notifyRoutes = require('./routes/notify')
+
 const server = express()
 server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.json())
@@ -23,6 +25,8 @@ server.use('/api/v1/eventscategories', eventCategoriesRoutes)
 
 server.use('/api/v1/users', usersRoutes)
 server.use('/api/v1/auth', authRoutes)
+
+server.use('/api/v1/notify', notifyRoutes)
 
 // Default route for non-API requests
 server.get('*', (req, res) => {

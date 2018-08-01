@@ -5,6 +5,8 @@ import errorMessage from './error'
 import auth from './auth/auth'
 import profile from './auth/user-profile'
 
+import friendsList from './notify/friends-list'
+
 import categories from './categories/categories'
 import eventsInCategory from './categories/events-by-category'
 import eventFromCategory from './categories/event-from-category'
@@ -19,6 +21,7 @@ export default combineReducers({
   errorMessage,
   auth,
   profile,
+  friendsList,
   categories,
   eventsInCategory,
   eventFromCategory,
