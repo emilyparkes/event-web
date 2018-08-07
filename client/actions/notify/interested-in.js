@@ -14,9 +14,8 @@ export const receiveInterestedInList = (interestedIn) => {
 
 export function getInterestedInList() {
   return (dispatch) => {
-    request.get(`${baseUrl}/api/v1/notify/interests`)
+    request.get(`${baseUrl}/api/v1/notify/interestedin`)
       .then(res => {
-        console.log(res.body.interestedIn)
         dispatch(receiveInterestedInList(res.body.interestedIn))
       })
       .catch((err) => {
