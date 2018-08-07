@@ -40,7 +40,6 @@ function getInvitedToList(id, conn) {
   const db = conn || connection
   return db('user_invitedto_events')
     .join('users', 'users.id', 'invitee_user_id')
-    .join('users', 'users.id', 'inviter_user_id')
     .join('events', 'events.id', 'event_id')
     .where('users.id', id)
     .select()
