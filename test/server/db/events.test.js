@@ -23,7 +23,7 @@ test('getPublicEvents returns 4 public events', () => {
     })
 })
 
-test('getPublicEventByName returns the named event', () => {
+test('getPublicEventByName returns the named public event', () => {
   const expected = 'Moon-Festival'
   return db.getPublicEventByName('Moon-Festival', testDb)
     .then(pEvent => {
@@ -51,27 +51,49 @@ test('getLocalEvents returns 4 local events', () => {
     })
 })
 
-// test('getLocalEventByName returns 3 PublicEvents', () => {
-//   return db.getLocalEventByName(testDb)
+test('getLocalEventByName returns the named local event', () => {
+  const expected = 'Jewellery-Sale'
+  return db.getLocalEventByName('Jewellery-Sale', testDb)
+    .then(lEvent => {
+      const actual = lEvent.eventName
+      expect(actual).toBe(expected)
+    })
+    .catch(err => expect(err).toBeNull())
+})
 
-// })
+test('getCategories returns 10 categories', () => {
+  return db.getCategories(testDb)
+    .then(categories => {
+      expect(categories.length).toBe(10)
+    })
+})
 
-// test('getCategories returns 3 PublicEvents', () => {
-//   return db.getCategories(testDb)
+test.skip('getCategoryById returns the category based on the id', () => {
+  const expected = 'Concerts'
+  return db.getCategoryById(1, testDb)
+    .then(category => {
+      const actual = category.categoryName
+      expect(actual).toBe(expected)
+    })
+    .catch(err => expect(err).toBeNull())
+})
 
-// })
+test('getCategoryByName returns the named category', () => {
+  const expected = 'Gigs'
+  return db.getCategoryByName('Gigs', testDb)
+    .then(category => {
+      const actual = category.categoryName
+      expect(actual).toBe(expected)
+    })
+    .catch(err => expect(err).toBeNull())
+})
 
-// test('getCategoryById returns 3 PublicEvents', () => {
-//   return db.getCategoryById(testDb)
-
-// })
-
-// test('getCategoryByName returns 3 PublicEvents', () => {
-//   return db.getCategoryByName(testDb)
-
-// })
-
-// test('getEventFromCategory returns 3 PublicEvents', () => {
-//   return db.getEventFromCategory(testDb)
-
-// })
+test('getEventFromCategory returns one event from the category', () => {
+  const expected = 'Balu-Brigada'
+  return db.getEventFromCategory('Gigs', 'Balu-Brigada', testDb)
+    .then(event => {
+      const actual = event.eventName
+      expect(actual).toBe(expected)
+    })
+    .catch(err => expect(err).toBeNull())
+})
