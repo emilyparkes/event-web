@@ -17,21 +17,17 @@ test('test environment is operating correctly', () => {
 })
 
 test('getUserProfile returns the user profile', () => {
-  const expected = {
-    bio: 'I\'m the dev.',
-    email: 'emilycoco@me.com',
-    firstName: 'emily',
-    location: 'Auckland',
-    phone: '021 555 555',
-    preferredName: 'em',
-    profilePic: 'val',
-    surname: 'parkes',
-    username: 'emilycoco'
-  }
   return db.getUserProfile('emilycoco', testDb)
     .then(profile => {
-      const actual = profile
-      expect(actual).toEqual(expected)
+      const actual = profile.username
+      expect(actual).toBe('emilycoco')
+    })
+})
+
+test('getUserProfile returns a user with the correct AboutMe info', () => {
+  return db.getUserProfile('emilycoco', testDb)
+    .then(user => {
+      expect(user.bio).toBe('I\'m the dev.')
     })
 })
 
