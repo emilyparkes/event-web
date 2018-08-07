@@ -15,7 +15,7 @@ class InterestedIn extends React.Component {
 
   render() {
     return (
-      <div className='friends'>
+      <div className='interestedin'>
         <div>Interested In:</div>
         {this.props.interestedIn.map(event =>
           <div key={event.event_id}>
