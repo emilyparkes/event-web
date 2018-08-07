@@ -61,22 +61,17 @@ test('getLocalEventByName returns the named local event', () => {
     .catch(err => expect(err).toBeNull())
 })
 
-test('getCategories returns 10 categories', () => {
+test('getCategories returns the 10 categories', () => {
   return db.getCategories(testDb)
     .then(categories => {
       expect(categories.length).toBe(10)
     })
 })
 
-test.skip('getCategoryById returns the category based on the id', () => {
-  const expected = 'Concerts'
-  return db.getCategoryById(1, testDb)
-    .then(category => {
-      const actual = category.categoryName
-      expect(actual).toBe(expected)
-    })
-    .catch(err => expect(err).toBeNull())
-})
+// test('getCategoryById returns the category based on the id', () => {
+//   return db.getCategoryById(testDb)
+
+// })
 
 test('getCategoryByName returns the named category', () => {
   const expected = 'Gigs'
