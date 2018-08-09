@@ -5,10 +5,10 @@ import baseUrl from '../../lib/base-url'
 
 export const RECEIVE_PUBLIC_EVENT_BY_NAME = 'RECEIVE_PUBLIC_EVENT_BY_NAME'
 
-export const receivePublicEventByName = (pEvent) => {
+export const receivePublicEventByName = (publicEvent) => {
   return {
     type: RECEIVE_PUBLIC_EVENT_BY_NAME,
-    pEvent
+    publicEvent
   }
 }
 

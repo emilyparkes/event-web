@@ -6,7 +6,7 @@ const initialState = {}
 const publicEvent = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_PUBLIC_EVENT_BY_NAME:
-      return action.pEvent
+      return action.publicEvent
     default:
       return state
   }
