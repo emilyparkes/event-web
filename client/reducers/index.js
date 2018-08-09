@@ -17,7 +17,7 @@ import eventFromCategory from './categories/event-from-category'
 import lEvent from './local-e/l-event'
 import localEvents from './local-e/local-events'
 
-import pEvent from './public-e/p-event'
+import publicEvent from './public-e/p-event'
 import publicEvents from './public-e/public-events'
 
 export default combineReducers({
@@ -33,6 +33,6 @@ export default combineReducers({
   eventFromCategory,
   lEvent,
   localEvents,
-  pEvent,
+  publicEvent,
   publicEvents
 })
