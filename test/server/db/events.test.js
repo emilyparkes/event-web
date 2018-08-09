@@ -12,7 +12,7 @@ beforeEach(() => {
 
 afterEach(() => env.cleanup(testDb))
 
-test('test environment is operating correctly', () => {
+test('test environment for db events is operating correctly', () => {
   expect(true).toBeTruthy()
 })
 

@@ -24,13 +24,13 @@ class PublicEvent extends React.Component {
         </div>
 
         <div className='page-section'>
-          {this.props.pEvent.date}
-          {this.props.pEvent.time}
-          {this.props.pEvent.location}
-          {this.props.pEvent.address}
-          {this.props.pEvent.tickets}
-          {this.props.pEvent.website}
-          {this.props.pEvent.blurb}
+          {this.props.publicEvent.date}
+          {this.props.publicEvent.time}
+          {this.props.publicEvent.location}
+          {this.props.publicEvent.address}
+          {this.props.publicEvent.tickets}
+          {this.props.publicEvent.website}
+          {this.props.publicEvent.blurb}
         </div>
 
       </div>
@@ -40,7 +40,7 @@ class PublicEvent extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    pEvent: state.pEvent
+    publicEvent: state.publicEvent
   }
 }
 
