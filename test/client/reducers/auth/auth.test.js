@@ -3,7 +3,7 @@ import {
   RECEIVE_SIGNIN,
   REQUEST_USER_REGISTRATION,
   RECEIVE_USER_REGISTRATION
-} from '../../../../actions/auth/auth'
+} from '../../../../client/actions/auth/auth'
 import auth from '../../../../client/reducers/auth/auth'
 
 test('test environment for categories reducer is operating correctly', () => {
@@ -34,7 +34,7 @@ test('auth returns true during REQUEST_SIGNIN', () => {
     type: REQUEST_SIGNIN
   }
   const newState = auth(currentState, action)
-  expect(newState).toBe(false)
+  expect(newState).toBe(true)
 })
 
 test('auth returns false during RECEIVE_SIGNIN', () => {
@@ -43,5 +43,5 @@ test('auth returns false during RECEIVE_SIGNIN', () => {
     type: RECEIVE_SIGNIN
   }
   const newState = auth(currentState, action)
-  expect(newState).toBe(true)
+  expect(newState).toBe(false)
 })
