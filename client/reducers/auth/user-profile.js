@@ -1,6 +1,7 @@
-import { 
+import {
   RECEIVE_USER_PROFILE,
-  RECEIVE_SAVE_PROFILE } from '../../actions/auth/user-profile'
+  RECEIVE_SAVE_PROFILE
+} from '../../actions/auth/user-profile'
 
 const initialState = {
   firstName: '',
