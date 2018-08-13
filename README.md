@@ -39,10 +39,11 @@ yarn dev
 ```
 
 ### Testing
+- Run the test command
 ```shell
 yarn test
 ```
-
+- Result: PASS for 36 test suites and 122 tests
 
 #### References
 [Colour Palette](https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=4527A0&secondary.color=4DD0E1)
