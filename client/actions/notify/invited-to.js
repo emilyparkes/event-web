@@ -16,7 +16,6 @@ export function getInvitedToList() {
   return (dispatch) => {
     request.get(`${baseUrl}/api/v1/notify/invitedto`)
       .then(res => {
-        console.log(res.body.invitedTo)
         dispatch(receiveInvitedToList(res.body.invitedTo))
       })
       .catch((err) => {
