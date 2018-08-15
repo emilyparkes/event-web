@@ -8,6 +8,7 @@ class AklMap extends React.Component {
   render() {
 
     return (
+      <div className='map'>
       <Map center={[-36.8485, 174.7633]}  zoom={12}>
         <TileLayer
         url='https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
@@ -41,6 +42,7 @@ class AklMap extends React.Component {
           })
           )} */}
       </Map>
+      </div>
     )
   }
 }
