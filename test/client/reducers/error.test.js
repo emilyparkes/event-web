@@ -18,12 +18,12 @@ test('errorMessage returns the error message during SHOW_ERROR', () => {
   expect(newState).toBe(action.message)
 })
 
-test.skip('errorMessage returns an empty string during CLEAR_ERROR', () => {
-  const currentState = 'current error message'
-  const action = { type: CLEAR_ERROR }
-  const newState = errorMessage(currentState, action)
-  expect(newState).toBe('')
-})
+// test.skip('errorMessage returns an empty string during CLEAR_ERROR', () => {
+//   const currentState = 'current error message'
+//   const action = { type: CLEAR_ERROR }
+//   const newState = errorMessage(currentState, action)
+//   expect(newState).toBe('')
+// })
 
 test('errorMessage returns the current state by default', () => {
   const currentState = ''

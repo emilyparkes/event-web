@@ -27,7 +27,7 @@ class Profile extends React.Component {
 
         <div className='heading-section'>
           <div className='welcome-preferred-name'>
-            Welcome to your profile {profile.preferredName}!
+            <h3>Welcome to your profile {profile.preferredName}!</h3>
           </div>
         </div>
 
