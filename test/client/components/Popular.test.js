@@ -3,9 +3,9 @@ import Enzyme, {shallow, render, mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import './setup-env'
 
-import Home from '../../../client/components/Home'
+import Popular from '../../../client/components/Popular'
 
-Home.prototype.componentDidMount = () => {}
+Popular.prototype.componentDidMount = () => {}
 
 Enzyme.configure({adapter: new Adapter()})
 
