@@ -5,6 +5,8 @@ import Header from './sections/Header'
 
 import Home from './Home'
 
+import Eventfinda from './Eventfinda'
+
 import Register from './auth/Register'
 import SignIn from './auth/SignIn'
 
@@ -36,6 +38,7 @@ class App extends React.Component {
         <div className='app-box'>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route path='/eventf' component={Eventfinda} />
 
             <Route path='/register' component={Register} />
             <Route path='/signin' component={SignIn} />
