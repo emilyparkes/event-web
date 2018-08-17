@@ -19,7 +19,7 @@ class Eventfinda extends React.Component {
 
         <div className='page-section'>
         {this.props.name}
-        {this.props.url}
+        {/* {} */}
         </div>
       </div>
     )
