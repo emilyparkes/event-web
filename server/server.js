@@ -7,6 +7,8 @@ const publicEventsRoutes = require('./routes/public-events')
 const localEventsRoutes = require('./routes/local-events')
 const eventCategoriesRoutes = require('./routes/categories')
 
+const eventfindaRoutes = require('./routes/eventfinda')
+
 const usersRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
 
@@ -22,6 +24,8 @@ server.use(express.json())
 server.use('/api/v1/public-events', publicEventsRoutes)
 server.use('/api/v1/local-events', localEventsRoutes)
 server.use('/api/v1/eventscategories', eventCategoriesRoutes)
+
+server.use('/api/v1/eventfinda', eventfindaRoutes)
 
 server.use('/api/v1/users', usersRoutes)
 server.use('/api/v1/auth', authRoutes)
