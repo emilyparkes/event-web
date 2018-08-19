@@ -1,9 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import { Link } from 'react-router-dom'
+
+import { getEventfindaApi } from '../actions/eventfinda'
 
 class Eventfinda extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getEventfindaApi())
   }
 
   render() {
@@ -18,12 +26,19 @@ class Eventfinda extends React.Component {
 
 
         <div className='page-section'>
-        {this.props.name}
-        {/* {} */}
+        {this.props.eventfinda.name}
         </div>
       </div>
     )
   }
 }
 
-export default Eventfinda
+
+const mapStateToProps = (state) => {
+  return {
+    eventfinda: state.eventfinda
+  }
+}
+
+
+export default connect(mapStateToProps)(Eventfinda)
