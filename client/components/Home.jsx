@@ -1,9 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { getEventfindaApi } from '../actions/eventfinda'
+
+
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   constructor(props) {
     super(props)
+  }
+  componentDidMount() {
+    this.props.dispatch(getEventfindaApi())
   }
 
   render() {
@@ -12,11 +19,11 @@ class Home extends React.Component {
         <div className='page-heading-section'>
           <div className='page-title-font'>
             <h1>Home</h1>
-            </div>
-            <h6>Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.</h6>
+          </div>
+          <h6>Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.</h6>
         </div>
 
-       
+
         <div className='page-section'>
           <Link to={'/public-events'}>
             <button className='pevent-buttons'>
@@ -32,6 +39,8 @@ class Home extends React.Component {
               </button>
           </Link></div>
 
+        {this.props.eventfinda.name}
+
         {/* <div className='page-section'>
           {this.state.errorMessage &&
             <h1>{this.state.errorMessage}</h1>
@@ -42,4 +51,12 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+
+const mapStateToProps = (state) => {
+  return {
+    eventfinda: state.eventfinda
+  }
+}
+
+
+export default connect(mapStateToProps)(Home)
