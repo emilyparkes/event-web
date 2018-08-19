@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 
 import errorMessage from './error'
+import eventfinda from './eventfinda'
 
 import auth from './auth/auth'
 import profile from './auth/user-profile'
@@ -22,6 +23,7 @@ import publicEvents from './public-e/public-events'
 
 export default combineReducers({
   errorMessage,
+  eventfinda,
   auth,
   profile,
   friendsList,
