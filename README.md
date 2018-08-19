@@ -43,7 +43,8 @@ yarn dev
 ```shell
 yarn test
 ```
-- Result: PASS for 36 test suites and 122 tests
+- Result: PASS for 36 test suites and 121 tests
+
 ![](server/public/images-github/tests.png)
 
 #### References
