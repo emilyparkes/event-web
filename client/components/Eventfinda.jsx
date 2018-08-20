@@ -16,7 +16,8 @@ class Eventfinda extends React.Component {
 
   render() {
     return (
-      <div className='Eventfindapg'>
+      <div className='eventfindapg'>
+
         <div className='page-heading-section'>
           <div className='page-title-font'>
             <h1>Eventfinda</h1>
@@ -26,7 +27,10 @@ class Eventfinda extends React.Component {
 
 
         <div className='page-section'>
-        {this.props.eventfinda.name}
+          {this.props.eventfinda.map(event =>
+            <button key={event.id} className='public-events-buttons'>
+              {event.name}
+            </button>)}
         </div>
       </div>
     )
