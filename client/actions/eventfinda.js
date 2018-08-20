@@ -15,7 +15,7 @@ export function getEventfindaApi() {
   return (dispatch) => {
     request.get('/api/v1/eventfinda/eventf')
       .then(res => {
-        dispatch(receiveApi(res.body))
+        dispatch(receiveApi(res.body.events))
       })
       .catch(err => {
         res.status(500).send(err.message)
