@@ -1,7 +1,7 @@
 import { 
   RECEIVE_API} from '../actions/eventfinda'
 
-const initialState = {}
+const initialState = []
 
 const eventfinda = (state = initialState, action) => {
   switch (action.type) {
