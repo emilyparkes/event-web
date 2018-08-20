@@ -12,7 +12,7 @@ const headerValue = `Basic ${buf.toString('base64')}`
 
 
 router.get('/eventf', (req, res) => {
-  request.get('http://api.eventfinda.co.nz/v2/events.json')
+  request.get('http://api.eventfinda.co.nz/v2/events.json?row=10')
     .set("Authorization", headerValue)
     .then(resp => {
       const events = resp.body.events

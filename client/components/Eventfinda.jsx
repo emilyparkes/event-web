@@ -28,9 +28,10 @@ class Eventfinda extends React.Component {
 
         <div className='page-section'>
           {this.props.eventfinda.map(event =>
-            <button key={event.id} className='public-events-buttons'>
-              {event.name}
-            </button>)}
+            <div key={event.id} className='events'>
+              <h1>{event.name}</h1>
+              <h5>{event.description}</h5>
+            </div>)}
         </div>
       </div>
     )
