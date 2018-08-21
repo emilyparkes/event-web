@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getEventfindaApi } from '../actions/eventfinda'
+import { getApi } from '../actions/ticketmaster'
 
 
 import { Link } from 'react-router-dom'
@@ -10,7 +10,7 @@ class Home extends React.Component {
     super(props)
   }
   componentDidMount() {
-    this.props.dispatch(getEventfindaApi())
+    this.props.dispatch(getApi())
   }
 
   render() {
@@ -39,7 +39,7 @@ class Home extends React.Component {
               </button>
           </Link></div>
 
-        {this.props.eventfinda.name}
+        {this.props.ticketmaster.name}
 
         {/* <div className='page-section'>
           {this.state.errorMessage &&
@@ -54,7 +54,7 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    eventfinda: state.eventfinda
+    ticketmaster: state.ticketmaster
   }
 }
 

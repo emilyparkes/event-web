@@ -2,7 +2,7 @@ import React from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import { connect } from 'react-redux'
 
-import { getEventfindaApi } from '../actions/eventfinda'
+import { getApi } from '../actions/ticketmaster'
 
 class AklMap extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class AklMap extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getEventfindaApi())
+    this.props.dispatch(getApi())
   }
 
   render() {
@@ -36,7 +36,7 @@ class AklMap extends React.Component {
             </Popup>
           </Marker>
           {/* Example */}
-          {(this.props.eventfinda && this.props.eventfinda.map((event) => {
+          {(this.props.ticketmaster && this.props.ticketmaster.map((event) => {
             const position = {
               lat: event.point.lat,
               lng: event.point.lng
@@ -60,7 +60,7 @@ class AklMap extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    eventfinda: state.eventfinda
+    ticketmaster: state.ticketmaster
   }
 }
 
