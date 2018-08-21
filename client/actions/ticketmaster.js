@@ -16,7 +16,6 @@ export function getApi() {
     request.get('/api/v1/ticketmaster/events')
       .then(res => {
         dispatch(receiveApi(res.body))
-        console.log(res.body)
       })
       .catch((err) => {
         dispatch(showError(err.message))
