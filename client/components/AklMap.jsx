@@ -35,19 +35,19 @@ class AklMap extends React.Component {
             </span>
             </Popup>
           </Marker>
-          {/* Example */}
-          {(this.props.ticketmaster && this.props.ticketmaster.map((event) => {
+      
+          {/* {(this.props.ticketmaster && this.props.ticketmaster.map((event) => {
             const position = {
-              lat: event.point.lat,
-              lng: event.point.lng
+              lat: event.seatmap._embedded.venues[0].location.lattitude,
+              lng: event.seatmap._embedded.venues[0].location.lattitude
             }
             return (
               <Marker key={event.id} position={position}>
-                <Popup><span>{event.name}<br />{event.address}</span></Popup>
+                <Popup><span>{event.name}<br />{event._embedded.venues.address}</span></Popup>
               </Marker>
             )
           })
-          )}
+          )} */}
         </Map>
       </div>
     )
