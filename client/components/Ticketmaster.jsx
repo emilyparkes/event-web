@@ -3,30 +3,34 @@ import { connect } from 'react-redux'
 
 import { Link } from 'react-router-dom'
 
-import { getEventfindaApi } from '../actions/eventfinda'
+import { getApi } from '../actions/ticketmaster'
 
-class Eventfinda extends React.Component {
+class Ticketmaster extends React.Component {
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
-    this.props.dispatch(getEventfindaApi())
+    this.props.dispatch(getApi())
   }
 
   render() {
     return (
-      <div className='Eventfindapg'>
+      <div className='ticketmasterpg'>
+
         <div className='page-heading-section'>
           <div className='page-title-font'>
-            <h1>Eventfinda</h1>
+            <h1>Ticketmaster</h1>
           </div>
           <h6>Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.</h6>
         </div>
 
 
         <div className='page-section'>
-        {this.props.eventfinda.name}
+          {this.props.ticketmaster.map(event =>
+            <button key={event.id} className='events'>
+              {event.name}
+            </button>)}
         </div>
       </div>
     )
@@ -36,9 +40,9 @@ class Eventfinda extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    eventfinda: state.eventfinda
+    ticketmaster: state.ticketmaster
   }
 }
 
 
-export default connect(mapStateToProps)(Eventfinda)
+export default connect(mapStateToProps)(Ticketmaster)

@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import baseUrl from '../lib/base-url'
+import { showError } from './error'
 
 export const RECEIVE_API = 'RECEIVE_API'
 
@@ -11,14 +11,15 @@ export const receiveApi = (events) => {
   }
 }
 
-export function getEventfindaApi() {
+export function getApi() {
   return (dispatch) => {
-    request.get('/api/v1/eventfinda/eventf')
+    request.get('/api/v1/ticketmaster/events')
       .then(res => {
         dispatch(receiveApi(res.body))
+        console.log(res.body)
       })
-      .catch(err => {
-        res.status(500).send(err.message)
+      .catch((err) => {
+        dispatch(showError(err.message))
       })
   }
 }   
