@@ -15,7 +15,6 @@ router.get('/events', (req, res) => {
   request.get('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=NZ&apikey=CYZHuVa4FtvN1VzfaCoaEFmUDaXlDn1y')
     .then(resp => {
       const data = resp.body._embedded
-      // console.log(resp.body._embedded.events)
       res.send(data.events)
     })
     .catch(err => {
