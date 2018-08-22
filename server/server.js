@@ -11,6 +11,7 @@ const ticketmasterRoutes = require('./routes/ticketmaster')
 
 const usersRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const addRoutes = require('./routes/add')
 
 const notifyRoutes = require('./routes/notify')
 
@@ -29,6 +30,7 @@ server.use('/api/v1/ticketmaster', ticketmasterRoutes)
 
 server.use('/api/v1/users', usersRoutes)
 server.use('/api/v1/auth', authRoutes)
+server.use('/api/v1/add', addRoutes)
 
 server.use('/api/v1/notify', notifyRoutes)
 
