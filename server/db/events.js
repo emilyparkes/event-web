@@ -11,7 +11,8 @@ module.exports = {
   getCategories,
   getCategoryById,
   getCategoryByName,
-  getEventFromCategory
+  getEventFromCategory,
+  createEvent
 }
 
 // PUBLIC EVENTS FUNCTIONS
@@ -93,19 +94,41 @@ function getCategoryByName(category, conn) {
 function getEventsByCategory(category, conn) {
   const db = conn || connection
   return db('events')
-  .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
-  .join('categories', 'categories.id', 'events_categories_junction.category_id' )
-  .where('categories.categoryName', category)
-  .select()
+    .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
+    .join('categories', 'categories.id', 'events_categories_junction.category_id')
+    .where('categories.categoryName', category)
+    .select()
 }
 
 function getEventFromCategory(category, eventName, conn) {
   const db = conn || connection
   return db('events')
-  .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
-  .join('categories', 'categories.id', 'events_categories_junction.category_id' )
-  .where('categories.categoryName', category)
-  .where('events.eventName', eventName)
-  .select()
-  .first()
+    .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
+    .join('categories', 'categories.id', 'events_categories_junction.category_id')
+    .where('categories.categoryName', category)
+    .where('events.eventName', eventName)
+    .select()
+    .first()
+}
+
+// CREATE EVENT FUNCTION
+
+function createEvent(newEvent, conn) {
+  const db = conn || connection
+  return db('events')
+    .returning(id)
+    .insert ({
+      eventName: newEvent.eventName,
+        imageUrl: newEvent.imageUrl, 
+        date_start: newEvent.date_start, 
+        time_start: newEvent.time_start,
+        date_end: newEvent.date_end,
+        time_end: newEvent.time_end,
+        location: newEvent.location,
+        address: newEvent.address,
+        restrictions: newEvent.restrictions,
+        ticketUrl: newEvent.ticketUrl,
+        website: newEvent.website,
+        description: newEvent.description
+    })
 }
