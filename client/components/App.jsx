@@ -10,7 +10,7 @@ import Ticketmaster from './Ticketmaster'
 import Register from './auth/Register'
 import SignIn from './auth/SignIn'
 
-import Add from './Add'
+import CreateEvent from './CreateEvent'
 import Popular from './Popular'
 import AklMap from './AklMap'
 import Calendar from './Calendar'
@@ -43,7 +43,7 @@ class App extends React.Component {
 
             <Route path='/register' component={Register} />
             <Route path='/signin' component={SignIn} />
-            <Route path='/create-event' component={Add} />
+            <Route path='/create-event' component={CreateEvent} />
 
             <Route path='/popular' component={Popular} />
             <Route path='/map' component={AklMap} />
