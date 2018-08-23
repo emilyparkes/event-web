@@ -7,6 +7,16 @@ class CreateEvent extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  handleClick() {
+    // this.props.dispatch(sendAddForm(this.state))
+  }
+
+  handleChange (e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
@@ -21,17 +31,7 @@ class CreateEvent extends React.Component {
           {/* </select> */}
         </div>
 
-        handleClick () {
-          // this.props.dispatch(sendAddForm(this.state))
-        }
-
-        handleChange (e) {
-          this.setState({
-            [e.target.name]: e.target.value
-          })
-        }
-
-        <div>
+        <form>
           Event Name: <br />
           <input name='event' placeholder='' />
           <br />
@@ -53,17 +53,21 @@ class CreateEvent extends React.Component {
           Address: <br />
           <input name='address' placeholder='' />
           <br />
-          Tickets: <br />
-          <input name='tickets' placeholder='' />
+          Tickets purchased here: <br />
+          <input name='ticketsUrl' placeholder='' />
+          <br />
+          Ticket Restrictions: <br />
+          <input name='restriictions' placeholder='' />
           <br />
           Website: <br />
           <input name='website' placeholder='' />
           <br />
           Description: <br />
-          <input name='blurb' placeholder='' />
+          <input name='description' placeholder='' />
+          <br />
           <br />
           <button type='submit' onClick={this.handleClick}>Submit Event</button>
-        </div>
+        </form>
         <br />
         <br />
       </div>
