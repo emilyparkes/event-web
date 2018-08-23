@@ -8,8 +8,9 @@ module.exports = router
 
 router.use(bodyParser.json())
 
-router.get('/create-event', (req, res) => {
-  db.createEvent()
+router.post('/create-event', (req, res) => {
+  newEvent = res.body
+  db.createEvent(newEvent)
     // .then((event) => {
     //   res.send(event)
     // })
