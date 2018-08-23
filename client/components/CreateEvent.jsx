@@ -11,7 +11,7 @@ class CreateEvent extends React.Component {
     // this.props.dispatch(sendAddForm(this.state))
   }
 
-  handleChange (e) {
+  handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -35,6 +35,12 @@ class CreateEvent extends React.Component {
           Event Name: <br />
           <input name='event' placeholder='' />
           <br />
+          Location: <br />
+          <input name='location' placeholder='' />
+          <br />
+          Address: <br />
+          <input name='address' placeholder='' />
+          <br />
           Date Start: <br />
           <input name='date' placeholder='' />
           <br />
@@ -47,11 +53,11 @@ class CreateEvent extends React.Component {
           Time End: <br />
           <input name='date' placeholder='' />
           <br />
-          Location: <br />
-          <input name='location' placeholder='' />
+          Event Image: <br />
+          <input type='file' name='img' placeholder='' />
           <br />
-          Address: <br />
-          <input name='address' placeholder='' />
+          Description: <br />
+          <input name='description' placeholder='' />
           <br />
           Tickets purchased here: <br />
           <input name='ticketsUrl' placeholder='' />
@@ -59,11 +65,20 @@ class CreateEvent extends React.Component {
           Ticket Restrictions: <br />
           <input name='restriictions' placeholder='' />
           <br />
-          Website: <br />
+          Organised By: <br />
+          <input name='organiser' placeholder='' />
+          <br />
+          Organiser Description: <br />
+          <input name='organiser' placeholder='' />
+          <br />
+          Links (Facebook/Twitter): <br />
           <input name='website' placeholder='' />
           <br />
-          Description: <br />
-          <input name='description' placeholder='' />
+          Event Type: <br />
+          <input name='type' placeholder='' />
+          <br />
+          Event Category: <br />
+          <input name='category' placeholder='' />
           <br />
           <br />
           <button type='submit' onClick={this.handleClick}>Submit Event</button>
