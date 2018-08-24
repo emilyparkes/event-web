@@ -15,8 +15,7 @@ exports.up = (knex, Promise) => {
         table.string('access')
         table.string('tickets')
         table.string('restrictions')
-        table.string('organiser')
-        table.integer('organiser_description')
+        table.string('eventType')
       })
     }
   })
