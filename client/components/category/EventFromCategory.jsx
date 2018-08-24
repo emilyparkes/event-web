@@ -23,13 +23,14 @@ export class EventByCategory extends React.Component {
         </div>
 
         <div className='page-section' >
-          {this.props.eventFromCategory.date}
-          {this.props.eventFromCategory.time}
-          {this.props.eventFromCategory.location}
-          {this.props.eventFromCategory.address}
+        {this.props.eventFromCategory.description}
+          {this.props.eventFromCategory.date_start}
+          {this.props.eventFromCategory.date_end}
+          {this.props.eventFromCategory.time_start}
+          {this.props.eventFromCategory.time_end}
+          {this.props.eventFromCategory.access}
           {this.props.eventFromCategory.tickets}
-          {this.props.eventFromCategory.website}
-          {this.props.eventFromCategory.blurb}
+          {this.props.eventFromCategory.restrictions}
         </div>
 
       </div>
