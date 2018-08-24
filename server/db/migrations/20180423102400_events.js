@@ -4,8 +4,6 @@ exports.up = (knex, Promise) => {
       return knex.schema.createTable('events', (table) => {
         table.increments('id').primary()
         table.string('eventName')
-        table.string('region')
-        table.string('address')
         table.date('date_start')
         table.string('time_start')
         table.date('date_end')

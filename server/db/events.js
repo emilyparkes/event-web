@@ -116,7 +116,6 @@ function getEventFromCategory(category, eventName, conn) {
 function createEvent(newEvent, conn) {
   const db = conn || connection
   return db('events')
-    .returning(id)
     .insert ({
       eventName: newEvent.eventName,
         imageUrl: newEvent.imageUrl, 
