@@ -32,60 +32,133 @@ class CreateEvent extends React.Component {
         </div>
 
         <form>
-          Event Name: <br />
-          <input name='event' placeholder='' />
+          <label>
+            Event Name: <br />
+            <input name='eventName' placeholder='' />
+          </label>
           <br />
-          Location: <br />
-          <input name='location' placeholder='' />
+          <label>
+            Venue Name: <br />
+            <input name='venueName' placeholder='' />
+          </label>
           <br />
-          Address: <br />
-          <input name='address' placeholder='' />
+          <label>
+            Venue Address: <br />
+            <input name='venueAddress' placeholder='' />
+          </label>
           <br />
-          Date Start: <br />
-          <input name='date' placeholder='' />
+          <label>
+            Region: <br />
+            <select name='region'>
+              <option value='all ages'>Select one...</option>
+              <option value='Northland'>Northland</option>
+              <option value='Auckland'>Auckland</option>
+              <option value='Waikato'>Waikato</option>
+              <option value='Gisbourne'>Gisbourne</option>
+              <option value='Hawkes Bay'>Hawke's Bay</option>
+              <option value='Taranaki'>Taranaki</option>
+              <option value='Manawatu/Whanganui'>Manawatu/Whanganui</option>
+              <option value='Wellington'>Wellington</option>
+              <option value='Tasman'>Tasman</option>
+              <option value='Nelson'>Nelson</option>
+              <option value='Marlborough'>Marlborough</option>
+              <option value='West Coast'>West Coast</option>
+              <option value='Canterbury'>Canterbury</option>
+              <option value='Otago'>Otago</option>
+              <option value='Southland'>Southland</option>
+            </select>
+          </label>
           <br />
-          Time Start: <br />
-          <input name='date' placeholder='' />
+          <label>
+            Town/Suburb: <br />
+            <input name='townSuburb' placeholder='' />
+          </label>
           <br />
-          Date End: <br />
-          <input name='date' placeholder='' />
+          <label>
+            Date Start: <br />
+            <input name='dateStart' placeholder='' />
+          </label>
           <br />
-          Time End: <br />
-          <input name='date' placeholder='' />
+          <label>
+            Time Start: <br />
+            <input name='timeStart' placeholder='' />
+          </label>
           <br />
-          Event Image: <br />
-          <input type='file' name='img' placeholder='' />
+          <label>
+            Date End: <br />
+            <input name='dateEnd' placeholder='' />
+          </label>
           <br />
-          Description: <br />
-          <input name='description' placeholder='' />
+          <label>
+            Time End: <br />
+            <input name='timeEnd' placeholder='' />
+          </label>
           <br />
-          Tickets purchased here: <br />
-          <input name='ticketsUrl' placeholder='' />
+          <label>
+            Event Image: <br />
+            <input type='file' name='image' placeholder='' />
+          </label>
           <br />
-          Ticket Restrictions: <br />
-          <input name='restriictions' placeholder='' />
+          <label>
+            Description: <br />
+            <input name='description' placeholder='' />
+          </label>
           <br />
-          Organised By: <br />
-          <input name='organiser' placeholder='' />
+          <label>
+            Access: <br />
+            <select name='access'>
+              <option value='Free Event'>Free Event</option>
+              <option value='Door Sales'>Door Sales</option>
+              <option value='Online Tickets'>Online Tickets</option>
+              <option value='Online Tickets and Door Sales Available'>Online Tickets and Door Sales Available</option>
+            </select>
+          </label>
           <br />
-          Organiser Description: <br />
-          <input name='organiser' placeholder='' />
+          <label>
+            Tickets purchased here: <br />
+            <input name='tickets' placeholder='' />
+          </label>
           <br />
-          Links (Facebook/Twitter): <br />
-          <input name='website' placeholder='' />
+          <label>
+            Ticket Restrictions: <br />
+            <select name='restrictions'>
+              <option value='all ages'>All Ages</option>
+              <option value='R18'>R18</option>
+              <option value='R21'>R21</option>
+            </select>
+          </label>
           <br />
-          Event Type: <br />
-          <input name='type' placeholder='' />
+          <label>
+            Organised By: <br />
+            <input name='organiser' placeholder='' />
+          </label>
           <br />
-          Event Category: <br />
-          <input name='category' placeholder='' />
+          <label>
+            Organiser Description: <br />
+            <input name='organiserDescription' placeholder='' />
+          </label>
+          <br />
+          <label>
+            Links (Facebook/Twitter): <br />
+            <input name='website' placeholder='' />
+          </label>
+          <br />
+          <label>
+            Event Type: <br />
+            <input name='eventType' placeholder='' />
+          </label>
+          <br />
+          <label>
+            Event Category: <br />
+            <input name='eventCategory' placeholder='' />
+          </label>
           <br />
           <br />
           <button type='submit' onClick={this.handleClick}>Submit Event</button>
         </form>
         <br />
         <br />
-      </div>
+      </div >
     )
   }
 }
