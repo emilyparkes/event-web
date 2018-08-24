@@ -24,13 +24,15 @@ class PublicEvent extends React.Component {
         </div>
 
         <div className='page-section'>
-          {this.props.publicEvent.date}
-          {this.props.publicEvent.time}
-          {this.props.publicEvent.location}
-          {this.props.publicEvent.address}
+          {this.props.publicEvent.description}
+          {this.props.publicEvent.date_start}
+          {this.props.publicEvent.date_end}
+          {this.props.publicEvent.time_start}
+          {this.props.publicEvent.time_end}
+          {this.props.publicEvent.access}
           {this.props.publicEvent.tickets}
-          {this.props.publicEvent.website}
-          {this.props.publicEvent.blurb}
+          {this.props.publicEvent.restrictions}
+
         </div>
 
       </div>
