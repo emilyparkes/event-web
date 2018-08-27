@@ -116,18 +116,16 @@ function getEventFromCategory(category, eventName, conn) {
 function createEvent(newEvent, conn) {
   const db = conn || connection
   return db('events')
-    .insert ({
+    .insert({
       eventName: newEvent.eventName,
-        imageUrl: newEvent.imageUrl, 
-        date_start: newEvent.date_start, 
-        time_start: newEvent.time_start,
-        date_end: newEvent.date_end,
-        time_end: newEvent.time_end,
-        location: newEvent.location,
-        address: newEvent.address,
-        restrictions: newEvent.restrictions,
-        ticketUrl: newEvent.ticketUrl,
-        website: newEvent.website,
-        description: newEvent.description
+      date_start: newEvent.dateStart,
+      time_start: newEvent.timeStart,
+      date_end: newEvent.dateEnd,
+      time_end: newEvent.timeEnd,
+      image: newEvent.image,
+      description: newEvent.description,
+      access: newEvent.access,
+      tickets: newEvent.tickets,
+      restrictions: newEvent.restrictions
     })
 }
