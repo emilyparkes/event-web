@@ -18,6 +18,9 @@ const Nav = () => {
           <Link to='/profile/emilycoco'>profile</Link>
         </span>
         <span className='nav-link-individual-styling'>
+          <Link to='/popular'>popular</Link>
+        </span>
+        <span className='nav-link-individual-styling'>
           <Link to='/calendar'>calendar</Link>
         </span>
         <span className='nav-link-individual-styling'>
