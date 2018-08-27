@@ -3,12 +3,35 @@ import React from 'react'
 class CreateEvent extends React.Component {
   constructor() {
     super()
+    this.state = {
+      eventName: '',
+      venueName: '',
+      venueAddress: '',
+      townSuburb: '',
+      region: '',
+      dateStart: '',
+      timeStart: '',
+      dateEnd: '',
+      timeEnd: '',
+      image: '',
+      description: '',
+      access: '',
+      tickets: '',
+      restriction: '',
+      organiser: '',
+      organiserDescription: '',
+      website: '',
+      eventType: '',
+      eventCategory: ''
+    }
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleClick() {
-    // this.props.dispatch(sendAddForm(this.state))
+  handleSubmit() {
+    e.preventDefault()
+    this.props.dispatch(sendForm(this.state))
   }
 
   handleChange(e) {
@@ -34,17 +57,22 @@ class CreateEvent extends React.Component {
         <form>
           <label>
             Event Name: <br />
-            <input name='eventName' placeholder='' />
+            <input name='eventName' placeholder='Give it a short distinct name' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Venue Name: <br />
-            <input name='venueName' placeholder='' />
+            <input name='venueName' placeholder='Enter the venue name' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Venue Address: <br />
-            <input name='venueAddress' placeholder='' />
+            <input name='venueAddress' placeholder='Address Line 1' onChange={this.handleChange} />
+          </label>
+          <br />
+          <label>
+            Town/Suburb: <br />
+            <input name='townSuburb' placeholder='Address Line 2' onChange={this.handleChange} />
           </label>
           <br />
           <label>
@@ -70,38 +98,33 @@ class CreateEvent extends React.Component {
           </label>
           <br />
           <label>
-            Town/Suburb: <br />
-            <input name='townSuburb' placeholder='' />
-          </label>
-          <br />
-          <label>
             Date Start: <br />
-            <input name='dateStart' placeholder='' />
+            <input name='dateStart' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Time Start: <br />
-            <input name='timeStart' placeholder='' />
+            <input name='timeStart' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Date End: <br />
-            <input name='dateEnd' placeholder='' />
+            <input name='dateEnd' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Time End: <br />
-            <input name='timeEnd' placeholder='' />
+            <input name='timeEnd' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Event Image: <br />
-            <input type='file' name='image' placeholder='' />
+            <input type='file' name='image' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Description: <br />
-            <input name='description' placeholder='' />
+            <input name='description' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
@@ -116,7 +139,7 @@ class CreateEvent extends React.Component {
           <br />
           <label>
             Tickets purchased here: <br />
-            <input name='tickets' placeholder='' />
+            <input name='tickets' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
@@ -130,31 +153,31 @@ class CreateEvent extends React.Component {
           <br />
           <label>
             Organised By: <br />
-            <input name='organiser' placeholder='' />
+            <input name='organiser' placeholder='Who is responsible for this event' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Organiser Description: <br />
-            <input name='organiserDescription' placeholder='' />
+            <input name='organiserDescription' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Links (Facebook/Twitter): <br />
-            <input name='website' placeholder='' />
+            <input name='website' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Event Type: <br />
-            <input name='eventType' placeholder='' />
+            <input name='eventType' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Event Category: <br />
-            <input name='eventCategory' placeholder='' />
+            <input name='eventCategory' placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <br />
-          <button type='submit' onClick={this.handleClick}>Submit Event</button>
+          <button type='submit' onClick={this.handleSubmit}>Submit Event</button>
         </form>
         <br />
         <br />
