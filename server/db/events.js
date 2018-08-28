@@ -127,5 +127,39 @@ function createEvent(newEvent, conn) {
       access: newEvent.access,
       tickets: newEvent.tickets,
       restrictions: newEvent.restrictions
+    // })
+    // .then((eId) => {
+    //   return db('events_venues_junction')
+    //     .insert({
+    //       event_id: eId[0],
+    //     })
+    //     .then((vId) => {
+    //       return db('events_venues_junction')
+    //         .insert({
+    //           id: vId[0],
+    //           venueName: newEvent.venueName,
+    //           venueAddress: newEvent.venueAddress,
+    //           townSuburb: newEvent.townSuburb,
+    //           region: newEvent.region
+    //         })
+    //     })
     })
 }
+
+
+
+// return db('users')
+//   .insert({
+//     username,
+//     hash,
+//     role: 'member'
+//   })
+//   .then((id) => {
+//     return db('profiles')
+//       .insert({
+//         user_id: id[0],
+//         name,
+//         membership_type: 'member'
+//       })
+//   })
+// }
