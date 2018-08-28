@@ -11,7 +11,8 @@ module.exports = {
   getCategories,
   getCategoryById,
   getCategoryByName,
-  getEventFromCategory
+  getEventFromCategory,
+  createEvent
 }
 
 // PUBLIC EVENTS FUNCTIONS
@@ -93,19 +94,72 @@ function getCategoryByName(category, conn) {
 function getEventsByCategory(category, conn) {
   const db = conn || connection
   return db('events')
-  .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
-  .join('categories', 'categories.id', 'events_categories_junction.category_id' )
-  .where('categories.categoryName', category)
-  .select()
+    .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
+    .join('categories', 'categories.id', 'events_categories_junction.category_id')
+    .where('categories.categoryName', category)
+    .select()
 }
 
 function getEventFromCategory(category, eventName, conn) {
   const db = conn || connection
   return db('events')
-  .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
-  .join('categories', 'categories.id', 'events_categories_junction.category_id' )
-  .where('categories.categoryName', category)
-  .where('events.eventName', eventName)
-  .select()
-  .first()
+    .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
+    .join('categories', 'categories.id', 'events_categories_junction.category_id')
+    .where('categories.categoryName', category)
+    .where('events.eventName', eventName)
+    .select()
+    .first()
 }
+
+// CREATE EVENT FUNCTION
+
+function createEvent(newEvent, conn) {
+  const db = conn || connection
+  return db('events')
+    .insert({
+      eventName: newEvent.eventName,
+      date_start: newEvent.dateStart,
+      time_start: newEvent.timeStart,
+      date_end: newEvent.dateEnd,
+      time_end: newEvent.timeEnd,
+      image: newEvent.image,
+      description: newEvent.description,
+      access: newEvent.access,
+      tickets: newEvent.tickets,
+      restrictions: newEvent.restrictions
+    // })
+    // .then((eId) => {
+    //   return db('events_venues_junction')
+    //     .insert({
+    //       event_id: eId[0],
+    //     })
+    //     .then((vId) => {
+    //       return db('events_venues_junction')
+    //         .insert({
+    //           id: vId[0],
+    //           venueName: newEvent.venueName,
+    //           venueAddress: newEvent.venueAddress,
+    //           townSuburb: newEvent.townSuburb,
+    //           region: newEvent.region
+    //         })
+    //     })
+    })
+}
+
+
+
+// return db('users')
+//   .insert({
+//     username,
+//     hash,
+//     role: 'member'
+//   })
+//   .then((id) => {
+//     return db('profiles')
+//       .insert({
+//         user_id: id[0],
+//         name,
+//         membership_type: 'member'
+//       })
+//   })
+// }

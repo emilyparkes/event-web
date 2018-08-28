@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 
 import errorMessage from './error'
 import ticketmaster from './ticketmaster'
+import newEvent from './create-event'
 
 import auth from './auth/auth'
 import profile from './auth/user-profile'
@@ -24,6 +25,7 @@ import publicEvents from './public-e/public-events'
 export default combineReducers({
   errorMessage,
   ticketmaster,
+  newEvent,
   auth,
   profile,
   friendsList,

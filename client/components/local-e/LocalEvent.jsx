@@ -25,13 +25,14 @@ class LocalEvent extends React.Component {
         </div>
 
         <div className='page-section'>
-          {lEvent.date}
-          {lEvent.time}
-          {lEvent.location}
-          {lEvent.address}
-          {lEvent.tickets}
-          {lEvent.website}
-          {lEvent.blurb}
+          {this.props.lEvent.description}
+          {this.props.lEvent.date_start}
+          {this.props.lEvent.date_end}
+          {this.props.lEvent.time_start}
+          {this.props.lEvent.time_end}
+          {this.props.lEvent.access}
+          {this.props.lEvent.tickets}
+          {this.props.lEvent.restrictions}
         </div>
 
       </div>
