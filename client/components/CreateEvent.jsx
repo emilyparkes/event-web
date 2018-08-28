@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { sendForm } from '../actions/create-event'
 
 class CreateEvent extends React.Component {
   constructor() {
@@ -26,10 +29,9 @@ class CreateEvent extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
     e.preventDefault()
     this.props.dispatch(sendForm(this.state))
   }
@@ -54,25 +56,25 @@ class CreateEvent extends React.Component {
           {/* </select> */}
         </div>
 
-        <form>
+        <form method='post'>
           <label>
             Event Name: <br />
-            <input name='eventName' placeholder='Give it a short distinct name' onChange={this.handleChange} />
+            <input name='eventName' value={this.state.eventName} placeholder='Give it a short distinct name' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Venue Name: <br />
-            <input name='venueName' placeholder='Enter the venue name' onChange={this.handleChange} />
+            <input name='venueName' value={this.state.venueName} placeholder='Enter the venue name' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Venue Address: <br />
-            <input name='venueAddress' placeholder='Address Line 1' onChange={this.handleChange} />
+            <input name='venueAddress' value={this.state.venueAddress} placeholder='Address Line 1' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Town/Suburb: <br />
-            <input name='townSuburb' placeholder='Address Line 2' onChange={this.handleChange} />
+            <input name='townSuburb' value={this.state.townSuburb} placeholder='Address Line 2' onChange={this.handleChange} />
           </label>
           <br />
           <label>
@@ -99,32 +101,32 @@ class CreateEvent extends React.Component {
           <br />
           <label>
             Date Start: <br />
-            <input name='dateStart' placeholder='' onChange={this.handleChange} />
+            <input name='dateStart' value={this.state.dateStart} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Time Start: <br />
-            <input name='timeStart' placeholder='' onChange={this.handleChange} />
+            <input name='timeStart' value={this.state.timeStart} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Date End: <br />
-            <input name='dateEnd' placeholder='' onChange={this.handleChange} />
+            <input name='dateEnd' value={this.state.dateEnd} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Time End: <br />
-            <input name='timeEnd' placeholder='' onChange={this.handleChange} />
+            <input name='timeEnd' value={this.state.timeEnd} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Event Image: <br />
-            <input type='file' name='image' placeholder='' onChange={this.handleChange} />
+            <input type='file' name='image' value={this.state.image} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Description: <br />
-            <input name='description' placeholder='' onChange={this.handleChange} />
+            <input name='description' value={this.state.description} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
@@ -139,7 +141,7 @@ class CreateEvent extends React.Component {
           <br />
           <label>
             Tickets purchased here: <br />
-            <input name='tickets' placeholder='' onChange={this.handleChange} />
+            <input name='tickets' value={this.state.tickets} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
@@ -153,27 +155,27 @@ class CreateEvent extends React.Component {
           <br />
           <label>
             Organised By: <br />
-            <input name='organiser' placeholder='Who is responsible for this event' onChange={this.handleChange} />
+            <input name='organiser' value={this.state.organiser} placeholder='Who is responsible for this event' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Organiser Description: <br />
-            <input name='organiserDescription' placeholder='' onChange={this.handleChange} />
+            <input name='organiserDescription' value={this.state.organiserDescription} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Links (Facebook/Twitter): <br />
-            <input name='website' placeholder='' onChange={this.handleChange} />
+            <input name='website' value={this.state.website} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Event Type: <br />
-            <input name='eventType' placeholder='' onChange={this.handleChange} />
+            <input name='eventType' value={this.state.eventType} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <label>
             Event Category: <br />
-            <input name='eventCategory' placeholder='' onChange={this.handleChange} />
+            <input name='eventCategory' value={this.state.eventCategory} placeholder='' onChange={this.handleChange} />
           </label>
           <br />
           <br />
@@ -186,5 +188,10 @@ class CreateEvent extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    newEvent: state.newEvent
+  }
+}
 
-export default CreateEvent
+export default connect(mapStateToProps)(CreateEvent)
