@@ -19,11 +19,12 @@ export const receiveForm = (newEvent) => {
   }
 }
 
-export function sendForm(newEvent) {
+export function sendForm (newEvent) {
   return (dispatch) => {
     dispatch(requestForm())
-    return request('post', '/api/v1/add/create-event', newEvent)
+    request.post(`${baseUrl}/api/v1/add/create-event`, newEvent )
       .then(res => {
+        console.log(res.body)
         dispatch(receiveForm(res.body))
       })
       .catch((err) => {
