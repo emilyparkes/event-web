@@ -1,7 +1,7 @@
 import request from 'superagent'
 import Geocode from 'react-geocode'
 
-import { showError, showSuccess } from './error'
+import { showError, clearError, showSuccess } from './error'
 import baseUrl from '../lib/base-url'
 
 Geocode.setApiKey(process.env.GOOGLE_API_KEY)
@@ -26,29 +26,29 @@ export const receiveForm = (newEvent) => {
 export function sendForm(newEvent) {
   return (dispatch) => {
     dispatch(requestForm())
-    const searchAddress = newEvent.address + ', ' + newEvent.suburb + ', ' + newEvent.region + ', ' + newEvent.postal
-    return getLatLng(searchAddress)
-      .then(latLng => {
-        const createdEvent = {
-          eventName: newEvent.eventName,
-          date_start: newEvent.dateStart,
-          time_start: newEvent.timeStart,
-          date_end: newEvent.dateEnd,
-          time_end: newEvent.timeEnd,
-          image: newEvent.image,
-          description: newEvent.description,
-          access: newEvent.access,
-          tickets: newEvent.tickets,
-          restrictions: newEvent.restrictions,
-          venueName: newEvent.venueName,
-          address: newEvent.address,
-          suburb: newEvent.suburb,
-          region: newEvent.region,
-          postal: newEvent.postal,
-          lat: latLng.lat,
-          lng: latLng.lng,
-        }
-        request.post(`${baseUrl}/api/v1/add/create-event`, createdEvent)
+    // const searchAddress = newEvent.address + ', ' + newEvent.suburb + ', ' + newEvent.region + ', ' + newEvent.postal
+    // return getLatLng(searchAddress)
+    //   .then(latLng => {
+    //     const createdEvent = {
+    //       eventName: newEvent.eventName,
+    //       date_start: newEvent.dateStart,
+    //       time_start: newEvent.timeStart,
+    //       date_end: newEvent.dateEnd,
+    //       time_end: newEvent.timeEnd,
+    //       image: newEvent.image,
+    //       description: newEvent.description,
+    //       access: newEvent.access,
+    //       tickets: newEvent.tickets,
+    //       restrictions: newEvent.restrictions,
+    //       venueName: newEvent.venueName,
+    //       address: newEvent.address,
+    //       suburb: newEvent.suburb,
+    //       region: newEvent.region,
+    //       postal: newEvent.postal,
+    //       lat: latLng.lat,
+    //       lng: latLng.lng,
+    //     }
+        request.post(`${baseUrl}/api/v1/add/create-event`, newEvent)
           .then(res => {
             console.log(res.body)
             dispatch(receiveForm(res.body))
@@ -59,9 +59,9 @@ export function sendForm(newEvent) {
             dispatch(showError(err.message))
           })
       }
-      )
+    // )
   }
-}
+// }
 
 export function getLatLng (address) {
   return Geocode.fromAddress(address).then(
