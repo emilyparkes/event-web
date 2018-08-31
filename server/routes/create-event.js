@@ -20,15 +20,13 @@ router.get('/events', (req, res) => {
     })
 })
 
-
-
 router.post('/create-event', (req, res, next) => {
   newEvent = req.body
   db.createEvent(newEvent)
-    .then(() => next()) 
+    .then(() => {
+      res.sendStatus(200)
+    })
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
-
-

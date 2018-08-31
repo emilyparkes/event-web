@@ -9,9 +9,11 @@ class CreateEvent extends React.Component {
     this.state = {
       eventName: '',
       venueName: '',
-      venueAddress: '',
-      townSuburb: '',
+      address: '',
+      suburb: '',
       region: '',
+      lat: '',
+      lng: '',
       dateStart: '',
       timeStart: '',
       dateEnd: '',
@@ -25,7 +27,8 @@ class CreateEvent extends React.Component {
       organiserDescription: '',
       website: '',
       eventType: '',
-      eventCategory: ''
+      eventCategory: '',
+      submitted: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -43,44 +46,57 @@ class CreateEvent extends React.Component {
   }
 
   render() {
+    if (this.props.message === 'Registration successful') {
+      return (
+        <Redirect to='/' />
+      )
+    }
     return (
       <div>
-        <h1>Create a new Event</h1>
-        <div>
-          <h4>Create a new event to share it with others.</h4>
-          {/* <select name='typeSelector' onChange={this.handleTypeSelect}> */}
-          {/* {this.props.addTypes.map(interestType => (
+
+        {/* <select name='typeSelector' onChange={this.handleTypeSelect}> */}
+        {/* {this.props.addTypes.map(interestType => (
             <option key={interestType.type_id}>{interestType.name}</option>
           )
           )} */}
-          {/* </select> */}
-        </div>
+        {/* </select> */}
 
         <form method='post'>
-          <label>
-            Event Name: <br />
-            <input name='eventName' value={this.state.eventName} placeholder='Give it a short distinct name' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Venue Name: <br />
-            <input name='venueName' value={this.state.venueName} placeholder='Enter the venue name' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Venue Address: <br />
-            <input name='venueAddress' value={this.state.venueAddress} placeholder='Address Line 1' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Town/Suburb: <br />
-            <input name='townSuburb' value={this.state.townSuburb} placeholder='Address Line 2' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Region: <br />
-            <select name='region'>
-              <option value='all ages'>Select one...</option>
+          <fieldset>
+            <h2>Create Event</h2>
+
+            {this.props.message && <span className='error'>
+              {this.props.message}</span>}
+
+            <label htmlFor='name'>Event Name:</label>
+            <br />
+            <input id='eventName' name='eventName' placeholder='Give it a short distinct name'
+              onChange={this.handleChange} value={this.state.eventName} required />
+            <br />
+
+            <label htmlFor='venueName'>Venue Name:</label>
+            <br />
+            <input id='venueName' name='venueName' placeholder='Enter the venue name'
+              onChange={this.handleChange} value={this.state.venueName} required />
+            <br />
+
+            <label htmlFor='address'>Venue Address:</label>
+            <br />
+            <input id='address' name='address' placeholder='Address Line 1'
+              onChange={this.handleChange} value={this.state.address} required />
+            <br />
+
+            <label htmlFor='suburb'>Town/Suburb:</label>
+            <br />
+            <input id='suburb' name='suburb' placeholder='Address Line 2'
+              onChange={this.handleChange} value={this.state.suburb} required />
+            <br />
+
+            <label htmlFor='region'>Region: </label>
+            <br />
+            <select id='region' name='region' onChange={this.handleChange}>
+              <option defaultValue value='all ages'>Select one...</option>
+              <optgroup label='North Island'>
               <option value='Northland'>Northland</option>
               <option value='Auckland'>Auckland</option>
               <option value='Waikato'>Waikato</option>
@@ -89,6 +105,8 @@ class CreateEvent extends React.Component {
               <option value='Taranaki'>Taranaki</option>
               <option value='Manawatu/Whanganui'>Manawatu/Whanganui</option>
               <option value='Wellington'>Wellington</option>
+              </optgroup>
+              <optgroup label='South Island'>
               <option value='Tasman'>Tasman</option>
               <option value='Nelson'>Nelson</option>
               <option value='Marlborough'>Marlborough</option>
@@ -96,90 +114,120 @@ class CreateEvent extends React.Component {
               <option value='Canterbury'>Canterbury</option>
               <option value='Otago'>Otago</option>
               <option value='Southland'>Southland</option>
+              </optgroup>
             </select>
-          </label>
-          <br />
-          <label>
-            Date Start: <br />
-            <input name='dateStart' value={this.state.dateStart} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Time Start: <br />
-            <input name='timeStart' value={this.state.timeStart} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Date End: <br />
-            <input name='dateEnd' value={this.state.dateEnd} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Time End: <br />
-            <input name='timeEnd' value={this.state.timeEnd} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Event Image: <br />
-            <input type='file' name='image' value={this.state.image} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Description: <br />
-            <input name='description' value={this.state.description} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Access: <br />
-            <select name='access'>
+            <br />
+
+            <label htmlFor='postal'>Postal: </label>
+            <br />
+            <input id='postal' name='postal' placeholder=''
+              onChange={this.handleChange} value={this.state.postal} />
+            <br />
+
+            <br />
+            <input type='hidden' id='lat' name='lat' placeholder=''
+              onChange={this.handleChange} value={this.state.lat} />
+            <br />
+
+            <br />
+            <input type='hidden' id='lng' name='lng' placeholder=''
+              onChange={this.handleChange} value={this.state.lng} />
+            <br />
+
+            <label htmlFor='dateStart'>Date Start: </label>
+            <br />
+            <input id='dateStart' name='dateStart' placeholder=''
+              onChange={this.handleChange} value={this.state.dateStart} />
+            <br />
+
+            <label htmlFor='timeStart'>Time Start: </label>
+            <br />
+            <input id='timeStart' name='timeStart' placeholder=''
+              onChange={this.handleChange} value={this.state.timeStart} />
+            <br />
+
+            <label htmlFor='dateEnd'>Date End:</label>
+            <br />
+            <input id='dateEnd' name='dateEnd' placeholder=''
+              onChange={this.handleChange} value={this.state.dateEnd} />
+            <br />
+
+            <label htmlFor='timeEnd'>Time End: </label>
+            <br />
+            <input id='timeEnd' name='timeEnd' placeholder=''
+              onChange={this.handleChange} value={this.state.timeEnd} />
+            <br />
+
+            <label htmlFor='image'>Event Image: </label>
+            <br />
+            <input id='image' type='file' name='image' placeholder=''
+              onChange={this.handleChange} value={this.state.image} />
+            <br />
+
+            <label htmlFor='description'>Description:</label>
+            <br />
+            <input id='description' name='description' placeholder=''
+              onChange={this.handleChange} value={this.state.description} />
+            <br />
+
+            <label htmlFor='access'>Access: </label>
+            <br />
+            <select id='access' name='access'>
               <option value='Free Event'>Free Event</option>
               <option value='Door Sales'>Door Sales</option>
               <option value='Online Tickets'>Online Tickets</option>
               <option value='Online Tickets and Door Sales Available'>Online Tickets and Door Sales Available</option>
             </select>
-          </label>
-          <br />
-          <label>
-            Tickets purchased here: <br />
-            <input name='tickets' value={this.state.tickets} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Ticket Restrictions: <br />
-            <select name='restrictions'>
+            <br />
+
+            <label htmlFor='tickets'>Tickets purchased here: </label>
+            <br />
+            <input id='tickets' name='tickets' placeholder=''
+              onChange={this.handleChange} value={this.state.tickets} />
+            <br />
+
+            <label htmlFor='restrictions'>Ticket Restrictions: </label>
+            <br />
+            <select id='restrictions' name='restrictions'>
               <option value='all ages'>All Ages</option>
               <option value='R18'>R18</option>
               <option value='R21'>R21</option>
             </select>
-          </label>
-          <br />
-          <label>
-            Organised By: <br />
-            <input name='organiser' value={this.state.organiser} placeholder='Who is responsible for this event' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Organiser Description: <br />
-            <input name='organiserDescription' value={this.state.organiserDescription} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Links (Facebook/Twitter): <br />
-            <input name='website' value={this.state.website} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Event Type: <br />
-            <input name='eventType' value={this.state.eventType} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <label>
-            Event Category: <br />
-            <input name='eventCategory' value={this.state.eventCategory} placeholder='' onChange={this.handleChange} />
-          </label>
-          <br />
-          <br />
-          <button type='submit' onClick={this.handleSubmit}>Submit Event</button>
+            <br />
+
+            <label htmlFor='organiser'>Organised By:</label>
+            <br />
+            <input id='organiser' name='organiser' placeholder='Who is responsible for this event'
+              onChange={this.handleChange} value={this.state.organiser} />
+            <br />
+
+            <label htmlFor='organiserDescription'>Organiser Description:</label>
+            <br />
+            <input id='organiserDescription' name='organiserDescription' placeholder=''
+              onChange={this.handleChange} value={this.state.organiserDescription} />
+            <br />
+
+            <label htmlFor='website'>Links (Facebook/Twitter):</label>
+            <br />
+            <input id='website' name='website' placeholder=''
+              onChange={this.handleChange} value={this.state.website} />
+            <br />
+
+            <label htmlFor='eventType'>Event Type: </label>
+            <br />
+            <input id='eventType' name='eventType' placeholder=''
+              onChange={this.handleChange} value={this.state.eventType} />
+            <br />
+
+            <label htmlFor='eventCategory'>Event Category:</label>
+            <br />
+            <input id='eventCategory' name='eventCategory' placeholder=''
+              onChange={this.handleChange} value={this.state.eventCategory} />
+            <br />
+
+            <br />
+            <button type='submit' onClick={this.handleSubmit}>Submit Event</button>
+          </fieldset>
         </form>
         <br />
         <br />

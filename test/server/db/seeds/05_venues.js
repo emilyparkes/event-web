@@ -4,8 +4,8 @@ exports.seed = function (knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('venues').insert([
-        { id: 1, venueName: 'Auckland Town Hall', address: '317 Queen St', townSuburb: 'Auckland', region: 'Auckland', country: 'New Zealand', postal: '', lat: '-36.853613', lng: '174.763038' },
-        { id: 2, venueName: 'Auckland Botanical Gardens', address: '102 Hill Rd, The Gardens', townSuburb: 'Auckland', region: 'Auckland', country: 'New Zealand', postal: '2105', lat: '-37.011395', lng: '174.907022' }
+        { id: 1, venueName: 'Auckland Town Hall', address: '317 Queen St', suburb: 'Auckland', region: 'Auckland', country: 'New Zealand', postal: '', lat: '-36.853613', lng: '174.763038' },
+        { id: 2, venueName: 'Auckland Botanical Gardens', address: '102 Hill Rd, The Gardens', suburb: 'Auckland', region: 'Auckland', country: 'New Zealand', postal: '2105', lat: '-37.011395', lng: '174.907022' }
       ])
     })
 }

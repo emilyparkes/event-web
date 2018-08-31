@@ -52,7 +52,6 @@ export function saveUserProfile (updatedProfile, username) {
     dispatch(requestSaveProfile())
     request.put(`${baseUrl}/api/v1/users/profile/${username}`, updatedProfile )
       .then(res => {
-        console.log(res.body)
         dispatch(receiveSaveProfile(res.body))
       })
       .catch((err) => {

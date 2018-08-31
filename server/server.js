@@ -11,7 +11,7 @@ const ticketmasterRoutes = require('./routes/ticketmaster')
 
 const usersRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
-const addRoutes = require('./routes/add')
+const addRoutes = require('./routes/create-event')
 
 const notifyRoutes = require('./routes/notify')
 
