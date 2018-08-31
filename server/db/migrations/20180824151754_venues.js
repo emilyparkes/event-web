@@ -5,7 +5,7 @@ exports.up = (knex, Promise) => {
         table.increments('id').primary()
         table.string('venueName')
         table.string('address')
-        table.string('townSuburb')
+        table.string('suburb')
         table.string('region')
         table.string('country')
         table.string('postal')
