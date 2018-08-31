@@ -3,7 +3,16 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='footer-box'>
-      <p className='footer-content'>Built by Emily Coco Parkes &copy; 2018</p>
+      <div className='footer-content'>
+        <div className='footer-text'>
+          <h4>Contact</h4>
+          <div className='footer-email'>
+            <a href='mailto:emilycoco@me.com'>hello@eventify.com</a>
+          </div>
+          <p>&copy; Copyright 2018 Emily Coco Parkes.</p>
+          <p>All rights reserved.</p>
+        </div>
+      </div>
     </div>
   )
 }

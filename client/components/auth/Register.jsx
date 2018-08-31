@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import ErrorMessage from './ErrorMessage'
 import { register } from '../../actions/auth/auth'
 import { showError, clearError } from '../../actions/error'
-import ErrorMessage from './ErrorMessage'
+import { isValidEmail, isWeakPassword } from '../../lib/validate'
+
 
 class Register extends React.Component {
   constructor(props) {
@@ -15,6 +17,8 @@ class Register extends React.Component {
       confirm: '',
       match: false,
       showMatch: false,
+      invalidEmail: false,
+      weakPassword: false,
       submitted: false
     }
     this.handleChange = this.handleChange.bind(this)
@@ -25,15 +29,19 @@ class Register extends React.Component {
     const { name, value } = e.target
     this.setState({
       [name]: value,
+      match: match,
+      weakPassword: isWeakPassword(this.state.password),
+      invalidEmail: isValidEmail(this.state.email)
     })
   }
+
 
   handleSubmit(e) {
     e.preventDefault()
     const { register } = this.props
     const { email, username, password, confirm } = this.state
     this.setState({ submitted: true })
-    register (email, username, password, confirm)
+    register(email, username, password, confirm)
   }
 
   render() {
@@ -74,7 +82,7 @@ class Register extends React.Component {
             <input id='confirm' name='confirm'
               type='password' placeholder='confirm password'
               onChange={this.handleChange} value={confirm} required />
-
+            <h6>Passwords: (min 8 char - 1 upper, lower, num, special char)</h6>
             <br />
 
             <button className='pure-button pure-button-primary'
@@ -107,4 +115,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-  export default connect(null, mapDispatchToProps)(Register)
+export default connect(null, mapDispatchToProps)(Register)

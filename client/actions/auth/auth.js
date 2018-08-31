@@ -120,12 +120,15 @@ export function signIn(user, confirmSuccess) {
         // added code
         dispatch(showSuccess('You are signed in.'))
       })
-      .catch(err => {
-        const res = err.response.body
-        if (res && res.errorType === 'INVALID_CREDENTIALS') {
-          return dispatch(showError('Username and password don\'t match an existing user.'))
-        }
-        dispatch(showError('An unexpected error has occurred.'))
+      // .catch(err => {
+      //   const res = err.response.body
+      //   if (res && res.errorType === 'INVALID_CREDENTIALS') {
+      //     return dispatch(showError('Username and password don\'t match an existing user.'))
+      //   }
+      //   dispatch(showError('An unexpected error has occurred.'))
+      // })
+      .catch((err) => {
+        dispatch(showError(err.message))
       })
   }
 }
@@ -138,8 +141,11 @@ export function getUserDetails(userId) {
         dispatch(receiveUserDetails(res.body))
         dispatch(clearError())
       })
-      .catch(() => {
-        dispatch(showError('An unexpected error has occurred.'))
+      // .catch(() => {
+      //   dispatch(showError('An unexpected error has occurred.'))
+      // })
+      .catch((err) => {
+        dispatch(showError(err.message))
       })
   }
 }
@@ -152,8 +158,11 @@ export function getAllUsers() {
         dispatch(receiveAllUsers(res.body))
         dispatch(clearError())
       })
-      .catch(() => {
-        dispatch(showError('An unexpected error has occurred.'))
+      // .catch(() => {
+      //   dispatch(showError('An unexpected error has occurred.'))
+      // })
+      .catch((err) => {
+        dispatch(showError(err.message))
       })
   }
 }
@@ -167,8 +176,11 @@ export function updateProfile(profile) {
         dispatch(getUserDetails(profile.id))
         dispatch(clearError())
       })
-      .catch(() => {
-        dispatch(showError('An unexpected error has occurred.'))
+      // .catch(() => {
+      //   dispatch(showError('An unexpected error has occurred.'))
+      // })
+      .catch((err) => {
+        dispatch(showError(err.message))
       })
   }
 }

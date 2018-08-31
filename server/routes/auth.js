@@ -22,10 +22,13 @@ function register (req, res, next) {
       createUser(req.body.email, req.body.username, req.body.password)
         .then(() => next())
     })
+    // .catch(() => {
+    //   res.status(400).send({
+    //     errorType: 'DATABASE_ERROR'
+    //   })
+    // })
     .catch(() => {
-      res.status(400).send({
-        errorType: 'DATABASE_ERROR'
-      })
+      res.status(400).send(err.message)
     })
 }
 

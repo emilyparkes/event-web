@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
+import ErrorMessage from './auth/ErrorMessage'
 import { sendForm } from '../actions/create-event'
 
 class CreateEvent extends React.Component {
@@ -28,7 +30,7 @@ class CreateEvent extends React.Component {
       website: '',
       eventType: '',
       eventCategory: '',
-      submitted: ''
+      submitted: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -36,6 +38,9 @@ class CreateEvent extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    this.setState({
+      submitted: true
+    })
     this.props.dispatch(sendForm(this.state))
   }
 
@@ -46,13 +51,25 @@ class CreateEvent extends React.Component {
   }
 
   render() {
-    if (this.props.message === 'Registration successful') {
+    if (this.state.submitted === true) {
+      return (
+        <div className='createevent-submitted'>
+        <h3>Thank you for creating an event with Eventify!</h3>
+
+        <h5><label htmlFor='error'>
+          <ErrorMessage /></label></h5>
+        <br />
+        </div>
+      )
+    }
+
+    if (this.props.message === 'Your event has been created successfully') {
       return (
         <Redirect to='/' />
       )
     }
     return (
-      <div>
+      <div className='createevent'>
 
         {/* <select name='typeSelector' onChange={this.handleTypeSelect}> */}
         {/* {this.props.addTypes.map(interestType => (
@@ -63,10 +80,11 @@ class CreateEvent extends React.Component {
 
         <form method='post'>
           <fieldset>
-            <h2>Create Event</h2>
-
-            {this.props.message && <span className='error'>
-              {this.props.message}</span>}
+            <h2>Create an Event</h2>
+            <br />
+            <label htmlFor='error'>
+              <ErrorMessage /></label>
+            <br />
 
             <label htmlFor='name'>Event Name:</label>
             <br />
@@ -97,23 +115,23 @@ class CreateEvent extends React.Component {
             <select id='region' name='region' onChange={this.handleChange}>
               <option defaultValue value='all ages'>Select one...</option>
               <optgroup label='North Island'>
-              <option value='Northland'>Northland</option>
-              <option value='Auckland'>Auckland</option>
-              <option value='Waikato'>Waikato</option>
-              <option value='Gisbourne'>Gisbourne</option>
-              <option value='Hawkes Bay'>Hawke's Bay</option>
-              <option value='Taranaki'>Taranaki</option>
-              <option value='Manawatu/Whanganui'>Manawatu/Whanganui</option>
-              <option value='Wellington'>Wellington</option>
+                <option value='Northland'>Northland</option>
+                <option value='Auckland'>Auckland</option>
+                <option value='Waikato'>Waikato</option>
+                <option value='Gisbourne'>Gisbourne</option>
+                <option value='Hawkes Bay'>Hawke's Bay</option>
+                <option value='Taranaki'>Taranaki</option>
+                <option value='Manawatu/Whanganui'>Manawatu/Whanganui</option>
+                <option value='Wellington'>Wellington</option>
               </optgroup>
               <optgroup label='South Island'>
-              <option value='Tasman'>Tasman</option>
-              <option value='Nelson'>Nelson</option>
-              <option value='Marlborough'>Marlborough</option>
-              <option value='West Coast'>West Coast</option>
-              <option value='Canterbury'>Canterbury</option>
-              <option value='Otago'>Otago</option>
-              <option value='Southland'>Southland</option>
+                <option value='Tasman'>Tasman</option>
+                <option value='Nelson'>Nelson</option>
+                <option value='Marlborough'>Marlborough</option>
+                <option value='West Coast'>West Coast</option>
+                <option value='Canterbury'>Canterbury</option>
+                <option value='Otago'>Otago</option>
+                <option value='Southland'>Southland</option>
               </optgroup>
             </select>
             <br />
