@@ -2,6 +2,9 @@
   "name": "event-web",
   "version": "1.0.0",
   "description": "A web app to find local hosted and community events.",
+  "engines": {
+    "node": "^8.11.3"
+  },
   "main": "server/index.js",
   "repository": "https://github.com/emilyparkes/event-app.git",
   "author": "Emily Parkes",
