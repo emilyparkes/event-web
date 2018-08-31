@@ -9,8 +9,8 @@ class CreateEvent extends React.Component {
     this.state = {
       eventName: '',
       venueName: '',
-      venueAddress: '',
-      townSuburb: '',
+      address: '',
+      suburb: '',
       region: '',
       lat: '',
       lng: '',
@@ -53,8 +53,6 @@ class CreateEvent extends React.Component {
     }
     return (
       <div>
-        {this.props.message && <span className='error'>
-          {this.props.message}</span>}
 
         {/* <select name='typeSelector' onChange={this.handleTypeSelect}> */}
         {/* {this.props.addTypes.map(interestType => (
@@ -67,33 +65,38 @@ class CreateEvent extends React.Component {
           <fieldset>
             <h2>Create Event</h2>
 
-            <label htmlFor='name'>Event Name: </label>
+            {this.props.message && <span className='error'>
+              {this.props.message}</span>}
+
+            <label htmlFor='name'>Event Name:</label>
             <br />
             <input id='eventName' name='eventName' placeholder='Give it a short distinct name'
               onChange={this.handleChange} value={this.state.eventName} required />
             <br />
 
-            <label htmlFor='venueName'>Venue Name: </label>
+            <label htmlFor='venueName'>Venue Name:</label>
             <br />
             <input id='venueName' name='venueName' placeholder='Enter the venue name'
               onChange={this.handleChange} value={this.state.venueName} required />
             <br />
 
-            <label htmlFor='venueAddress'>Venue Address: </label>
+            <label htmlFor='address'>Venue Address:</label>
             <br />
-            <input id='venueAddress' name='venueAddress' placeholder='Address Line 1'
-              onChange={this.handleChange} value={this.state.venueAddress} required />
-            <br />
-
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>
-            <br />
-            <input id='townSuburb' name='townSuburb' placeholder='Address Line 2'
-              onChange={this.handleChange} value={this.state.townSuburb} required />
+            <input id='address' name='address' placeholder='Address Line 1'
+              onChange={this.handleChange} value={this.state.address} required />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Region: <br />
-            <select id='eventName' name='region'>
-              <option value='all ages'>Select one...</option>
+            <label htmlFor='suburb'>Town/Suburb:</label>
+            <br />
+            <input id='suburb' name='suburb' placeholder='Address Line 2'
+              onChange={this.handleChange} value={this.state.suburb} required />
+            <br />
+
+            <label htmlFor='region'>Region: </label>
+            <br />
+            <select id='region' name='region' onChange={this.handleChange}>
+              <option defaultValue value='all ages'>Select one...</option>
+              <optgroup label='North Island'>
               <option value='Northland'>Northland</option>
               <option value='Auckland'>Auckland</option>
               <option value='Waikato'>Waikato</option>
@@ -102,6 +105,8 @@ class CreateEvent extends React.Component {
               <option value='Taranaki'>Taranaki</option>
               <option value='Manawatu/Whanganui'>Manawatu/Whanganui</option>
               <option value='Wellington'>Wellington</option>
+              </optgroup>
+              <optgroup label='South Island'>
               <option value='Tasman'>Tasman</option>
               <option value='Nelson'>Nelson</option>
               <option value='Marlborough'>Marlborough</option>
@@ -109,41 +114,65 @@ class CreateEvent extends React.Component {
               <option value='Canterbury'>Canterbury</option>
               <option value='Otago'>Otago</option>
               <option value='Southland'>Southland</option>
+              </optgroup>
             </select>
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Date Start: <br />
-            <input id='eventName' name='dateStart' placeholder=''
+            <label htmlFor='postal'>Postal: </label>
+            <br />
+            <input id='postal' name='postal' placeholder=''
+              onChange={this.handleChange} value={this.state.postal} />
+            <br />
+
+            <br />
+            <input type='hidden' id='lat' name='lat' placeholder=''
+              onChange={this.handleChange} value={this.state.lat} />
+            <br />
+
+            <br />
+            <input type='hidden' id='lng' name='lng' placeholder=''
+              onChange={this.handleChange} value={this.state.lng} />
+            <br />
+
+            <label htmlFor='dateStart'>Date Start: </label>
+            <br />
+            <input id='dateStart' name='dateStart' placeholder=''
               onChange={this.handleChange} value={this.state.dateStart} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Time Start: <br />
-            <input id='eventName' name='timeStart' placeholder=''
+            <label htmlFor='timeStart'>Time Start: </label>
+            <br />
+            <input id='timeStart' name='timeStart' placeholder=''
               onChange={this.handleChange} value={this.state.timeStart} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Date End: <br />
-            <input id='eventName' name='dateEnd' placeholder=''
+            <label htmlFor='dateEnd'>Date End:</label>
+            <br />
+            <input id='dateEnd' name='dateEnd' placeholder=''
               onChange={this.handleChange} value={this.state.dateEnd} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Time End: <br />
-            <input id='eventName' name='timeEnd' placeholder=''
+            <label htmlFor='timeEnd'>Time End: </label>
+            <br />
+            <input id='timeEnd' name='timeEnd' placeholder=''
               onChange={this.handleChange} value={this.state.timeEnd} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Event Image: <br />
-            <input id='eventName' type='file' name='image' placeholder=''
+            <label htmlFor='image'>Event Image: </label>
+            <br />
+            <input id='image' type='file' name='image' placeholder=''
               onChange={this.handleChange} value={this.state.image} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Description: <br />
-            <input id='eventName' name='description' placeholder=''
+            <label htmlFor='description'>Description:</label>
+            <br />
+            <input id='description' name='description' placeholder=''
               onChange={this.handleChange} value={this.state.description} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Access: <br />
-            <select id='eventName' name='access'>
+            <label htmlFor='access'>Access: </label>
+            <br />
+            <select id='access' name='access'>
               <option value='Free Event'>Free Event</option>
               <option value='Door Sales'>Door Sales</option>
               <option value='Online Tickets'>Online Tickets</option>
@@ -151,46 +180,51 @@ class CreateEvent extends React.Component {
             </select>
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Tickets purchased here: <br />
-            <input id='eventName' name='tickets' placeholder=''
+            <label htmlFor='tickets'>Tickets purchased here: </label>
+            <br />
+            <input id='tickets' name='tickets' placeholder=''
               onChange={this.handleChange} value={this.state.tickets} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Ticket Restrictions: <br />
-            <select id='eventName' name='restrictions'>
+            <label htmlFor='restrictions'>Ticket Restrictions: </label>
+            <br />
+            <select id='restrictions' name='restrictions'>
               <option value='all ages'>All Ages</option>
               <option value='R18'>R18</option>
               <option value='R21'>R21</option>
             </select>
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Organised By: <br />
-            <input id='eventName' name='organiser' placeholder='Who is responsible for this event'
+            <label htmlFor='organiser'>Organised By:</label>
+            <br />
+            <input id='organiser' name='organiser' placeholder='Who is responsible for this event'
               onChange={this.handleChange} value={this.state.organiser} />
             <br />
 
-            Organiser Description: <br />
-            <input id='eventName' name='organiserDescription' placeholder=''
+            <label htmlFor='organiserDescription'>Organiser Description:</label>
+            <br />
+            <input id='organiserDescription' name='organiserDescription' placeholder=''
               onChange={this.handleChange} value={this.state.organiserDescription} />
             <br />
 
-            <label htmlFor='townSuburb'>Town/Suburb:  </label>Links (Facebook/Twitter): <br />
-            <input id='eventName' name='website' placeholder=''
+            <label htmlFor='website'>Links (Facebook/Twitter):</label>
+            <br />
+            <input id='website' name='website' placeholder=''
               onChange={this.handleChange} value={this.state.website} />
-
             <br />
 
-            <label htmlFor='eventType'>Event Type: </label><br />
+            <label htmlFor='eventType'>Event Type: </label>
+            <br />
             <input id='eventType' name='eventType' placeholder=''
               onChange={this.handleChange} value={this.state.eventType} />
             <br />
 
-            <label htmlFor='eventCategory'>Event Category:  </label>
+            <label htmlFor='eventCategory'>Event Category:</label>
             <br />
             <input id='eventCategory' name='eventCategory' placeholder=''
               onChange={this.handleChange} value={this.state.eventCategory} />
-
             <br />
+
             <br />
             <button type='submit' onClick={this.handleSubmit}>Submit Event</button>
           </fieldset>
