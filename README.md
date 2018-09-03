@@ -18,7 +18,7 @@ git pull origin dev
 ```
 - install dependencies
 ```shell
-yarn
+yarn || npm
 ```
   - if `sodium` does not build run 
   ```shell
