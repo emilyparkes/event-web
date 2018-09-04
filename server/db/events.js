@@ -3,6 +3,7 @@ const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
+  getAllEvents,
   getPublicEvents,
   getPublicEventByName,
   getEventsByCategory,
@@ -13,6 +14,14 @@ module.exports = {
   getCategoryByName,
   getEventFromCategory,
   createEvent
+}
+
+function getAllEvents(conn) {
+  const db = conn || connection
+  return db('events')
+    .join('events_venues_junction', 'events.id', 'events_venues_junction.event_id')
+    .join('venues', 'venues.id', 'events_venues_junction.venue_id')
+    .select('eventName','date_start as dateStart', 'time_start as timeStart','date_end as dateEnd', 'time_end as timeEnd', 'image', 'description', 'access', 'tickets', 'restrictions', 'venueName', 'address','suburb', 'region', 'postal', 'country', 'lat', 'lng')
 }
 
 // PUBLIC EVENTS FUNCTIONS
@@ -115,33 +124,30 @@ function getEventFromCategory(category, eventName, conn) {
 
 function createEvent(newEvent, conn) {
   const db = conn || connection
-  return db('venues')
+  return db('events')
     .insert({
-      venueName: newEvent.venueName,
-      address: newEvent.address,
-      suburb: newEvent.suburb,
-      region: newEvent.region,
-      postal: newEvent.postal,
-      country: 'New Zealand',
-      lat: newEvent.lat,
-      lng: newEvent.lng
+      eventName: newEvent.eventName
     })
-  // .then((eId) => {
-  //   return db('events_venues_junction')
-  //     .insert({
-  //       event_id: eId[0],
-  //     })
-  //     .then((vId) => {
-  //       return db('events_venues_junction')
-  //         .insert({
-  //           id: vId[0],
-  //           venueName: newEvent.venueName,
-  //           address: newEvent.address,
-  //           suburb: newEvent.suburb,
-  //           region: newEvent.region
-  //         })
-  // })
-  // })
+    .then((eId) => {
+      return db('events_venues_junction')
+        .insert({
+          event_id: eId[0],
+        })
+        .then((vId) => {
+          return db('venues')
+            .insert({
+              id: vId[1],
+              venueName: newEvent.venueName,
+              address: newEvent.address,
+              suburb: newEvent.suburb,
+              region: newEvent.region,
+              postal: newEvent.postal,
+              country: 'New Zealand',
+              lat: newEvent.lat,
+              lng: newEvent.lng
+            })
+        })
+    })
 }
 
 // eventName: newEvent.eventName,
