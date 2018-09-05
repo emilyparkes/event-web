@@ -1,9 +1,9 @@
 import React from 'react'
-import 'react-dates/initialize'
-import 'react-dates/lib/css/_datepicker.css'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { DateRangePicker } from 'react-dates'
+
+import DayPickerInput from 'react-day-picker/DayPickerInput'
+import 'react-day-picker/lib/style.css'
 
 import ErrorMessage from './auth/ErrorMessage'
 import { sendForm } from '../actions/create-event'
@@ -155,15 +155,8 @@ class CreateEvent extends React.Component {
               onChange={this.handleChange} value={this.state.lng} />
             <br />
 
-            <DateRangePicker
-              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-              endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-            />
+            <p>Please type a day:</p>
+            <DayPickerInput onDayChange={day => console.log(day)} />
 
             <label htmlFor='dateStart'>Date Start: </label>
             <br />
