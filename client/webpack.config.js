@@ -8,27 +8,27 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+      rules: [
       {
         test: /\.jsx?$/,
-        loader: [
-          'babel-loader',
-          'style-loader',
-          'css-loader'
-        ],
-    exclude: /node_modules/
-  }
-    ]
-},
-  resolve: {
-  extensions: ['.js', '.jsx']
-},
-plugins: [
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        loader: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
     }
-  })
-],
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
+    })
+  ],
   devtool: 'source-map'
 }
