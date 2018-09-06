@@ -1,3 +1,4 @@
+
 const path = require('path')
 var webpack = require('webpack')
 
@@ -8,16 +9,21 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-      rules: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: ['babel-loader'],
+        use: [{
+          loader: "babel-loader"
+        }],
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-    }
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ]
+      }
     ]
   },
   resolve: {

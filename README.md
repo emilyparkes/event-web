@@ -4,10 +4,6 @@ Do you want to eventify your life? To make it fuller and brighter? Find your ide
 > A web app to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
 
-## Eventify Design
-_Coming soon -> Inspiration was drawn from ... for this look_
-> Colour Palette  
-
 
 ## Eventify Code
 ### Getting Started:
@@ -38,13 +34,18 @@ yarn seed
 yarn dev
 ```
 
+## Eventify Design
+_Coming soon -> Inspiration was drawn from ... for this look_
+> Colour Palette  
+
+
 ## Eventify Testing
 - Run the test command
 ```shell
 yarn test
 ```
 - Result: PASS for 36 test suites and 121 tests 
-_(tests last run on 23rd August 18)_
+_(tests last run on 6th September 18)_
 
 ![](server/public/images-github/tests.png)
 
