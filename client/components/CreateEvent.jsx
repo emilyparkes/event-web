@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import DayPickerInput from 'react-day-picker/DayPickerInput'
+import MomentLocaleUtils, {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment'
 import 'react-day-picker/lib/style.css'
 
 import ErrorMessage from './auth/ErrorMessage'
@@ -155,8 +159,20 @@ class CreateEvent extends React.Component {
               onChange={this.handleChange} value={this.state.lng} />
             <br />
 
-            <p>Please type a day:</p>
-            <DayPickerInput onDayChange={day => console.log(day)} />
+            <p>Please select start date:</p>
+            {this.state.startDate && <p>Day: {this.state.startDate.toLocaleDateString()}</p>}
+            {!this.state.startDate && <p>Choose a day</p>}
+            <DayPickerInput
+              formatDate={formatDate}
+              parseDate={parseDate}
+              format="LL"
+              placeholder={`${formatDate(new Date(), 'LL', 'en')}`}
+              dayPickerProps={{
+                locale: 'en',
+                localeUtils: MomentLocaleUtils,
+              }}
+              onChange={this.handleChange} />
+            <br />
 
             <label htmlFor='dateStart'>Date Start: </label>
             <br />
