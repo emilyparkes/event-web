@@ -2,14 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import DayPickerInput from 'react-day-picker/DayPickerInput'
-import MomentLocaleUtils, {
-  formatDate,
-  parseDate,
-} from 'react-day-picker/moment'
-import 'react-day-picker/lib/style.css'
-
 import ErrorMessage from './auth/ErrorMessage'
+import DatePicker from './create-event/DatePicker'
 import { sendForm } from '../actions/create-event'
 
 class CreateEvent extends React.Component {
@@ -23,9 +17,9 @@ class CreateEvent extends React.Component {
       region: '',
       lat: '',
       lng: '',
-      dateStart: '',
+      
       timeStart: '',
-      dateEnd: '',
+      
       timeEnd: '',
       image: '',
       description: '',
@@ -159,19 +153,8 @@ class CreateEvent extends React.Component {
               onChange={this.handleChange} value={this.state.lng} />
             <br />
 
-            <p>Please select start date:</p>
-            {this.state.startDate && <p>Day: {this.state.startDate.toLocaleDateString()}</p>}
-            {!this.state.startDate && <p>Choose a day</p>}
-            <DayPickerInput
-              formatDate={formatDate}
-              parseDate={parseDate}
-              format="LL"
-              placeholder={`${formatDate(new Date(), 'LL', 'en')}`}
-              dayPickerProps={{
-                locale: 'en',
-                localeUtils: MomentLocaleUtils,
-              }}
-              onChange={this.handleChange} />
+            <DatePicker />
+          
             <br />
 
             <label htmlFor='dateStart'>Date Start: </label>
