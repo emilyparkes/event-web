@@ -3,7 +3,12 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import 'react-day-picker/lib/style.css'
+import {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment'
+
+import 'moment/locale/it'
 
 import ErrorMessage from './auth/ErrorMessage'
 import { sendForm } from '../actions/create-event'
@@ -54,6 +59,8 @@ class CreateEvent extends React.Component {
   }
 
   render() {
+    const FORMAT = 'DD/MM/YYYY'
+
     if (this.state.submitted === true) {
       return (
         <div className='createevent-submitted'>
@@ -155,9 +162,15 @@ class CreateEvent extends React.Component {
               onChange={this.handleChange} value={this.state.lng} />
             <br />
 
-            <p>Please type a day:</p>
-            <DayPickerInput onDayChange={day => console.log(day)} />
-
+            <p>Please select start date</p>
+            <DayPickerInput
+              formatDate={formatDate}
+              format={FORMAT}
+              parseDate={parseDate}
+              placeholder={`${formatDate(new Date(), FORMAT)}`}
+              onDayChange={day => console.log(day)} />
+            <br />
+            
             <label htmlFor='dateStart'>Date Start: </label>
             <br />
             <input id='dateStart' name='dateStart' placeholder=''
@@ -168,6 +181,15 @@ class CreateEvent extends React.Component {
             <br />
             <input id='timeStart' name='timeStart' placeholder=''
               onChange={this.handleChange} value={this.state.timeStart} />
+            <br />
+
+            <p>Please select end date:</p>
+            <DayPickerInput
+              formatDate={formatDate}
+              format={FORMAT}
+              parseDate={parseDate}
+              placeholder={`${formatDate(new Date(), FORMAT)}`}
+              onDayChange={day => console.log(day)} />
             <br />
 
             <label htmlFor='dateEnd'>Date End:</label>
