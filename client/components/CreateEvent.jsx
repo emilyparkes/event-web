@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import DayPickerInput from 'react-day-picker/DayPickerInput'
-import 'react-day-picker/lib/style.css'
+import DatePicker from './DatePicker'
+
 
 import ErrorMessage from './auth/ErrorMessage'
 import { sendForm } from '../actions/create-event'
@@ -54,6 +54,8 @@ class CreateEvent extends React.Component {
   }
 
   render() {
+    
+
     if (this.state.submitted === true) {
       return (
         <div className='createevent-submitted'>
@@ -155,8 +157,8 @@ class CreateEvent extends React.Component {
               onChange={this.handleChange} value={this.state.lng} />
             <br />
 
-            <p>Please type a day:</p>
-            <DayPickerInput onDayChange={day => console.log(day)} />
+            <DatePicker />
+            <br />
 
             <label htmlFor='dateStart'>Date Start: </label>
             <br />
