@@ -16,10 +16,9 @@ const requestForm = () => {
   }
 }
 
-export const receiveForm = (newEvent) => {
+export const receiveForm = () => {
   return {
-    type: RECEIVE_FORM,
-    newEvent
+    type: RECEIVE_FORM
   }
 }
 
