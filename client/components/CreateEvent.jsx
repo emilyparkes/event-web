@@ -105,23 +105,22 @@ class CreateEvent extends React.Component {
 
         <form method='post'>
           <fieldset>
-            <h2>Create an Event</h2>
+            <h1>Create an Event</h1>
             <label htmlFor='error'>
               <ErrorMessage /></label>
 
+            <h3 className='section-label'>1. Event Details</h3>
             <div className='form-group'>
               <label htmlFor='inputEvent'>Event Name:</label>
               <input type='text' className='form-control' id='inputEvent' name='eventName' placeholder=''
                 onChange={this.handleChange} value={this.state.eventName} required />
             </div>
 
-
             <div className='form-group'>
               <label htmlFor='inputVenue'>Venue Name:</label>
               <input type='text' className='form-control' id='inputVenue' name='venueName' placeholder=''
                 onChange={this.handleChange} value={this.state.venueName} required />
             </div>
-
 
             <div className='form-group'>
               <label htmlFor='inputAddress'>Address:</label>
@@ -183,26 +182,13 @@ class CreateEvent extends React.Component {
             <div className='form-row'>
               <div className='form-group col-md-3'>
                 <label htmlFor='inputDateStart'>Date Start:</label>
-                {/* <div className='form-control'> */}
+               
                 <DayPickerInput
                   formatDate={formatDate}
                   format={FORMAT}
                   parseDate={parseDate}
                   placeholder={`${formatDate(new Date(), FORMAT)}`}
                   onDayChange={day => console.log(day)} />
-                {/* </div> */}
-              </div>
-
-              <div className='form-group col-md-3'>
-                <label htmlFor='inputDateEnd'>Date End:</label>
-                {/* <div className='form-control'> */}
-                <DayPickerInput
-                  formatDate={formatDate}
-                  format={FORMAT}
-                  parseDate={parseDate}
-                  placeholder={`${formatDate(new Date(), FORMAT)}`}
-                  onDayChange={day => console.log(day)} />
-                {/* </div> */}
               </div>
 
               <div className='form-group col-md-3'>
@@ -210,6 +196,19 @@ class CreateEvent extends React.Component {
                 <input type='text' className='form-control' id='inputtimeStart' name='timeStart' placeholder=''
                   onChange={this.handleChange} value={this.state.timeStart} required />
               </div>
+
+              <div className='form-group col-md-3'>
+                <label htmlFor='inputDateEnd'>Date End:</label>
+               
+                <DayPickerInput
+                  formatDate={formatDate}
+                  format={FORMAT}
+                  parseDate={parseDate}
+                  placeholder={`${formatDate(new Date(), FORMAT)}`}
+                  onDayChange={day => console.log(day)} />
+              </div>
+
+
 
               <div className='form-group col-md-3'>
                 <label htmlFor='inputtimeEnd'>Time End:</label>
@@ -235,6 +234,26 @@ class CreateEvent extends React.Component {
             </div>
 
             <div className='form-group'>
+              <label htmlFor='inputOrganiser'>Organised By:</label>
+              <input id='inputOrganiser' className='form-control' name='organiser' placeholder='Who is responsible for this event...'
+                onChange={this.handleChange} value={this.state.organiser} />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor='organiserDescription'>Organiser Description:</label>
+              <textarea id='organiserDescription' className='form-control' name='organiserDescription' rows='3'
+                onChange={this.handleChange} value={this.state.organiserDescription} />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor='imputLinks'>Links (Facebook/Twitter):</label>
+              <input id='imputLinks' className='form-control' name='website' placeholder=''
+                onChange={this.handleChange} value={this.state.website} />
+            </div>
+
+            <h3 className='section-label'>2. Ticketing and Access</h3>
+
+            <div className='form-group'>
               <label htmlFor='inputAccess'>Access:</label>
               <select id='inputAccess' className='custom-select' name='access'>
                 <option selected>Choose ticket access...</option>
@@ -252,7 +271,7 @@ class CreateEvent extends React.Component {
             </div>
 
             <div className='form-group'>
-              <label htmlFor='inputRestrictions'>Ticket Restrictions: </label>
+              <label htmlFor='inputRestrictions'>Event Restrictions: </label>
               <select id='inputRestrictions' className='custom-select' name='restrictions'>
                 <option selected>Choose an age rating...</option>
                 <option value='All Ages'>All Ages</option>
@@ -261,34 +280,32 @@ class CreateEvent extends React.Component {
               </select>
             </div>
 
-            <div className='form-group'>
-              <label htmlFor='inputOrganiser'>Organised By:</label>
-              <input id='inputOrganiser' className='form-control' name='organiser' placeholder='Who is responsible for this event'
-                onChange={this.handleChange} value={this.state.organiser} />
-            </div>
-
-            <div className='form-group'>
-              <label htmlFor='organiserDescription'>Organiser Description:</label>
-              <input id='organiserDescription' className='form-control' name='organiserDescription' placeholder=''
-                onChange={this.handleChange} value={this.state.organiserDescription} />
-            </div>
-
-            <div className='form-group'>
-              <label htmlFor='imputLinks'>Links (Facebook/Twitter):</label>
-              <input id='imputLinks' className='form-control' name='website' placeholder=''
-                onChange={this.handleChange} value={this.state.website} />
-            </div>
+            <h3 className='section-label'>3. Additional Details</h3>
 
             <div className='form-group'>
               <label htmlFor='inputEventType'>Event Type:</label>
-              <input id='inputEventType' className='form-control' name='eventType' placeholder=''
-                onChange={this.handleChange} value={this.state.eventType} />
+              <select id='inputEventType' className='custom-select' name='eventType'>
+                <option selected>Choose an event type...</option>
+                <option value='1'>Publically Hosted</option>
+                <option value='2'>Individually Hosted</option>
+              </select>
             </div>
 
             <div className='form-group'>
               <label htmlFor='inputEventCategory'>Event Category:</label>
-              <input id='inputEventCategory' className='form-control' name='eventCategory' placeholder=''
-                onChange={this.handleChange} value={this.state.eventCategory} />
+              <select id='inputEventCategory' className='custom-select' name='eventCategory'>
+                <option selected>Choose an event category...</option>
+                <option value='Concerts'>Concerts</option>
+                <option value='Gigs'>Gigs</option>
+                <option value='Festivals'>Festivals</option>
+                <option value='Art'>Art</option>
+                <option value='Theatre'>Theatre</option>
+                <option value='Food'>Food</option>
+                <option value='Markets'>Markets</option>
+                <option value='City Pop Ups'>City Pop Ups</option>
+                <option value='Community'>Community</option>
+                <option value='Sports and Outdoors'>Sports and Outdoors</option>
+              </select>
             </div>
 
             <button className='btn btn-primary mb-2' type='submit' onClick={this.handleSubmit}>Submit Event</button>

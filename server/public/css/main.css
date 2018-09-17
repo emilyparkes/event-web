@@ -1,4 +1,4 @@
-/* SITEWIDE STYLING */
+/* ----------------- SITEWIDE STYLING ----------------- */
 
 body {
   font-family: "Work Sans", sans-serif;
@@ -142,7 +142,7 @@ button:hover {
 
 
 
-/* NAV */
+/* ----------------- NAV ----------------- */
 
 /* Encompasses everything in the Nav component */
 .nav-header {
@@ -172,8 +172,14 @@ button:hover {
     letter-spacing: 2px;
 }
 
+/* ----------------- CREATE EVENT FORM ----------------- */
 
-/* FOOTER */
+.section-label {
+  padding: 20px 20px 20px 0px;
+}
+
+
+/* ----------------- FOOTER ----------------- */
 
 .footer-box {
   width: 100%;
@@ -191,70 +197,3 @@ button:hover {
   height: 30px;
 }
 
-/* NO INTERESTS PAGE */
-
-.careers-heading {
-  font-size: 2em;
-  text-align: center;
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
-
-.careers-blurb {
-  text-align: center;
-  line-height: 1.5;
-  font-size: 1.05em;
-  margin-left: 6em;
-  margin-right: 6em;
-}
-
-.careers-button {
-  color: white;
-  background-color: #ff5753;
-  box-shadow: 0 0 2px #7d018d;
-  letter-spacing: 1px;
-  border: none;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 12px;
-  border-radius: 4px;
-  margin-top: 0px;
-  padding: 6px 10px;
-  text-align: center;
-  cursor: pointer;
-  width: 14em;
-  height: 4em;
-  align-content: center;
-  justify-content: center;
-  display: flex;
-  width: 40%;
-  margin-left: 30%;
-  margin-right: 30% 
-}
-
- .careers-button-div {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-.careers-button-link {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  margin-top: 2em;
-}  
-
-
-/* NOT 100% SURE WHAT THESE DO */
-
-/* Cant find this */
-.support-img {
-  width: 300px;
-}
-
-/* This styles the study provider on the breakdown page */
-.provider-class {
-  font-size: 13px;
-  color: grey;
-} 
