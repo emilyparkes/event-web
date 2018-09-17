@@ -25,8 +25,7 @@ class PublicEvent extends React.Component {
 
         <div className='page-section'>
           {this.props.publicEvent.description}
-          {this.props.publicEvent.date_start}
-          {this.props.publicEvent.date_end}
+          {this.props.publicEvent.dates}
           {this.props.publicEvent.time_start}
           {this.props.publicEvent.time_end}
           {this.props.publicEvent.access}

@@ -21,7 +21,7 @@ function getAllEvents(conn) {
   return db('events')
     .join('events_venues_junction', 'events.id', 'events_venues_junction.event_id')
     .join('venues', 'venues.id', 'events_venues_junction.venue_id')
-    .select('eventName','date_start as dateStart', 'time_start as timeStart','date_end as dateEnd', 'time_end as timeEnd', 'image', 'description', 'access', 'tickets', 'restrictions', 'venueName', 'address','suburb', 'region', 'postal', 'country', 'lat', 'lng')
+    .select('eventName', 'date_start as dateStart', 'time_start as timeStart', 'date_end as dateEnd', 'time_end as timeEnd', 'image', 'description', 'access', 'tickets', 'restrictions', 'venueName', 'address', 'suburb', 'region', 'postal', 'country', 'lat', 'lng')
 }
 
 // PUBLIC EVENTS FUNCTIONS
@@ -126,7 +126,16 @@ function createEvent(newEvent, conn) {
   const db = conn || connection
   return db('events')
     .insert({
-      eventName: newEvent.eventName
+      eventName: newEvent.eventName,
+      dates: newEvent.selectedDays,
+      time_start: newEvent.timeStart,
+      time_end: newEvent.timeEnd,
+      image: newEvent.image,
+      description: newEvent.description,
+      access: newEvent.access,
+      tickets: newEvent.tickets,
+      restrictions: newEvent.restrictions
+
     })
     .then((eId) => {
       return db('events_venues_junction')
