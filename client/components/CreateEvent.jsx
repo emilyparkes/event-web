@@ -144,9 +144,9 @@ class CreateEvent extends React.Component {
               </div>
               <div className='form-group col-md-4'>
                 <label htmlFor='inputRegion'>Region</label>
-                <select id='inputRegion' className='form-control' name='region'
+                <select id='inputRegion' className='custom-select' name='region'
                   onChange={this.handleChange} >
-                  <option defaultValue value='selectOne'>Select one...</option>
+                  <option selected>Select one...</option>
                   <optgroup label='North Island'>
                     <option value='Northland'>Northland</option>
                     <option value='Auckland'>Auckland</option>
@@ -183,26 +183,26 @@ class CreateEvent extends React.Component {
             <div className='form-row'>
               <div className='form-group col-md-3'>
                 <label htmlFor='inputDateStart'>Date Start:</label>
-                <div className='form-control'>
-                  <DayPickerInput
-                    formatDate={formatDate}
-                    format={FORMAT}
-                    parseDate={parseDate}
-                    placeholder={`${formatDate(new Date(), FORMAT)}`}
-                    onDayChange={day => console.log(day)} />
-                </div>
+                {/* <div className='form-control'> */}
+                <DayPickerInput
+                  formatDate={formatDate}
+                  format={FORMAT}
+                  parseDate={parseDate}
+                  placeholder={`${formatDate(new Date(), FORMAT)}`}
+                  onDayChange={day => console.log(day)} />
+                {/* </div> */}
               </div>
 
               <div className='form-group col-md-3'>
                 <label htmlFor='inputDateEnd'>Date End:</label>
-                <div className='form-control'>
-                  <DayPickerInput
-                    formatDate={formatDate}
-                    format={FORMAT}
-                    parseDate={parseDate}
-                    placeholder={`${formatDate(new Date(), FORMAT)}`}
-                    onDayChange={day => console.log(day)} />
-                </div>
+                {/* <div className='form-control'> */}
+                <DayPickerInput
+                  formatDate={formatDate}
+                  format={FORMAT}
+                  parseDate={parseDate}
+                  placeholder={`${formatDate(new Date(), FORMAT)}`}
+                  onDayChange={day => console.log(day)} />
+                {/* </div> */}
               </div>
 
               <div className='form-group col-md-3'>
@@ -220,8 +220,12 @@ class CreateEvent extends React.Component {
 
             <div className='form-group'>
               <label htmlFor='inputimage'>Event Image:</label>
-              <input type='file' className='form-control' id='inputimage' name='image' placeholder=''
-                onChange={this.handleChange} value={this.state.image} required />
+              <div className='input-group mb-3'>
+                <div className='custom-file'>
+                  <input type='file' className='custom-file-input' id='inputGroupFile01' aria-describedby='inputGroupFileAddon01' />
+                  <label className='custom-file-label' for='inputGroupFile01'>Choose file</label>
+                </div>
+              </div>
             </div>
 
             <div className='form-group'>
@@ -232,8 +236,9 @@ class CreateEvent extends React.Component {
 
             <div className='form-group'>
               <label htmlFor='inputAccess'>Access:</label>
-              <select id='inputAccess' className='form-control' name='access'>
-                <option defaultValue value='Free Event'>Free Event</option>
+              <select id='inputAccess' className='custom-select' name='access'>
+                <option selected>Choose ticket access...</option>
+                <option value='Free Event'>Free Event</option>
                 <option value='Door Sales'>Door Sales</option>
                 <option value='Online Tickets'>Online Tickets</option>
                 <option value='Online Tickets and Door Sales Available'>Online Tickets and Door Sales Available</option>
@@ -242,14 +247,15 @@ class CreateEvent extends React.Component {
 
             <div className='form-group'>
               <label htmlFor='inputTickets'>Tickets purchased here:</label>
-              <input className='form-control' id='inputTickets'
+              <input className='form-control' id='inputTickets' placeholder='http://tickets-here.example.com'
                 onChange={this.handleChange} value={this.state.tickets} />
             </div>
 
             <div className='form-group'>
               <label htmlFor='inputRestrictions'>Ticket Restrictions: </label>
-              <select id='inputRestrictions' className='form-control' name='restrictions'>
-                <option defaultValue value='all ages'>All Ages</option>
+              <select id='inputRestrictions' className='custom-select' name='restrictions'>
+                <option selected>Choose an age rating...</option>
+                <option value='All Ages'>All Ages</option>
                 <option value='R18'>R18</option>
                 <option value='R21'>R21</option>
               </select>
