@@ -45,7 +45,7 @@ _Coming soon -> Inspiration was drawn from ... for this look_
 yarn test
 ```
 - Result: PASS for 36 test suites and 121 tests 
-_(tests last run on 13th September 18)_
+_(tests last run on 18th September 18)_
 
 ![](server/public/images-github/tests.png)
 
