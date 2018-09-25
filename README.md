@@ -4,6 +4,7 @@ Do you want to eventify your life? To make it fuller and brighter? Find your ide
 > A web app to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
 
+_For more information see the [wiki]()_
 
 ## Eventify Code
 ### Getting Started:
