@@ -44,7 +44,7 @@ yarn seed
 yarn dev
 ```
 
-### Eventify Testing  
+### Testing  
 - Run the test command
 ```shell
 yarn test
