@@ -1,10 +1,10 @@
 # Eventify
 Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.  
 
-> A web app to see events happening in your city, big organised and local community events.
+A web app designed to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
 
-_For more information see the [wiki](https://github.com/emilyparkes/event-web/wiki)_
+>_For more information see the [wiki](https://github.com/emilyparkes/event-web/wiki)_
 
 
 ## Contents
