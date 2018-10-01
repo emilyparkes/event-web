@@ -1,19 +1,16 @@
 import React from 'react'
-
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import MomentLocaleUtils, {
+import {
   formatDate,
   parseDate,
 } from 'react-day-picker/moment'
+import 'moment/locale/it'
 
+const FORMAT = 'DD/MM/YYYY'
 
 class DatePicker extends React.Component {
   constructor() {
     super()
-    this.state = {
-      dateStart: '',
-      dateEnd: ''
-    }
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -26,19 +23,12 @@ class DatePicker extends React.Component {
   render() {
     return (
       <div>
-        <p>Please select start date:</p>
-        {this.state.dateStart && <p>Day: {this.state.dateStart.toLocaleDateString()}</p>}
-        {!this.state.dateStart && <p>Choose a day</p>}
         <DayPickerInput
           formatDate={formatDate}
+          format={FORMAT}
           parseDate={parseDate}
-          format="LL"
-          placeholder={`${formatDate(new Date(), 'LL', 'en')}`}
-          dayPickerProps={{
-            locale: 'en',
-            localeUtils: MomentLocaleUtils,
-          }}
-          onChange={this.handleChange} />
+          placeholder={`${formatDate(new Date(), FORMAT)}`}
+          onDayChange={day => console.log(day)} />
       </div >
     )
   }
