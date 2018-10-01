@@ -13,7 +13,7 @@ import ErrorMessage from './auth/ErrorMessage'
 import DatePicker from './create-event/DatePicker'
 import { sendForm } from '../actions/create-event'
 
-const FORMAT = 'DD/MM/YYYY'
+
 
 class CreateEvent extends React.Component {
   constructor() {
@@ -145,7 +145,7 @@ class CreateEvent extends React.Component {
                 <label htmlFor='inputRegion'>Region</label>
                 <select id='inputRegion' className='custom-select' name='region'
                   onChange={this.handleChange} >
-                  <option selected>Select one...</option>
+                  <option defaultValue>Select one...</option>
                   <optgroup label='North Island'>
                     <option value='Northland'>Northland</option>
                     <option value='Auckland'>Auckland</option>
@@ -182,13 +182,7 @@ class CreateEvent extends React.Component {
             <div className='form-row'>
               <div className='form-group col-md-3'>
                 <label htmlFor='inputDateStart'>Date Start:</label>
-               
-                <DayPickerInput
-                  formatDate={formatDate}
-                  format={FORMAT}
-                  parseDate={parseDate}
-                  placeholder={`${formatDate(new Date(), FORMAT)}`}
-                  onDayChange={day => console.log(day)} />
+                <DatePicker />
               </div>
 
               <div className='form-group col-md-3'>
@@ -199,16 +193,8 @@ class CreateEvent extends React.Component {
 
               <div className='form-group col-md-3'>
                 <label htmlFor='inputDateEnd'>Date End:</label>
-               
-                <DayPickerInput
-                  formatDate={formatDate}
-                  format={FORMAT}
-                  parseDate={parseDate}
-                  placeholder={`${formatDate(new Date(), FORMAT)}`}
-                  onDayChange={day => console.log(day)} />
+                <DatePicker />
               </div>
-
-
 
               <div className='form-group col-md-3'>
                 <label htmlFor='inputtimeEnd'>Time End:</label>
@@ -222,7 +208,7 @@ class CreateEvent extends React.Component {
               <div className='input-group mb-3'>
                 <div className='custom-file'>
                   <input type='file' className='custom-file-input' id='inputGroupFile01' aria-describedby='inputGroupFileAddon01' />
-                  <label className='custom-file-label' for='inputGroupFile01'>Choose file</label>
+                  <label className='custom-file-label' htmlFor='inputGroupFile01'>Choose file</label>
                 </div>
               </div>
             </div>
@@ -273,7 +259,7 @@ class CreateEvent extends React.Component {
             <div className='form-group'>
               <label htmlFor='inputRestrictions'>Event Restrictions: </label>
               <select id='inputRestrictions' className='custom-select' name='restrictions'>
-                <option selected>Choose an age rating...</option>
+                <option defaultValue>Choose an age rating...</option>
                 <option value='All Ages'>All Ages</option>
                 <option value='R18'>R18</option>
                 <option value='R21'>R21</option>
@@ -285,7 +271,7 @@ class CreateEvent extends React.Component {
             <div className='form-group'>
               <label htmlFor='inputEventType'>Event Type:</label>
               <select id='inputEventType' className='custom-select' name='eventType'>
-                <option selected>Choose an event type...</option>
+                <option defaultValue>Choose an event type...</option>
                 <option value='1'>Publically Hosted</option>
                 <option value='2'>Individually Hosted</option>
               </select>
@@ -294,7 +280,7 @@ class CreateEvent extends React.Component {
             <div className='form-group'>
               <label htmlFor='inputEventCategory'>Event Category:</label>
               <select id='inputEventCategory' className='custom-select' name='eventCategory'>
-                <option selected>Choose an event category...</option>
+                <option defaultValue>Choose an event category...</option>
                 <option value='Concerts'>Concerts</option>
                 <option value='Gigs'>Gigs</option>
                 <option value='Festivals'>Festivals</option>

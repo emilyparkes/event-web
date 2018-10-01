@@ -36,32 +36,36 @@ class SignIn extends React.Component {
     const { username, password } = this.state
     return (
       <div className='sign-in'>
-        <form className='pure-form pure-form-stacked'>
-          <fieldset>
-            <legend>Sign in</legend>
+        <form>
+          <legend>Sign in</legend>
 
-            <label htmlFor='error'>
-              <ErrorMessage /></label>
+          <label htmlFor='error'>
+            <ErrorMessage /></label>
 
-            <br />
+          <br />
 
-            <label htmlFor='username'>Username</label>
-            <input id='username' name='username' placeholder='username'
-              onChange={this.handleChange} value={username} />
+          <div className='form-group'>
+            <label htmlFor='exampleInputUsername'>Username</label>
+            <input type='username' className='form-control' id='exampleInputUsername1' aria-describedby='usernameHelp' placeholder='Enter username'
+            onChange={this.handleChange} value={username} />
+            {/* <small id='usernameHelp' name='username' className='form-text text-muted'
+              >We'll never share your email with anyone else.</small> */}
+          </div>
+          <div className='form-group'>
+            <label htmlFor='exampleInputPassword1'>Password</label>
+            <input type='password' className='form-control' id='exampleInputPassword1' placeholder='Password'
+              onChange={this.handleChange} value={password} /></div>
 
-            <br />
-
-            <label htmlFor='password'>Password</label>
-            <input id='password' name='password'
-              type='password' placeholder='password'
-              onChange={this.handleChange} value={password} />
-
-            <br />
-
-            <button name='sign-in-button' className='pure-button pure-button-primary'
-              onClick={this.handleSubmit}>Sign in</button>
-          </fieldset>
+          <div className='form-group form-check'>
+            <input type='checkbox' className='form-check-input' id='exampleCheck1' />
+            <label className='form-check-label' htmlFor='exampleCheck1'>I Accept Terms and Conditions</label>
+          </div>
+          <button type='submit' name='sign-in-button' className='pure-button pure-button-primary'
+            onClick={this.handleSubmit}>Sign In</button>
         </form>
+
+
+
       </div>
     )
   }
@@ -84,5 +88,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default withRouter(
-connect(null, mapDispatchToProps)(SignIn)
+  connect(null, mapDispatchToProps)(SignIn)
 )
