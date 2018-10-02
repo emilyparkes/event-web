@@ -10,10 +10,11 @@ The web version of [event-app](https://github.com/emilyparkes/event-app).
 ## Contents
 - [Getting Started (Installation)](#getting-started)
   - [Testing](#testing)
-- [Usage (coming soon...)](#usage)
+- [Built With (coming soon...)](#built-with)
 - [Contributing (coming soon...)](#contributing)
 - [Credits (coming soon...)](#credits)
 - [License (coming soon...)](#license)
+- [Acknowledgements (coming soon...)](#acknowledgements)
 
 
 ### Getting Started:
@@ -50,5 +51,26 @@ yarn dev
 yarn test
 ```
 - Result: PASS for 36 test suites and 121 tests  
-_(tests last run on 19th September 18)_  
+_(tests last run on October 1st '18)_  
 ![](server/public/images-github/tests.png)
+
+## Built With 
+- React
+- Redux
+
+## Contributing
+Thank you for considering to contribute! I appreciate all notes and and work to help me improve my project.
+See [contributing guidelines]() for more.
+
+## Credits
+[@emilyparkes](https://github.com/emilyparkes) - Initial work
+
+## License 
+Apache 2.0
+See [Licence]() for details.
+
+## Acknowledgements (coming soon...)  
+ - Enspiral Dev Academy for giving me the skills to code, and to continue to learn!
+
+
+
