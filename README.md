@@ -10,11 +10,11 @@ The web version of [event-app](https://github.com/emilyparkes/event-app).
 ## Contents
 - [Getting Started (Installation)](#getting-started)
   - [Testing](#testing)
-- [Built With (coming soon...)](#built-with)
-- [Contributing (coming soon...)](#contributing)
-- [Credits (coming soon...)](#credits)
-- [License (coming soon...)](#license)
-- [Acknowledgements (coming soon...)](#acknowledgements)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 
 ### Getting Started:
@@ -63,7 +63,7 @@ Thank you for considering to contribute! I appreciate all notes and and work to 
 See [contributing guidelines]() for more.
 
 ## Credits
-[@emilyparkes](https://github.com/emilyparkes) - Initial work
+[emily parkes](https://github.com/emilyparkes) - Initial work
 
 ## License 
 Apache 2.0
