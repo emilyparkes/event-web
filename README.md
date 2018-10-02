@@ -69,7 +69,7 @@ See [contributing guidelines]() for more.
 Apache 2.0
 See [Licence]() for details.
 
-## Acknowledgements (coming soon...)  
+## Acknowledgements  
  - Enspiral Dev Academy for giving me the skills to code, and to continue to learn!
 
 
