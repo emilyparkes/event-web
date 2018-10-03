@@ -103,7 +103,7 @@ class CreateEvent extends React.Component {
           )} */}
         {/* </select> */}
 
-        <form method='post'>
+        <form>
           <fieldset>
             <h1>Create an Event</h1>
             <label htmlFor='error'>
@@ -242,7 +242,7 @@ class CreateEvent extends React.Component {
             <div className='form-group'>
               <label htmlFor='inputAccess'>Access:</label>
               <select id='inputAccess' className='custom-select' name='access'>
-                <option selected>Choose ticket access...</option>
+                <option defaultValue>Choose ticket access...</option>
                 <option value='Free Event'>Free Event</option>
                 <option value='Door Sales'>Door Sales</option>
                 <option value='Online Tickets'>Online Tickets</option>
