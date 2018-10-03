@@ -15,8 +15,6 @@ class Register extends React.Component {
       username: '',
       password: '',
       confirm: '',
-      match: false,
-      showMatch: false,
       invalidEmail: false,
       weakPassword: false,
       submitted: false
@@ -29,7 +27,6 @@ class Register extends React.Component {
     const { name, value } = e.target
     this.setState({
       [name]: value,
-      match: match,
       weakPassword: isWeakPassword(this.state.password),
       invalidEmail: isValidEmail(this.state.email)
     })
