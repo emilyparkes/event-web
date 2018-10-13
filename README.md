@@ -51,7 +51,7 @@ yarn dev
 yarn test
 ```
 - Result: PASS for 36 test suites and 121 tests  
-_(tests last run on October 5th '18)_  
+_(tests last run on October 13th '18)_  
 ![](server/public/images-github/tests.png)
 
 ## Built With 
