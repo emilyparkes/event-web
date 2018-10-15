@@ -60,7 +60,7 @@ _(tests last run on October 13th '18)_
 
 ## Contributing
 Thank you for considering to contribute! I appreciate all notes and and work to help me improve my project.
-See [contributing guidelines](https://github.com/emilyparkes/event-web/blob/master/.github/CONTRIBUTING/CONTRIBUTING.md) for more.
+See [contributing guidelines](https://github.com/emilyparkes/event-web/blob/master/.github/CONTRIBUTING/CONTRIBUTING.md) for more information.
 
 ## Credits
 [emily parkes](https://github.com/emilyparkes) - Initial work
