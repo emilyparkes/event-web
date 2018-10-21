@@ -105,9 +105,11 @@ class CreateEvent extends React.Component {
 
         <form>
           <fieldset>
-            <h1>Create an Event</h1>
+            <legend>Create an Event</legend>
+
             <label htmlFor='error'>
-              <ErrorMessage /></label>
+              <ErrorMessage />
+            </label>
 
             <h3 className='section-label'>1. Event Details</h3>
             <div className='form-group'>
