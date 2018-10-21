@@ -45,42 +45,48 @@ class Register extends React.Component {
     const { email, username, password, confirm, submitted } = this.state
     return (
       <div className='register'>
-        <form className='pure-form pure-form-stacked'>
+        <form>
           <fieldset>
             <legend>Register</legend>
 
-            <br />
-
             <label htmlFor='error'>
-              <ErrorMessage /></label>
+              <ErrorMessage />
+            </label>
 
-            <br />
+            <div className='form-group'>
+              <label htmlFor='inputEmail'>Email</label>
+              <input className='form-control' id='email' name='email' placeholder='Email'
+                onChange={this.handleChange} value={email} required />
+            </div>
 
-            <label htmlFor='email'>Email</label>
-            <input id='email' name='email' placeholder='Email'
-              onChange={this.handleChange} value={email} required />
-
-            <br />
-
+            <div className='form-group'>
             <label htmlFor='username'>Username</label>
-            <input id='username' name='username' placeholder='username'
-              onChange={this.handleChange} value={username} required />
+            <label className='sr-only' htmlFor='username'>Username</label>
+            <div className='input-group mb-2 mr-sm-2'>
+              <div className='input-group-prepend'>
+                <div className='input-group-text'>@</div>
+              </div>
+              <input className='form-control' type='text' id='username' name='username' placeholder='Username' autoComplete='username'
+               onChange={this.handleChange} value={username} required />
+            </div>
+            </div>
 
-            <br />
+            <div className='form-group'>
+              <label htmlFor='password'>Password</label>
+              <input className='form-control' id='password' name='password'
+                type='password' placeholder='Password' aria-describedby='passwordHelpBlock' autoComplete='new-password'
+                onChange={this.handleChange} value={password}  required />
+              <small className='form-text text-muted' id='passwordHelpBlock'>
+                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                </small>
+            </div>
 
-            <label htmlFor='password'>Password</label>
-            <input id='password' name='password'
-              type='password' placeholder='password'
-              onChange={this.handleChange} value={password} required />
-
-            <br />
-
-            <label htmlFor='confirm'>Confirm Password</label>
-            <input id='confirm' name='confirm'
-              type='password' placeholder='confirm password'
-              onChange={this.handleChange} value={confirm} required />
-            <h6>Passwords: (min 8 char - 1 upper, lower, num, special char)</h6>
-            <br />
+            <div className='form-group'>
+              <label htmlFor='confirm'>Confirm Password</label>
+              <input className='form-control' id='confirm' name='confirm'
+                type='password' placeholder='Confirm Password' autoComplete='new-password'
+                onChange={this.handleChange} value={confirm} required />
+            </div>
 
             <button className='pure-button pure-button-primary'
               onClick={this.handleSubmit}>Register</button>
