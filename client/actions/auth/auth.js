@@ -1,29 +1,32 @@
 import request from '../../lib/apiClient'
 import { showSuccess, showError, clearError } from '../error'
-import { saveAuthToken, logOff as logOffUser } from '../../lib/auth'
+import { saveUserToken, logOut } from '../../lib/auth'
 
-export const LOG_OFF = 'LOG_OFF'
+export const REQUEST_LOG_OUT = 'REQUEST_LOG_OUT'
+export const RECIEVE_LOG_OUT = 'RECIEVE_LOG_OUT'
+
 export const REQUEST_SIGNIN = 'REQUEST_SIGNIN'
 export const RECEIVE_SIGNIN = 'RECEIVE_SIGNIN'
+
+export const REQUEST_USER_REGISTRATION = 'REQUEST_USER_REGISTRATION'
+export const RECEIVE_USER_REGISTRATION = 'RECEIVE_USER_REGISTRATION'
+
 export const REQUEST_USER_DETAILS = 'REQUEST_USER_DETAILS'
 export const RECEIVE_USER_DETAILS = 'RECEIVE_USER_DETAILS'
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS'
 export const REQUEST_ALL_USERS = 'REQUEST_ALL_USERS'
 export const REQUEST_UPDATE_PROFILE = 'REQUEST_UPDATE_PROFILE'
 export const RECEIVE_UPDATE_PROFILE = 'RECEIVE_UPDATE_PROFILE'
-export const REQUEST_USER_REGISTRATION = 'REQUEST_USER_REGISTRATION'
-export const RECEIVE_USER_REGISTRATION = 'RECEIVE_USER_REGISTRATION'
 
-const requestUserRegistration = () => {
+const requestLogOut = () => {
   return {
-    type: REQUEST_USER_REGISTRATION
+    type: REQUEST_LOG_OUT
   }
 }
 
-const receiveUserRegistration = (token) => {
-  return {
-    type: RECEIVE_USER_REGISTRATION,
-    token
+const recieveLogOut = () => {
+    return {
+      type: RECIEVE_LOG_OUT
   }
 }
 
@@ -40,10 +43,16 @@ const receiveSignIn = (token) => {
   }
 }
 
-export const logOff = () => {
-  logOffUser()
+const requestUserRegistration = () => {
   return {
-    type: LOG_OFF
+    type: REQUEST_USER_REGISTRATION
+  }
+}
+
+const receiveUserRegistration = (token) => {
+  return {
+    type: RECEIVE_USER_REGISTRATION,
+    token
   }
 }
 
@@ -89,11 +98,10 @@ export function register(newUser) {
     dispatch(requestUserRegistration())
     return request('post', '/auth/register', newUser)
       .then(res => {
-        const token = saveAuthToken(res.body.token)
+        const token = saveUserToken(res.body.token)
         dispatch(clearError())
         dispatch(receiveUserRegistration(res.body))
         dispatch(getUserDetails(token.id))
-        // added code
         dispatch(showSuccess('Registration successful'))
       })
       .catch(err => {
@@ -107,28 +115,25 @@ export function register(newUser) {
   }
 }
 
-export function signIn(user, confirmSuccess) {
+export function signIn (user) {
   return (dispatch) => {
     dispatch(requestSignIn())
     request('post', '/auth/signin', user)
       .then(res => {
-        const token = saveAuthToken(res.body.token)
+        const token = saveUserToken(res.body.token)
         dispatch(receiveSignIn(res.body))
         dispatch(getUserDetails(token.id))
         dispatch(clearError())
-        confirmSuccess()
-        // added code
-        dispatch(showSuccess('You are signed in.'))
+        getUserDetails(token.id)
+        dispatch(showSuccess('You are now logged in.'))
       })
-      // .catch(err => {
-      //   const res = err.response.body
-      //   if (res && res.errorType === 'INVALID_CREDENTIALS') {
-      //     return dispatch(showError('Username and password don\'t match an existing user.'))
-      //   }
-      //   dispatch(showError('An unexpected error has occurred.'))
-      // })
-      .catch((err) => {
-        dispatch(showError(err.message))
+      .catch(err => {
+        if (err) {
+          return dispatch(showError(err.message))
+            // 'Username and password do not match an existing user'))
+        } else {
+          return dispatch(showError('An unexpected error has occurred'))
+        }
       })
   }
 }
@@ -182,5 +187,13 @@ export function updateProfile(profile) {
       .catch((err) => {
         dispatch(showError(err.message))
       })
+  }
+}
+
+export function logOutUser () {
+  return dispatch => {
+    dispatch(requestLogOut())
+    logOut()
+    dispatch(recieveLogOut())
   }
 }
