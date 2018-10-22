@@ -8,10 +8,10 @@ const initialState = ''
 const errorMessage = (state = initialState, action) => {
   switch (action.type) {
     case SHOW_SUCCESS:
-      return action.message
+      return action.message || null
 
     case SHOW_ERROR:
-      return action.message
+      return action.message || null
 
     case CLEAR_ERROR:
       return state
