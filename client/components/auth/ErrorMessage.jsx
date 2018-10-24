@@ -17,6 +17,7 @@ class ErrorMessage extends React.Component {
   render() {
     return (
       <div className='error-message red error pl3'>
+        {/* <div className="alert alert-danger" role="alert"> */}
         {this.props.errorMessage}
       </div>
     )
@@ -36,5 +37,5 @@ function mapStateToProps({ errorMessage }) {
 }
 
 export default withRouter(
-connect(mapStateToProps)(ErrorMessage)
+  connect(mapStateToProps)(ErrorMessage)
 )

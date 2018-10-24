@@ -1,13 +1,25 @@
-import {SHOW_ERROR} from '../../actions/error'
+import { SHOW_ERROR } from '../../actions/error'
 import {
+  REQUEST_LOG_OFF,
+  RECEIVE_LOG_OFF,
   REQUEST_SIGNIN,
   RECEIVE_SIGNIN,
   REQUEST_USER_DETAILS,
   RECEIVE_USER_DETAILS,
   REQUEST_USER_REGISTRATION,
-  RECEIVE_USER_REGISTRATION} from '../../actions/auth/auth'
+  RECEIVE_USER_REGISTRATION
+} from '../../actions/auth/auth'
+import { getUserToken } from '../../lib/auth'
 
-const auth = (state = false, action) => {
+const initialState = {
+  // isFetching: false,
+  isAuthenticated: false,
+  // isAuthenticated(),
+  user: getUserToken(),
+  errorMessage: ''
+}
+
+const auth = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_USER_REGISTRATION:
       return true
@@ -19,16 +31,34 @@ const auth = (state = false, action) => {
       return true
 
     case RECEIVE_SIGNIN:
-      return false
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.user
+      }
 
     case REQUEST_USER_DETAILS:
       return true
 
     case RECEIVE_USER_DETAILS:
-      return false
+      return {
+        ...state
+      }
+
+    case REQUEST_LOG_OFF:
+      return true
+
+    case RECEIVE_LOG_OFF:
+      return {
+        ...state,
+        user: null
+      }
 
     case SHOW_ERROR:
-      return false
+      return {
+        ...state,
+        errorMessage: action.errorMessage
+      }
 
     default:
       return state

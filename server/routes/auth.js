@@ -16,7 +16,8 @@ function register (req, res, next) {
     .then(exists => {
       if (exists) {
         return res.status(400).send({
-          errorType: 'USERNAME_UNAVAILABLE'
+          errorType: err.message
+          // 'USERNAME_UNAVAILABLE'
         })
       }
       createUser(req.body.email, req.body.username, req.body.password)
@@ -35,7 +36,8 @@ function register (req, res, next) {
 function signIn (req, res, next) {
   getUserByName(req.body.username)
     .then(user => {
-      return user || invalidCredentials(res)
+      return user 
+      // || invalidCredentials(res)
     })
     .then(user => {
       return user && hash.verify(user.hash, req.body.password)
@@ -43,9 +45,10 @@ function signIn (req, res, next) {
     .then(isValid => {
       return isValid ? next() : invalidCredentials(res)
     })
-    .catch(() => {
+    .catch((err) => {
       res.status(400).send({
-        errorType: 'DATABASE_ERROR'
+        errorType: err.message
+        // 'DATABASE_ERROR'
       })
     })
 }
