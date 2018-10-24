@@ -20,9 +20,9 @@ const Nav = () => {
         <span className='nav-link-individual-styling'>
           <Link to='/popular'>popular</Link>
         </span>
-        <span className='nav-link-individual-styling'>
+        {/* <span className='nav-link-individual-styling'>
           <Link to='/calendar'>calendar</Link>
-        </span>
+        </span> */}
         <span className='nav-link-individual-styling'>
           <Link to='/map'>map</Link>
         </span>
@@ -40,6 +40,10 @@ const Nav = () => {
 
         <span className='nav-link-individual-styling'>
           <Link to='/register'>register</Link>
+        </span>
+
+        <span className='nav-link-individual-styling'>
+          <Link to='/signin'>sign in</Link>
         </span>
 
       </div>
