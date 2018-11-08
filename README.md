@@ -4,7 +4,7 @@
 A web app designed to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
 
-For more information see the [wiki](https://github.com/emilyparkes/event-web/wiki)
+For more information see the [wiki](https://github.com/emilyparkes/event-web/wiki).
 
 
 ## Contents
@@ -51,12 +51,17 @@ yarn dev
 yarn test
 ```
 - Result: PASS for 36 test suites and 121 tests  
-_(tests last run on October 13th '18)_  
+_(tests last run on November 8th '18)_  
 ![](server/public/images-github/tests.png)
 
 ## Built With 
 - React
 - Redux
+- Node
+- Express
+- SQLite 3
+
+- React Leaflet
 
 ## Contributing
 Thank you for considering to contribute! I appreciate all notes and and work to help me improve my project.
