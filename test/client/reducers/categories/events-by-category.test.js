@@ -1,4 +1,4 @@
-import { RECEIVE_EVENTS_BY_CATEGORY } from '../../../../client/actions/categories/events-by-category'
+import {RECEIVE_EVENTS_BY_CATEGORY} from '../../../../client/actions/categories/events-by-category'
 import eventsInCategory from '../../../../client/reducers/categories/events-by-category'
 
 test('test environment for eventsInCategory reducer is operating correctly', () => {
@@ -14,7 +14,6 @@ test('eventsInCategory receives the list of events in the category', () => {
   }
   const newState = eventsInCategory(initialState, action)
   expect(newState).toBe(action.eventsInCategory)
-  
 })
 
 test('activeEvent returns the current state by default', () => {

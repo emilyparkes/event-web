@@ -1,6 +1,7 @@
 import {
-  SHOW_ERROR,
-  CLEAR_ERROR
+  SHOW_ERROR
+  // ,
+  // CLEAR_ERROR
 } from '../../../client/actions/error'
 import errorMessage from '../../../client/reducers/error'
 
@@ -27,7 +28,7 @@ test('errorMessage returns the error message during SHOW_ERROR', () => {
 
 test('errorMessage returns the current state by default', () => {
   const currentState = ''
-  const action = { type: 'UNKNOWN_ACTION_TYPE' }
+  const action = {type: 'UNKNOWN_ACTION_TYPE'}
   const newState = errorMessage(currentState, action)
   expect(newState).toBe(currentState)
 })

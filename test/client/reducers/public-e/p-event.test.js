@@ -1,4 +1,4 @@
-import { RECEIVE_PUBLIC_EVENT_BY_NAME } from '../../../../client/actions/public-e/p-event'
+import {RECEIVE_PUBLIC_EVENT_BY_NAME} from '../../../../client/actions/public-e/p-event'
 import publicEvent from '../../../../client/reducers/public-e/p-event'
 
 test('test environment for p-event reducer is operating correctly', () => {
@@ -14,7 +14,6 @@ test('publicEvent receives the public event', () => {
   }
   const newState = publicEvent(initialState, action)
   expect(newState).toBe(action.publicEvent)
-  
 })
 
 test('activeEvent returns the current state by default', () => {

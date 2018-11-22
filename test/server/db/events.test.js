@@ -33,9 +33,8 @@ test('getPublicEventByName returns the named public event', () => {
     .catch(err => expect(err).toBeNull())
 })
 
-
 test('getEventsByCategory returns all events in the named category', () => {
-  const expected = [{ address: "lil club, 12 ponsonby rd", blurb: "Balu Brigada is playing and you should hear them!", categoryName: "Gigs", category_id: 2, date: "Tuesday 28 May", eventName: "Balu-Brigada", eventType: 1, event_id: 3, id: 2, imageUrl: "http://lorempixel.com/400/200", location: "CBD", ticketInfo: "$10 R", ticketUrl: "", time: "6pm-10pm", website: "www.lilclub.events" }, { "address": "town hall", "blurb": "Come laugh at funny people telling funny stories.", "categoryName": "Gigs", "category_id": 2, "date": "Monday 11 June", "eventName": "Comedy-Fest", "eventType": 1, "event_id": 4, "id": 2, "imageUrl": "http://lorempixel.com/400/200", "location": "CBD", "ticketInfo": "$15 R", "ticketUrl": "", "time": "5pm-11pm", "website": "www.comedyfest.akl" }]
+  const expected = [{address: 'lil club, 12 ponsonby rd', blurb: 'Balu Brigada is playing and you should hear them!', categoryName: 'Gigs', category_id: 2, date: 'Tuesday 28 May', eventName: 'Balu-Brigada', eventType: 1, event_id: 3, id: 2, imageUrl: 'http://lorempixel.com/400/200', location: 'CBD', ticketInfo: '$10 R', ticketUrl: '', time: '6pm-10pm', website: 'www.lilclub.events'}, {'address': 'town hall', 'blurb': 'Come laugh at funny people telling funny stories.', 'categoryName': 'Gigs', 'category_id': 2, 'date': 'Monday 11 June', 'eventName': 'Comedy-Fest', 'eventType': 1, 'event_id': 4, 'id': 2, 'imageUrl': 'http://lorempixel.com/400/200', 'location': 'CBD', 'ticketInfo': '$15 R', 'ticketUrl': '', 'time': '5pm-11pm', 'website': 'www.comedyfest.akl'}]
   return db.getEventsByCategory('Gigs', testDb)
     .then(events => {
       const actual = events
