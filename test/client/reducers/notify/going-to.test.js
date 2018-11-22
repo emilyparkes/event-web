@@ -1,4 +1,4 @@
-import { RECEIVE_GOING_TO_LIST } from '../../../../client/actions/notify/going-to'
+import {RECEIVE_GOING_TO_LIST} from '../../../../client/actions/notify/going-to'
 import goingTo from '../../../../client/reducers/notify/going-to'
 
 test('test environment for p-event reducer is operating correctly', () => {
@@ -14,7 +14,6 @@ test('goingTo receives the list of events the user is going to', () => {
   }
   const newState = goingTo(initialState, action)
   expect(newState).toBe(action.goingTo)
-  
 })
 
 test('activeEvent returns the current state by default', () => {

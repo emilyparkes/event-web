@@ -1,6 +1,6 @@
 /* global test expect */
 
-import { receivePublicEvents } from '../../../client/actions/public-e/public-events'
+import {receivePublicEvents} from '../../../client/actions/public-e/public-events'
 
 test('receivePublicEvents returns the correct action type', () => {
   const expected = 'RECEIVE_PUBLIC_EVENTS'

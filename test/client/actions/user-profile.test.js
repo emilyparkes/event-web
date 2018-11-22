@@ -1,6 +1,6 @@
 /* global test expect */
 
-import { receiveUserProfile } from '../../../client/actions/auth/user-profile'
+import {receiveUserProfile} from '../../../client/actions/auth/user-profile'
 
 test('receiveUserProfile returns the correct action type', () => {
   const expected = 'RECEIVE_USER_PROFILE'

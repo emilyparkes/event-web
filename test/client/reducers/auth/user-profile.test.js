@@ -11,15 +11,14 @@ test('profile receives the user profile', () => {
   const initialState = {}
   const action = {
     type: RECEIVE_USER_PROFILE,
-    userProfile: { firstname: 'test name' }
+    userProfile: {firstname: 'test name'}
   }
   const newState = profile(initialState, action)
   expect(newState).toBe(action.userProfile)
-
 })
 
 test('activeEvent returns the current state by default', () => {
-  const initialState = { name: 'test name' }
+  const initialState = {name: 'test name'}
   const action = {
     type: 'UNKNOWN_ACTION_TYPE'
   }

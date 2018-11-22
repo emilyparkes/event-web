@@ -1,4 +1,4 @@
-import { RECEIVE_LOCAL_EVENT_BY_NAME } from '../../../../client/actions/local-e/l-event'
+import {RECEIVE_LOCAL_EVENT_BY_NAME} from '../../../../client/actions/local-e/l-event'
 import localEvent from '../../../../client/reducers/local-e/l-event'
 
 test('test environment for l-event reducer is operating correctly', () => {
@@ -14,7 +14,6 @@ test('localEvent receives the local event', () => {
   }
   const newState = localEvent(initialState, action)
   expect(newState).toBe(action.lEvent)
-  
 })
 
 test('activeEvent returns the current state by default', () => {

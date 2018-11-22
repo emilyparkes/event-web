@@ -1,6 +1,6 @@
 /* global test expect */
 
-import { receiveEventsByCategory } from '../../../client/actions/categories/events-by-category'
+import {receiveEventsByCategory} from '../../../client/actions/categories/events-by-category'
 
 test('receiveEventsBycategory returns the correct action type', () => {
   const expected = 'RECEIVE_EVENTS_BY_CATEGORY'

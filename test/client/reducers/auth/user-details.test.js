@@ -1,5 +1,5 @@
 import {
-  LOG_OFF,
+  LOG_OUT,
   REQUEST_USER_DETAILS,
   RECEIVE_USER_DETAILS
 } from '../../../../client/actions/auth/auth'
@@ -13,14 +13,14 @@ test('userDetails returns user details during RECEIVE_USER_DETAILS', () => {
   const currentState = {}
   const action = {
     type: RECEIVE_USER_DETAILS,
-    userDetails: { username: 'test username' }
+    userDetails: {username: 'test username'}
   }
   const newState = userDetails(currentState, action)
   expect(newState).toBe(action.userDetails)
 })
 
 test('userDetails returns null during REQUEST_USER_DETAILS', () => {
-  const currentState = { username: 'test username' }
+  const currentState = {username: 'test username'}
   const action = {
     type: REQUEST_USER_DETAILS
   }
@@ -28,17 +28,17 @@ test('userDetails returns null during REQUEST_USER_DETAILS', () => {
   expect(newState).toBeNull()
 })
 
-test('userDetails returns null during LOG_OFF', () => {
-  const currentState = { username: 'test username' }
+test('userDetails returns null during LOG_OUT', () => {
+  const currentState = {username: 'test username'}
   const action = {
-    type: LOG_OFF
+    type: LOG_OUT
   }
   const newState = userDetails(currentState, action)
   expect(newState).toBeNull()
 })
 
 test('activeEvent returns the current state by default', () => {
-  const currentState = { username: 'test username' }
+  const currentState = {username: 'test username'}
   const action = {
     type: 'UNKNOWN_ACTION_TYPE'
   }

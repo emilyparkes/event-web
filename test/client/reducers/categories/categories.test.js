@@ -1,4 +1,4 @@
-import { RECEIVE_CATEGORIES } from '../../../../client/actions/categories/categories'
+import {RECEIVE_CATEGORIES} from '../../../../client/actions/categories/categories'
 import categories from '../../../../client/reducers/categories/categories'
 
 test('test environment for categories reducer is operating correctly', () => {
@@ -14,7 +14,6 @@ test('categories receives the list of categories', () => {
   }
   const newState = categories(initialState, action)
   expect(newState).toBe(action.categories)
-  
 })
 
 test('activeEvent returns the current state by default', () => {
