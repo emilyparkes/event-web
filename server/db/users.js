@@ -12,7 +12,7 @@ module.exports = {
   updateUser
 }
 
-function createUser(email, username, password, conn) {
+function createUser (email, username, password, conn) {
   const db = conn || connection
   return userExists(username, email, db)
     .then(exists => {
@@ -23,11 +23,11 @@ function createUser(email, username, password, conn) {
     .then(() => {
       const passwordHash = hash.generate(password)
       return db('users')
-        .insert({ email, username, hash: passwordHash })
+        .insert({email, username, hash: passwordHash})
     })
 }
 
-function userExists(username, email, conn) {
+function userExists (username, email, conn) {
   const db = conn || connection
   return db('users')
     .count('id as n')
@@ -38,7 +38,7 @@ function userExists(username, email, conn) {
     })
 }
 
-function getUserById(id, conn) {
+function getUserById (id, conn) {
   const db = conn || connection
   return db('users')
     .select('id', 'username')
@@ -46,7 +46,7 @@ function getUserById(id, conn) {
     .first()
 }
 
-function getUserByName(username, conn) {
+function getUserByName (username, conn) {
   const db = conn || connection
   return db('users')
     .select()
@@ -54,7 +54,7 @@ function getUserByName(username, conn) {
     .first()
 }
 
-function updateUser(id, username, currentPassword, newPassword, conn) {
+function updateUser (id, username, currentPassword, newPassword, conn) {
   const db = conn || connection
   return getUserByName(username, db)
     .then(user => {
@@ -67,7 +67,7 @@ function updateUser(id, username, currentPassword, newPassword, conn) {
       const newPasswordHash = hash.generate(newPassword)
       if (id !== user.id) Promise.reject(new Error('Username and ID mismatch'))
       return db('users')
-        .update({ username, hash: newPasswordHash })
+        .update({username, hash: newPasswordHash})
         .where('id', user.id)
     })
 }

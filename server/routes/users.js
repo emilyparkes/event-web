@@ -25,7 +25,7 @@ router.put('/profile/:username', token.decode, (req, res) => {
   const username = req.params.username
   const updatedProfile = req.body
   db.updateUserProfile(updatedProfile, username)
-    .then(() => { 
+    .then(() => {
       res.sendStatus(200)
     })
     .catch(err => {

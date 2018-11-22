@@ -16,7 +16,7 @@ module.exports = {
   createEvent
 }
 
-function getAllEvents(conn) {
+function getAllEvents (conn) {
   const db = conn || connection
   return db('events')
     .join('events_venues_junction', 'events.id', 'events_venues_junction.event_id')
@@ -26,7 +26,7 @@ function getAllEvents(conn) {
 
 // PUBLIC EVENTS FUNCTIONS
 
-function getPublicEvents(conn) {
+function getPublicEvents (conn) {
   const db = conn || connection
   return db('events')
     .select()
@@ -42,7 +42,7 @@ function getPublicEvents(conn) {
 //     .first()
 // }
 
-function getPublicEventByName(eventName, conn) {
+function getPublicEventByName (eventName, conn) {
   const db = conn || connection
   return db('events')
     .where('eventType', 1)
@@ -53,7 +53,7 @@ function getPublicEventByName(eventName, conn) {
 
 // LOCAL EVENTS FUNCTIONS
 
-function getLocalEvents(conn) {
+function getLocalEvents (conn) {
   const db = conn || connection
   return db('events')
     .where('eventType', 2)
@@ -68,7 +68,7 @@ function getLocalEvents(conn) {
 //     .first()
 // }
 
-function getLocalEventByName(eventName, conn) {
+function getLocalEventByName (eventName, conn) {
   const db = conn || connection
   return db('events')
     .where('eventType', 2)
@@ -79,20 +79,20 @@ function getLocalEventByName(eventName, conn) {
 
 // CATEGORY FUNCTIONS
 
-function getCategories(conn) {
+function getCategories (conn) {
   const db = conn || connection
   return db('categories')
     .select()
 }
 
-function getCategoryById(id, conn) {
+function getCategoryById (id, conn) {
   const db = conn || connection
   return db('categories')
     .where('id', id)
     .select('id', 'categoryName')
 }
 
-function getCategoryByName(category, conn) {
+function getCategoryByName (category, conn) {
   const db = conn || connection
   return db('categories')
     .where('categories.categoryName', category)
@@ -100,7 +100,7 @@ function getCategoryByName(category, conn) {
     .first()
 }
 
-function getEventsByCategory(category, conn) {
+function getEventsByCategory (category, conn) {
   const db = conn || connection
   return db('events')
     .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
@@ -109,7 +109,7 @@ function getEventsByCategory(category, conn) {
     .select()
 }
 
-function getEventFromCategory(category, eventName, conn) {
+function getEventFromCategory (category, eventName, conn) {
   const db = conn || connection
   return db('events')
     .join('events_categories_junction', 'events_categories_junction.event_id', '=', 'events.id')
@@ -122,7 +122,7 @@ function getEventFromCategory(category, eventName, conn) {
 
 // CREATE EVENT FUNCTION
 
-function createEvent(newEvent, conn) {
+function createEvent (newEvent, conn) {
   const db = conn || connection
   return db('events')
     .insert({
@@ -140,7 +140,7 @@ function createEvent(newEvent, conn) {
     .then((eId) => {
       return db('events_venues_junction')
         .insert({
-          event_id: eId[0],
+          event_id: eId[0]
         })
         .then((vId) => {
           return db('venues')
@@ -169,7 +169,6 @@ function createEvent(newEvent, conn) {
 // access: newEvent.access,
 // tickets: newEvent.tickets,
 // restrictions: newEvent.restrictions
-
 
 // return db('users')
 //   .insert({

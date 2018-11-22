@@ -7,7 +7,7 @@ module.exports = {
   updateUserProfile
 }
 
-function getUserProfile(username, conn) {
+function getUserProfile (username, conn) {
   const db = conn || connection
   return db('user_profiles')
     .join('users', 'users.id', '=', 'user_profiles.user_id')
@@ -16,9 +16,9 @@ function getUserProfile(username, conn) {
     .first()
 }
 
-function updateUserProfile(updatedProfile, username, conn) {
+function updateUserProfile (updatedProfile, username, conn) {
   const db = conn || connection
-  const { firstName, preferredName, surname, profilePic, phone, bio, location } = updatedProfile
+  const {firstName, preferredName, surname, profilePic, phone, bio, location} = updatedProfile
   return db('user_profiles')
     .join('users', 'users.id', '=', 'user_profiles.user_id')
     .select('username', 'firstName', 'preferredName', 'surname', 'profilePic', 'bio', 'phone', 'location')

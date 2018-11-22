@@ -9,8 +9,6 @@ router.use(express.static(path.join(__dirname, './public')))
 // const buf = Buffer.from('eventweb' + ':' + 'rh526df55bvm')
 // const headerValue = `Basic ${buf.toString('base64')}`
 
-
-
 router.get('/events', (req, res) => {
   request.get('https://app.ticketmaster.com/discovery/v2/events.json?countryCode=NZ&apikey=CYZHuVa4FtvN1VzfaCoaEFmUDaXlDn1y')
     .then(resp => {
@@ -24,4 +22,3 @@ router.get('/events', (req, res) => {
 })
 
 module.exports = router
-

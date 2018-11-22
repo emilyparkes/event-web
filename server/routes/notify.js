@@ -21,11 +21,11 @@ router.get('/invitedto', (req, res) => {
 router.get('/friends', (req, res) => {
   db.getFriendsList(1)
     .then((friendsList) => {
-      res.send({ friendsList })
+      res.send({friendsList})
     })
-  .catch(err => {
-    res.status(500).send(err.message)
-  })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
 
 router.get('/interestedin', (req, res) => {
@@ -47,4 +47,3 @@ router.get('/goingto', (req, res) => {
       res.status(500).send(err.message)
     })
 })
-
