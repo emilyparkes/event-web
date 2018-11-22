@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import { showError } from '../error'
+import {showError} from '../error'
 import baseUrl from '../../lib/base-url'
 
 export const REQUEST_USER_PROFILE = 'REQUEST_USER_PROFILE'
@@ -32,7 +32,7 @@ export function getProfile (username) {
         dispatch(showError(err.message))
       })
   }
-}  
+}
 
 export const requestSaveProfile = () => {
   return {
@@ -50,7 +50,7 @@ export const receiveSaveProfile = (updatedProfile) => {
 export function saveUserProfile (updatedProfile, username) {
   return (dispatch) => {
     dispatch(requestSaveProfile())
-    request.put(`${baseUrl}/api/v1/users/profile/${username}`, updatedProfile )
+    request.put(`${baseUrl}/api/v1/users/profile/${username}`, updatedProfile)
       .then(res => {
         dispatch(receiveSaveProfile(res.body))
       })
@@ -58,5 +58,4 @@ export function saveUserProfile (updatedProfile, username) {
         dispatch(showError(err.message))
       })
   }
-}  
-
+}

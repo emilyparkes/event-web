@@ -1,5 +1,5 @@
 import {
-  RECEIVE_LOCAL_EVENTS } from '../../actions/local-e/local-events'
+  RECEIVE_LOCAL_EVENTS} from '../../actions/local-e/local-events'
 
 const initialState = []
 

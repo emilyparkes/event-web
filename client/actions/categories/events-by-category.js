@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import { showError } from '../error'
+import {showError} from '../error'
 import baseUrl from '../../lib/base-url'
 
 export const RECEIVE_EVENTS_BY_CATEGORY = 'RECEIVE_EVENTS_BY_CATEGORY'

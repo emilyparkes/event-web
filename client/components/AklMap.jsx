@@ -1,19 +1,15 @@
 import React from 'react'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
-import { connect } from 'react-redux'
+import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
+import {connect} from 'react-redux'
 
-import { getApi } from '../actions/ticketmaster'
+import {getApi} from '../actions/ticketmaster'
 
 class AklMap extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getApi())
   }
 
-  render() {
+  render () {
     return (
       <div className='map'>
         <Map center={[-36.8485, 174.7633]} zoom={12}>
@@ -32,7 +28,7 @@ class AklMap extends React.Component {
             <Popup>
               <span>
                 EDA <br /> 7am-10pm
-            </span>
+              </span>
             </Popup>
           </Marker>
           {/* Example */}
@@ -53,10 +49,6 @@ class AklMap extends React.Component {
     )
   }
 }
-
-
-
-
 
 const mapStateToProps = (state) => {
   return {

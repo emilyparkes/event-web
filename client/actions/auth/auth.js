@@ -1,6 +1,6 @@
 import request from '../../lib/apiClient'
-import { showSuccess, showError, clearError } from '../error'
-import { saveUserToken, logOut } from '../../lib/auth'
+import {showSuccess, showError, clearError} from '../error'
+import {saveUserToken, logOut} from '../../lib/auth'
 
 export const REQUEST_LOG_OUT = 'REQUEST_LOG_OUT'
 export const RECIEVE_LOG_OUT = 'RECIEVE_LOG_OUT'
@@ -25,8 +25,8 @@ const requestLogOut = () => {
 }
 
 const recieveLogOut = () => {
-    return {
-      type: RECIEVE_LOG_OUT
+  return {
+    type: RECIEVE_LOG_OUT
   }
 }
 
@@ -93,7 +93,7 @@ const receiveUpdateProfile = () => {
   }
 }
 
-export function register(newUser) {
+export function register (newUser) {
   return (dispatch) => {
     dispatch(requestUserRegistration())
     return request('post', '/auth/register', newUser)
@@ -106,7 +106,6 @@ export function register(newUser) {
       })
       .catch(err => {
         const res = err.response.body
-        console.log(res)
         if (res && res.errorType === 'USERNAME_UNAVAILABLE') {
           return dispatch(showError('This username is unavailable.'))
         }
@@ -130,7 +129,7 @@ export function signIn (user) {
       .catch(err => {
         if (err) {
           return dispatch(showError(err.message))
-            // 'Username and password do not match an existing user'))
+          // 'Username and password do not match an existing user'))
         } else {
           return dispatch(showError('An unexpected error has occurred'))
         }
@@ -138,7 +137,7 @@ export function signIn (user) {
   }
 }
 
-export function getUserDetails(userId) {
+export function getUserDetails (userId) {
   return (dispatch) => {
     dispatch(requestUserDetails())
     request('get', `/users/${userId}`)
@@ -155,7 +154,7 @@ export function getUserDetails(userId) {
   }
 }
 
-export function getAllUsers() {
+export function getAllUsers () {
   return (dispatch) => {
     dispatch(requestAllUsers())
     return request('get', `/users`)
@@ -172,7 +171,7 @@ export function getAllUsers() {
   }
 }
 
-export function updateProfile(profile) {
+export function updateProfile (profile) {
   return (dispatch) => {
     dispatch(requestUpdateProfile())
     request('put', `/users/${profile.id}`, profile)

@@ -1,10 +1,10 @@
 import request from 'superagent'
 
-import { isAuthenticated, getEncodedToken } from './auth'
+import {isAuthenticated, getEncodedToken} from './auth'
 
 const baseUrl = '/api/v1'
 
-export default function consume(method = 'get', endpoint, data = {}) {
+export default function consume (method = 'get', endpoint, data = {}) {
   const payloadMethod = method.toLowerCase() === 'get' ? 'query' : 'send'
   const token = getEncodedToken()
   const headers = {

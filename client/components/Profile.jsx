@@ -1,8 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-import { getProfile } from '../actions/auth/user-profile'
+import {getProfile} from '../actions/auth/user-profile'
 
 import FriendsList from './notify-section/FriendsList'
 import InterestedIn from './notify-section/InterestedIn'
@@ -12,16 +12,12 @@ import InvitedTo from './notify-section/InvitedTo'
 // import Preferences from './profile/Preferences'
 
 class Profile extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getProfile('emilycoco'))
   }
 
-  render() {
-    const { profile } = this.props
+  render () {
+    const {profile} = this.props
     return (
       <div className='profilepg' >
 
@@ -77,7 +73,7 @@ class Profile extends React.Component {
           </div>
           <br/>
           <div className='going-to'>
-           <GoingTo />
+            <GoingTo />
           </div>
         </div>
 

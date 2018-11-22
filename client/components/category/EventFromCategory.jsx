@@ -1,29 +1,24 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
-import { getEventFromCategory } from '../../actions/categories/event-from-category'
+import {getEventFromCategory} from '../../actions/categories/event-from-category'
 
 export class EventByCategory extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getEventFromCategory(this.props.match.params.category, this.props.match.params.eventName))
   }
 
-
-  render() {
+  render () {
     return (
       <div className='categoriespg' >
 
         <div className='page-heading-section'>
           <div className='page-title-font'>
-          <h1>{this.props.match.params.eventName}</h1></div>
+            <h1>{this.props.match.params.eventName}</h1></div>
         </div>
 
         <div className='page-section' >
-        {this.props.eventFromCategory.description}
+          {this.props.eventFromCategory.description}
           {this.props.eventFromCategory.date_start}
           {this.props.eventFromCategory.date_end}
           {this.props.eventFromCategory.time_start}

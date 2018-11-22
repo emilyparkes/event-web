@@ -1,16 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-import { getCategories } from '../../actions/categories/categories'
+import {getCategories} from '../../actions/categories/categories'
 
 class Categories extends React.Component {
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getCategories())
   }
 
-  render() {
+  render () {
     return (
       <div className='categoriespg' >
 

@@ -1,19 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 // import { Link } from 'react-router-dom'
 
-import { getInvitedToList } from '../../actions/notify/invited-to'
+import {getInvitedToList} from '../../actions/notify/invited-to'
 
 class Invites extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getInvitedToList())
   }
 
-  render() {
+  render () {
     return (
       <div className='invitedto'>
         <div>Invited to:</div>
@@ -28,11 +24,10 @@ class Invites extends React.Component {
   }
 }
 
-  const mapStateToProps = (state) => {
-    return {
-      invitedTo: state.invitedTo
-    }
+const mapStateToProps = (state) => {
+  return {
+    invitedTo: state.invitedTo
   }
+}
 
-
-  export default connect(mapStateToProps)(Invites)
+export default connect(mapStateToProps)(Invites)

@@ -1,8 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 class AccountDetails extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       username: '',
@@ -13,8 +13,8 @@ class AccountDetails extends React.Component {
     }
   }
 
-  render() {
-    const { email, username, currentPassword, newPassword, confirmNew } = this.state
+  render () {
+    const {email, username, currentPassword, newPassword, confirmNew} = this.state
     return (
       <div className='account-section'>
 

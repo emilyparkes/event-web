@@ -1,7 +1,7 @@
 import request from 'superagent'
 import Geocode from 'react-geocode'
 
-import { showError, clearError, showSuccess } from './error'
+import {showError, clearError, showSuccess} from './error'
 import baseUrl from '../lib/base-url'
 
 Geocode.setApiKey(process.env.GOOGLE_API_KEY)
@@ -22,7 +22,7 @@ export const receiveForm = () => {
   }
 }
 
-export function sendForm(newEvent) {
+export function sendForm (newEvent) {
   return (dispatch) => {
     dispatch(requestForm())
     // const searchAddress = newEvent.address + ', ' + newEvent.suburb + ', ' + newEvent.region + ', ' + newEvent.postal
@@ -47,19 +47,18 @@ export function sendForm(newEvent) {
     //       lat: latLng.lat,
     //       lng: latLng.lng,
     //     }
-        request.post(`${baseUrl}/api/v1/add/create-event`, newEvent)
-          .then(res => {
-            console.log(res.body)
-            dispatch(receiveForm(res.body))
-            dispatch(clearError())
-            dispatch(showSuccess('Your event has been created successfully'))
-          })
-          .catch((err) => {
-            dispatch(showError(err.message))
-          })
-      }
-    // )
+    request.post(`${baseUrl}/api/v1/add/create-event`, newEvent)
+      .then(res => {
+        dispatch(receiveForm(res.body))
+        dispatch(clearError())
+        dispatch(showSuccess('Your event has been created successfully'))
+      })
+      .catch((err) => {
+        dispatch(showError(err.message))
+      })
   }
+  // )
+}
 // }
 
 export function getLatLng (address) {

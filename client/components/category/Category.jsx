@@ -1,17 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-import { getEventsByCategory } from '../../actions/categories/events-by-category'
+import {getEventsByCategory} from '../../actions/categories/events-by-category'
 
 export class Category extends React.Component {
-  // get all events associated with that category
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getEventsByCategory(this.props.match.params.category))
   }
 
-
-  render() {
+  render () {
     return (
       <div className='categoriespg' >
 

@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import { showError } from '../error'
+import {showError} from '../error'
 import baseUrl from '../../lib/base-url'
 
 export const RECEIVE_PUBLIC_EVENTS = 'RECEIVE_PUBLIC_EVENTS'
@@ -22,4 +22,4 @@ export function getPublicEvents () {
         dispatch(showError('An unexpected error in getting the events information'))
       })
   }
-}  
+}

@@ -1,14 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
+// import {Redirect} from 'react-router-dom'
 // import PropTypes from 'prop-types'
 
-import { signIn } from '../../actions/auth/auth'
-import { clearError } from '../../actions/error'
+import {signIn} from '../../actions/auth/auth'
+import {clearError} from '../../actions/error'
 import ErrorMessage from './ErrorMessage'
 
 class SignIn extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       username: '',
@@ -18,14 +18,14 @@ class SignIn extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
-    const { name, value } = e.target
+  handleChange (e) {
+    const {name, value} = e.target
     this.setState({
       [name]: value
     })
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     const user = {
       username: this.state.username,
       password: this.state.password
@@ -35,8 +35,8 @@ class SignIn extends React.Component {
     e.preventDefault()
   }
 
-  render() {
-    const { username, password } = this.state
+  render () {
+    const {username, password} = this.state
     return (
       <div className='sign-in'>
         <form>
@@ -86,14 +86,14 @@ class SignIn extends React.Component {
 //   signIn: PropTypes.func
 // }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     message: state.errorMessage,
     user: state.userDetails
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     signIn: (user) => {
       dispatch(clearError())

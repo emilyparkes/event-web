@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 
 import errorMessage from './error'
 import ticketmaster from './ticketmaster'

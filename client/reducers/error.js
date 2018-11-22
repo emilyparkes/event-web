@@ -1,7 +1,7 @@
-import { 
-  SHOW_SUCCESS, 
-  SHOW_ERROR, 
-  CLEAR_ERROR } from '../actions/error'
+import {
+  SHOW_SUCCESS,
+  SHOW_ERROR,
+  CLEAR_ERROR} from '../actions/error'
 
 const initialState = ''
 

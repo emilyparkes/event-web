@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import { showError } from '../error'
+import {showError} from '../error'
 import baseUrl from '../../lib/base-url'
 
 export const RECEIVE_INVITED_TO_LIST = 'RECEIVE_INVITED_TO_LIST'
@@ -12,7 +12,7 @@ export const receiveInvitedToList = (invitedTo) => {
   }
 }
 
-export function getInvitedToList() {
+export function getInvitedToList () {
   return (dispatch) => {
     request.get(`${baseUrl}/api/v1/notify/invitedto`)
       .then(res => {

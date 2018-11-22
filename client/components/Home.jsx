@@ -1,20 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { getApi } from '../actions/ticketmaster'
+import {connect} from 'react-redux'
+import {getApi} from '../actions/ticketmaster'
 
-
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getApi())
   }
 
-  render() {
+  render () {
     return (
       <div className='homepg'>
         <div className='page-heading-section'>
@@ -24,12 +19,11 @@ class Home extends React.Component {
           <h6>Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.</h6>
         </div>
 
-
         <div className='page-section'>
           <Link to={'/public-events'}>
             <button className='pevent-buttons'>
               Public Events
-              </button>
+            </button>
           </Link>
 
         </div>
@@ -37,7 +31,7 @@ class Home extends React.Component {
           <Link to={'/local-events'}>
             <button className='levent-buttons'>
               Local Events
-              </button>
+            </button>
           </Link></div>
 
         {this.props.ticketmaster.name}
@@ -52,12 +46,10 @@ class Home extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
     ticketmaster: state.ticketmaster
   }
 }
-
 
 export default connect(mapStateToProps)(Home)

@@ -1,22 +1,20 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
-import DayPickerInput from 'react-day-picker/DayPickerInput'
-import {
-  formatDate,
-  parseDate,
-} from 'react-day-picker/moment'
-import 'moment/locale/it'
+// import DayPickerInput from 'react-day-picker/DayPickerInput'
+// import {
+//   formatDate,
+//   parseDate
+// } from 'react-day-picker/moment'
+// import 'moment/locale/it'
 
 import ErrorMessage from './auth/ErrorMessage'
 import DatePicker from './create-event/DatePicker'
-import { sendForm } from '../actions/create-event'
-
-
+import {sendForm} from '../actions/create-event'
 
 class CreateEvent extends React.Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       eventName: '',
@@ -46,27 +44,27 @@ class CreateEvent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
+  handleChange (e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  handleDayClick(day, { selected }) {
-    const { selectedDays } = this.state
-    if (selected) {
-      const selectedIndex = selectedDays.findIndex(selectedDay =>
-        DateUtils.isSameDay(selectedDay, day))
-      selectedDays.splice(selectedIndex, 1)
-    } else {
-      selectedDays.push(day)
-    }
-    this.setState({
-      selectedDays
-    })
+  handleDayClick (day, {selected}) {
+    // const {selectedDays} = this.state
+  //   if (selected) {
+  //     const selectedIndex = selectedDays.findIndex(selectedDay =>
+  //       DateUtils.isSameDay(selectedDay, day))
+  //     selectedDays.splice(selectedIndex, 1)
+  //   } else {
+  //     selectedDays.push(day)
+  //   }
+  //   this.setState({
+  //     selectedDays
+  //   })
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
     this.setState({
       submitted: true
@@ -74,8 +72,7 @@ class CreateEvent extends React.Component {
     this.props.dispatch(sendForm(this.state))
   }
 
-  render() {
-
+  render () {
     if (this.state.submitted === true) {
       return (
         <div className='createevent-submitted'>
@@ -153,7 +150,7 @@ class CreateEvent extends React.Component {
                     <option value='Auckland'>Auckland</option>
                     <option value='Waikato'>Waikato</option>
                     <option value='Gisbourne'>Gisbourne</option>
-                    <option value='Hawkes Bay'>Hawke's Bay</option>
+                    <option value='Hawkes Bay'>Hawkes Bay</option>
                     <option value='Taranaki'>Taranaki</option>
                     <option value='Manawatu/Whanganui'>Manawatu/Whanganui</option>
                     <option value='Wellington'>Wellington</option>

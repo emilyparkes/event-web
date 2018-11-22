@@ -1,19 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 // import { Link } from 'react-router-dom'
 
-import { getFriendsList } from '../../actions/notify/friends-list'
+import {getFriendsList} from '../../actions/notify/friends-list'
 
 class FriendsList extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getFriendsList())
   }
 
-  render() {
+  render () {
     return (
       <div className='friends'>
         <div>Friends:</div>
@@ -30,6 +26,5 @@ const mapStateToProps = (state) => {
     friendsList: state.friendsList
   }
 }
-
 
 export default connect(mapStateToProps)(FriendsList)

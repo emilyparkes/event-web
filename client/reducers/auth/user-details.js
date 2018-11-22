@@ -1,5 +1,5 @@
 import {
-  LOG_OFF,
+  LOG_OUT,
   REQUEST_USER_DETAILS,
   RECEIVE_USER_DETAILS
 } from '../../actions/auth/auth'
@@ -12,7 +12,7 @@ const userDetails = (state = null, action) => {
     case REQUEST_USER_DETAILS:
       return null
 
-    case LOG_OFF:
+    case LOG_OUT:
       return null
 
     default:

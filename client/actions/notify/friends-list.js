@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import { showError } from '../error'
+import {showError} from '../error'
 import baseUrl from '../../lib/base-url'
 
 export const RECEIVE_FRIENDS_LIST = 'RECEIVE_FRIENDS_LIST'
@@ -12,7 +12,7 @@ export const receiveFriendsList = (friendsList) => {
   }
 }
 
-export function getFriendsList() {
+export function getFriendsList () {
   return (dispatch) => {
     request.get(`${baseUrl}/api/v1/notify/friends`)
       .then(res => {

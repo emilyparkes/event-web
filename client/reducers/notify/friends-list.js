@@ -1,5 +1,5 @@
 import {
-  RECEIVE_FRIENDS_LIST } from '../../actions/notify/friends-list'
+  RECEIVE_FRIENDS_LIST} from '../../actions/notify/friends-list'
 
 const initialState = []
 

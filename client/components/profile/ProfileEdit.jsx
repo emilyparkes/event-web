@@ -1,13 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import AccountDetails from './AccountDetails'
-import { Redirect } from 'react-router-dom'
-import { getProfile, saveUserProfile } from '../../actions/auth/user-profile'
-import { getUserDetails } from '../../actions/auth/auth'
+import {Redirect} from 'react-router-dom'
+import {getProfile, saveUserProfile} from '../../actions/auth/user-profile'
+import {getUserDetails} from '../../actions/auth/auth'
 
 class ProfileEdit extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       username: 'emilycoco',
@@ -26,31 +26,32 @@ class ProfileEdit extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getUserDetails(1))
     this.props.dispatch(getProfile('emilycoco'))
   }
 
-  handleOpenAccount(e) {
+  handleOpenAccount (e) {
     e.preventDefault()
-    if (showAccountDetails === false) {
+    if (this.state.showAccountDetails === false) {
       this.setState({
         showAccountDetails: true
       })
-    } else
+    } else {
       this.setState({
         showAccountDetails: false
       })
+    }
   }
 
-  handleChange(e) {
-    const { name, value } = e.target
+  handleChange (e) {
+    const {name, value} = e.target
     this.setState({
       [name]: value
     })
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
     const updatedProfile = {
       firstName: this.state.firstName,
@@ -61,19 +62,17 @@ class ProfileEdit extends React.Component {
       phone: this.state.phone,
       location: this.state.location
     }
-    this.setState({ submitted: true })
+    this.setState({submitted: true})
     this.props.dispatch(saveUserProfile(updatedProfile, 'emilycoco'))
   }
 
-
-
-  render() {
+  render () {
     if (this.state.submitted) {
       return (
         <Redirect to='/profile/emilycoco' />
       )
     } else {
-      const { firstName, surname, preferredName, profilePic, bio, phone, location, showAccountDetails } = this.state
+      const {firstName, surname, preferredName, profilePic, bio, phone, location, showAccountDetails} = this.state
       return (
         <div className='profilepg'>
           <form className='pure-form pure-form-stacked'>
@@ -83,18 +82,18 @@ class ProfileEdit extends React.Component {
               <div className='heading-section'>
                 <div className='welcome-preferred-name'>
                   Hey! Remember these details are visible to your friends.
-              </div>
+                </div>
               </div>
 
               <br />
 
               <div className='user-section'>
-                {/* <div className='profile-pic'>
-                <label htmlFor='profilePic'>Profile Picture</label>
-                <input id='profilePic' name='profilePic'
-                  type='file' placeholder='image file'
-                  onChange={this.handleChange} value={profilePic} />
-              </div> */}
+                <div className='profile-pic'>
+                  <label htmlFor='profilePic'>Profile Picture</label>
+                  <input id='profilePic' name='profilePic'
+                    type='file' placeholder='image file'
+                    onChange={this.handleChange} value={profilePic} />
+                </div>
 
                 <div className='first-name'>
                   <label htmlFor='firstName'>First Name</label>
@@ -141,7 +140,7 @@ class ProfileEdit extends React.Component {
 
               <div className='settings-section'>
                 <button onClick={this.handleOpenAccount}>Edit Account Details
-                {showAccountDetails ? <AccountDetails /> : null}
+                  {showAccountDetails ? <AccountDetails /> : null}
                 </button>
               </div>
 
@@ -152,7 +151,7 @@ class ProfileEdit extends React.Component {
               <button className='pure-button pure-button-primary'
                 onClick={this.handleSubmit}>
                 Save Profile Changes
-            </button>
+              </button>
 
             </fieldset>
           </form>

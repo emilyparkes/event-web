@@ -1,5 +1,5 @@
-import { 
-  RECEIVE_PUBLIC_EVENT_BY_NAME } from '../../actions/public-e/p-event'
+import {
+  RECEIVE_PUBLIC_EVENT_BY_NAME} from '../../actions/public-e/p-event'
 
 const initialState = {}
 

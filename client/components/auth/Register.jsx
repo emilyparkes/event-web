@@ -1,14 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import ErrorMessage from './ErrorMessage'
-import { register } from '../../actions/auth/auth'
-import { showError, clearError } from '../../actions/error'
-import { isValidEmail, isWeakPassword } from '../../lib/validate'
-
+import {register} from '../../actions/auth/auth'
+import {showError, clearError} from '../../actions/error'
+import {isValidEmail, isWeakPassword} from '../../lib/validate'
 
 class Register extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: '',
@@ -23,8 +22,8 @@ class Register extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
-    const { name, value } = e.target
+  handleChange (e) {
+    const {name, value} = e.target
     this.setState({
       [name]: value,
       weakPassword: isWeakPassword(this.state.password),
@@ -32,17 +31,16 @@ class Register extends React.Component {
     })
   }
 
-
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
-    const { register } = this.props
-    const { email, username, password, confirm } = this.state
-    this.setState({ submitted: true })
+    const {register} = this.props
+    const {email, username, password, confirm} = this.state
+    this.setState({submitted: true})
     register(email, username, password, confirm)
   }
 
-  render() {
-    const { email, username, password, confirm, submitted } = this.state
+  render () {
+    const {email, username, password, confirm} = this.state
     return (
       <div className='register'>
         <form>
@@ -60,25 +58,25 @@ class Register extends React.Component {
             </div>
 
             <div className='form-group'>
-            <label htmlFor='username'>Username</label>
-            <label className='sr-only' htmlFor='username'>Username</label>
-            <div className='input-group mb-2 mr-sm-2'>
-              <div className='input-group-prepend'>
-                <div className='input-group-text'>@</div>
+              <label htmlFor='username'>Username</label>
+              <label className='sr-only' htmlFor='username'>Username</label>
+              <div className='input-group mb-2 mr-sm-2'>
+                <div className='input-group-prepend'>
+                  <div className='input-group-text'>@</div>
+                </div>
+                <input className='form-control' type='text' id='username' name='username' placeholder='Username' autoComplete='username'
+                  onChange={this.handleChange} value={username} required />
               </div>
-              <input className='form-control' type='text' id='username' name='username' placeholder='Username' autoComplete='username'
-               onChange={this.handleChange} value={username} required />
-            </div>
             </div>
 
             <div className='form-group'>
               <label htmlFor='password'>Password</label>
               <input className='form-control' id='password' name='password'
                 type='password' placeholder='Password' aria-describedby='passwordHelpBlock' autoComplete='new-password'
-                onChange={this.handleChange} value={password}  required />
+                onChange={this.handleChange} value={password} required />
               <small className='form-text text-muted' id='passwordHelpBlock'>
                 Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                </small>
+              </small>
             </div>
 
             <div className='form-group'>
@@ -97,22 +95,22 @@ class Register extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     register: (email, username, password, confirm) => {
-      if (password != confirm) {
+      if (password !== confirm) {
         dispatch(clearError())
         dispatch(showError('Password and confirmation don\'t match'))
       } else if (!email || !username || !password || !confirm) {
         dispatch(clearError())
         dispatch(showError('Please fill in all fields.'))
-      } else if (password != confirm && !email || !username || !password || !confirm) {
+      } else if (password !== confirm || !email || !username || !password || !confirm) {
         dispatch(clearError())
         dispatch(showError('Password and confirmation don\'t match'))
         dispatch(showError('Please fill in all fields.'))
       } else if (password === confirm) {
         dispatch(clearError())
-        return dispatch(register({ email, username, password }))
+        return dispatch(register({email, username, password}))
       }
     }
   }

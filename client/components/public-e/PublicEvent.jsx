@@ -1,19 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 // import { Link } from 'react-router-dom'
 
-import { getPublicEventByName } from '../../actions/public-e/p-event'
+import {getPublicEventByName} from '../../actions/public-e/p-event'
 
 class PublicEvent extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getPublicEventByName(this.props.match.params.eventName))
   }
 
-  render() {
+  render () {
     return (
       <div className='publiceventpg'>
 

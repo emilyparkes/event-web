@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 
 import Header from './sections/Header'
 
@@ -31,7 +31,6 @@ import EventFromCategory from './category/EventFromCategory'
 import Footer from './sections/Footer'
 
 class App extends React.Component {
-
   render () {
     return (
       <div className='app'>
@@ -48,7 +47,7 @@ class App extends React.Component {
             <Route path='/popular' component={Popular} />
             <Route path='/map' component={AklMap} />
             <Route path='/calendar' component={Calendar} />
-            
+
             <Route path='/profile/:username/edit' component={ProfileEdit} />
             <Route exact path='/profile/:username' component={Profile} />
 

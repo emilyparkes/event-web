@@ -1,7 +1,7 @@
-import { SHOW_ERROR } from '../../actions/error'
+import {SHOW_ERROR} from '../../actions/error'
 import {
-  REQUEST_LOG_OFF,
-  RECEIVE_LOG_OFF,
+  REQUEST_LOG_OUT,
+  RECEIVE_LOG_OUT,
   REQUEST_SIGNIN,
   RECEIVE_SIGNIN,
   REQUEST_USER_DETAILS,
@@ -9,7 +9,7 @@ import {
   REQUEST_USER_REGISTRATION,
   RECEIVE_USER_REGISTRATION
 } from '../../actions/auth/auth'
-import { getUserToken } from '../../lib/auth'
+import {getUserToken} from '../../lib/auth'
 
 const initialState = {
   // isFetching: false,
@@ -45,10 +45,10 @@ const auth = (state = initialState, action) => {
         ...state
       }
 
-    case REQUEST_LOG_OFF:
+    case REQUEST_LOG_OUT:
       return true
 
-    case RECEIVE_LOG_OFF:
+    case RECEIVE_LOG_OUT:
       return {
         ...state,
         user: null
