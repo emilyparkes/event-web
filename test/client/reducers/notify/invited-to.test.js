@@ -1,4 +1,4 @@
-import { RECEIVE_INVITED_TO_LIST } from '../../../../client/actions/notify/invited-to'
+import {RECEIVE_INVITED_TO_LIST} from '../../../../client/actions/notify/invited-to'
 import invitedTo from '../../../../client/reducers/notify/invited-to'
 
 test('test environment for p-event reducer is operating correctly', () => {
@@ -14,7 +14,6 @@ test('invitedTo receives the list of events the user is interested in', () => {
   }
   const newState = invitedTo(initialState, action)
   expect(newState).toBe(action.invitedTo)
-  
 })
 
 test('activeEvent returns the current state by default', () => {

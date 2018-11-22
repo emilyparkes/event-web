@@ -1,6 +1,6 @@
 /* global test expect */
 
-import { receiveLocalEvents } from '../../../client/actions/local-e/local-events'
+import {receiveLocalEvents} from '../../../client/actions/local-e/local-events'
 
 test('receiveLocalEvents returns the correct action type', () => {
   const expected = 'RECEIVE_LOCAL_EVENTS'

@@ -1,4 +1,4 @@
-import { receiveCategories } from '../../../client/actions/categories/categories'
+import {receiveCategories} from '../../../client/actions/categories/categories'
 
 test('receiveCategories returns the correct action type', () => {
   const expected = 'RECEIVE_CATEGORIES'

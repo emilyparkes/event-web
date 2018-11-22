@@ -1,4 +1,4 @@
-import { RECEIVE_INTERESTED_IN_LIST } from '../../../../client/actions/notify/interested-in'
+import {RECEIVE_INTERESTED_IN_LIST} from '../../../../client/actions/notify/interested-in'
 import interestedIn from '../../../../client/reducers/notify/interested-in'
 
 test('test environment for p-event reducer is operating correctly', () => {
@@ -14,7 +14,6 @@ test('interestedIn receives the list of events the user is interested in', () =>
   }
   const newState = interestedIn(initialState, action)
   expect(newState).toBe(action.interestedIn)
-  
 })
 
 test('activeEvent returns the current state by default', () => {

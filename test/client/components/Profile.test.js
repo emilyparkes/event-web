@@ -1,34 +1,34 @@
-import React from 'react'
-import { shallow, mount } from 'enzyme'
-import './setup-env'
+// import React from 'react'
+// import {shallow, mount} from 'enzyme'
+// import './setup-env'
 
-import { Profile } from '../../../client/components/Profile'
+// import {Profile} from '../../../client/components/Profile'
 
-describe('Profile', () => {
-  let instance, props, wrapper
-  beforeEach(() => {
-    props = {
-      firstName: 'emily',
-      preferredName: 'em',
-      surname: 'parkes',
-      profilePic: 'val',
-      bio: 'I\'m the dev.',
-      phone: '021 555 555',
-      location: 'Auckland',
-      email: 'emilycoco@me.com',
-      username: 'emilycoco'
-    },
-    Profile; () => { },
-      fetchProfile; jest.fn()
-  },
-    wrapper = shallow(
-      <Profile {...props}>
-        <div>Describe how awesome wombats are:</div>
-      </Profile>
-    ),
-    instance = wrapper.instance()
-  )
-})
+// describe('Profile', () => {
+//   let instance, props, wrapper
+//   beforeEach(() => {
+//     props = {
+//       firstName: 'emily',
+//       preferredName: 'em',
+//       surname: 'parkes',
+//       profilePic: 'val',
+//       bio: 'I\'m the dev.',
+//       phone: '021 555 555',
+//       location: 'Auckland',
+//       email: 'emilycoco@me.com',
+//       username: 'emilycoco'
+//     },
+//     Profile; () => { },
+//     fetchProfile; jest.fn()
+//   },
+//   wrapper = shallow(
+//     <Profile {...props}>
+//       <div>Describe how awesome wombats are:</div>
+//     </Profile>
+//   ),
+//   instance = wrapper.instance()
+//   )
+// })
 
 // Example
 
