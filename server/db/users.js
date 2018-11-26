@@ -2,40 +2,18 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
-const hash = require('../auth/hash')
+const generateHash = require('../auth/hash')
 
 module.exports = {
   createUser,
-  userExists,
   getUserById,
   getUserByName,
   updateUser
 }
 
-function createUser (email, username, password, conn) {
-  const db = conn || connection
-  return userExists(username, email, db)
-    .then(exists => {
-      if (exists) {
-        return Promise.reject(new Error('User exists'))
-      }
-    })
-    .then(() => {
-      const passwordHash = hash.generate(password)
-      return db('users')
-        .insert({email, username, hash: passwordHash})
-    })
-}
-
-function userExists (username, email, conn) {
-  const db = conn || connection
-  return db('users')
-    .count('id as n')
-    .where('username', username)
-    .where('email', email)
-    .then(count => {
-      return count[0].n > 0
-    })
+function createUser ({username, password}, db = connection) {
+  return generateHash(password)
+    .then(hash => db('users').insert({username, hash}))
 }
 
 function getUserById (id, conn) {
@@ -58,13 +36,13 @@ function updateUser (id, username, currentPassword, newPassword, conn) {
   const db = conn || connection
   return getUserByName(username, db)
     .then(user => {
-      if (!user || !hash.verify(user.hash, currentPassword)) {
+      if (!user || !generateHash.verify(user.hash, currentPassword)) {
         return Promise.reject(new Error('Username password match not found'))
       }
       return Promise.resolve(user)
     })
     .then(user => {
-      const newPasswordHash = hash.generate(newPassword)
+      const newPasswordHash = generateHash(newPassword)
       if (id !== user.id) Promise.reject(new Error('Username and ID mismatch'))
       return db('users')
         .update({username, hash: newPasswordHash})

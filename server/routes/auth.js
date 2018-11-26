@@ -1,6 +1,5 @@
 const express = require('express')
 const {
-  userExists,
   getUserByName,
   createUser} = require('../db/users')
 const token = require('../auth/token')
@@ -12,21 +11,23 @@ router.post('/register', register, token.issue)
 router.post('/signin', signIn, token.issue)
 
 function register (req, res, next) {
-  userExists(req.body.username)
-    .then(exists => {
-      if (exists) {
-        return res.status(400).send('USERNAME_UNAVAILABLE')
-      }
-      createUser(req.body.email, req.body.username, req.body.password)
-        .then(() => next())
+  const {username, password} = req.body
+  createUser({username, password})
+    .then(([id]) => {
+      res.locals.userId = id
+      next()
     })
-    // .catch(() => {
-    //   res.status(400).send({
-    //     errorType: 'DATABASE_ERROR'
-    //   })
-    // })
-    .catch((err) => {
-      res.status(400).send(err.message)
+    .catch(({message}) => {
+      if (message.includes('UNIQUE constraint failed: users.username')) {
+        return res.status(400).json({
+          ok: false,
+          message: 'Username already exists.'
+        })
+      }
+      res.status(500).json({
+        ok: false,
+        message: "Something bad happened. We don't know why."
+      })
     })
 }
 

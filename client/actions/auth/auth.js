@@ -3,7 +3,7 @@ import {showSuccess, showError, clearError} from '../error'
 import {saveUserToken, logOut} from '../../lib/auth'
 
 export const REQUEST_LOG_OUT = 'REQUEST_LOG_OUT'
-export const RECIEVE_LOG_OUT = 'RECIEVE_LOG_OUT'
+export const RECEIVE_LOG_OUT = 'RECEIVE_LOG_OUT'
 
 export const REQUEST_SIGNIN = 'REQUEST_SIGNIN'
 export const RECEIVE_SIGNIN = 'RECEIVE_SIGNIN'
@@ -24,9 +24,9 @@ const requestLogOut = () => {
   }
 }
 
-const recieveLogOut = () => {
+const receiveLogOut = () => {
   return {
-    type: RECIEVE_LOG_OUT
+    type: RECEIVE_LOG_OUT
   }
 }
 
@@ -193,6 +193,6 @@ export function logOutUser () {
   return dispatch => {
     dispatch(requestLogOut())
     logOut()
-    dispatch(recieveLogOut())
+    dispatch(receiveLogOut())
   }
 }
