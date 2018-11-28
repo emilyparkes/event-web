@@ -1,6 +1,6 @@
 import {
   REQUEST_SIGNIN,
-  RECEIVE_SIGNIN,
+  // RECEIVE_SIGNIN,
   REQUEST_USER_REGISTRATION,
   RECEIVE_USER_REGISTRATION
 } from '../../../../client/actions/auth/auth'
@@ -37,11 +37,11 @@ test('auth returns true during REQUEST_SIGNIN', () => {
   expect(newState).toBe(true)
 })
 
-test('auth returns false during RECEIVE_SIGNIN', () => {
-  const currentState = false
-  const action = {
-    type: RECEIVE_SIGNIN
-  }
-  const newState = auth(currentState, action)
-  expect(newState).toBe(false)
-})
+// test('auth returns false during RECEIVE_SIGNIN', () => {
+//   const currentState = false
+//   const action = {
+//     type: RECEIVE_SIGNIN
+//   }
+//   const newState = auth(currentState, action)
+//   expect(newState).toBe(false)
+// })

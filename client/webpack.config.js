@@ -1,4 +1,3 @@
-
 const path = require('path')
 var webpack = require('webpack')
 
@@ -12,16 +11,16 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
+        exclude: /node_modules/,
         use: [{
-          loader: "babel-loader"
-        }],
-        exclude: /node_modules/
+          loader: 'babel-loader'
+        }]
       },
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
+          {loader: 'style-loader'},
+          {loader: 'css-loader'}
         ]
       }
     ]
