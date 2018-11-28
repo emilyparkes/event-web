@@ -1,5 +1,5 @@
 import React from 'react'
-import Enzyme, {shallow} from 'enzyme'
+import Enzyme, {render} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import './setup-env'
 
@@ -13,10 +13,10 @@ test('test environment for home component is operating correctly', () => {
   expect(true).toBeTruthy()
 })
 
-test('<Home> root has className of homepg', () => {
-  const wrapper = shallow(<Home />)
-  const root = wrapper.find('.homepg')
-  expect(root.length).toBe(1)
+test('<Home> has className of homepg', () => {
+  const wrapper = render(<Home />)
+  const hmpg = wrapper.find('.homepg')
+  expect(hmpg.text()).toMatch(/.homepg/)
 })
 
 // test('page header includes fruit', () => {
