@@ -1,11 +1,22 @@
 # Eventify
-Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here.  
+>_Do you want to eventify your life? To make it fuller and brighter? Find your ideal events here._  
 
-> A web app to see events happening in your city, big organised and local community events.
+A web app designed to see events happening in your city, big organised and local community events.
 The web version of [event-app](https://github.com/emilyparkes/event-app).
 
+For more information see the [wiki](https://github.com/emilyparkes/event-web/wiki).
 
-## Eventify Code
+
+## Contents
+- [Getting Started (Installation)](#getting-started)
+  - [Testing](#testing)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
+
 ### Getting Started:
 - create your own branch off of master
 - pull down any changes
@@ -34,20 +45,37 @@ yarn seed
 yarn dev
 ```
 
-## Eventify Design
-_Coming soon -> Inspiration was drawn from ... for this look_
-> Colour Palette  
-
-
-## Eventify Testing
+### Testing  
 - Run the test command
 ```shell
 yarn test
 ```
-- Result: PASS for 36 test suites and 121 tests 
-_(tests last run on 6th September 18)_
-
+- Result: PASS for 36 test suites and 121 tests  
+_(tests last run on November 8th '18)_  
 ![](server/public/images-github/tests.png)
 
-#### References
-[Colour Palette](https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=4527A0&secondary.color=4DD0E1)
+## Built With 
+- React
+- Redux
+- Node
+- Express
+- SQLite 3
+
+- React Leaflet
+
+## Contributing
+Thank you for considering to contribute! I appreciate all notes and and work to help me improve my project.
+See [contributing guidelines](https://github.com/emilyparkes/event-web/blob/master/.github/CONTRIBUTING/CONTRIBUTING.md) for more information.
+
+## Credits
+[emily parkes](https://github.com/emilyparkes) - Initial work
+
+## License 
+Apache 2.0
+See [Licence]() for details.
+
+## Acknowledgements  
+ - Enspiral Dev Academy for giving me the skills to code, and to continue to learn!
+
+
+

@@ -1,0 +1,3 @@
+# Contrubuting guidelines for Eventify Web
+
+Coming soon...
