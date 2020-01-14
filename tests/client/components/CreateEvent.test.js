@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import './setup-env'
@@ -7,6 +8,8 @@ import CreateEvent from '../../../client/components/CreateEvent'
 CreateEvent.prototype.componentDidMount = () => {}
 
 Enzyme.configure({ adapter: new Adapter() })
+=======
+>>>>>>> Stashed changes
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
