@@ -1,6 +1,6 @@
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import './setup-env'
+import '../../test/client/components/setup-env'
 
 import AklMap from '../../../client/components/AklMap'
 

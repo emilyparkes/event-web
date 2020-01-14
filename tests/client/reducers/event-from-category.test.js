@@ -1,5 +1,5 @@
 import {RECEIVE_EVENT_FROM_CATEGORY} from '../../actions/categories/event-from-category'
-import eventFromCategory from './event-from-category'
+import eventFromCategory from '../../../client/reducers/categories/event-from-category'
 
 test('test environment for eventFromCategory reducer is operating correctly', () => {
   expect(true).toBeTruthy()

@@ -1,5 +1,5 @@
 import {RECEIVE_GOING_TO_LIST} from '../../actions/notify/going-to'
-import goingTo from './going-to'
+import goingTo from '../../../client/reducers/notify/going-to'
 
 test('test environment for p-event reducer is operating correctly', () => {
   expect(true).toBeTruthy()

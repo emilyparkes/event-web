@@ -1,5 +1,5 @@
 import {RECEIVE_CATEGORIES} from '../../actions/categories/categories'
-import categories from './categories'
+import categories from '../../../client/reducers/categories/categories'
 
 test('test environment for categories reducer is operating correctly', () => {
   expect(true).toBeTruthy()

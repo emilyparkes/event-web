@@ -1,5 +1,5 @@
 import {RECEIVE_INTERESTED_IN_LIST} from '../../actions/notify/interested-in'
-import interestedIn from './interested-in'
+import interestedIn from '../../../client/reducers/notify/interested-in'
 
 test('test environment for p-event reducer is operating correctly', () => {
   expect(true).toBeTruthy()

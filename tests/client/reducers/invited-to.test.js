@@ -1,5 +1,5 @@
 import {RECEIVE_INVITED_TO_LIST} from '../../actions/notify/invited-to'
-import invitedTo from './invited-to'
+import invitedTo from '../../../client/reducers/notify/invited-to'
 
 test('test environment for p-event reducer is operating correctly', () => {
   expect(true).toBeTruthy()

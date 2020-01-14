@@ -1,7 +1,7 @@
 import {
   RECEIVE_USER_PROFILE
-} from '../../../../client/actions/auth/user-profile'
-import profile from '../../../../client/reducers/auth/user-profile'
+} from '../../client/actions/auth/user-profile'
+import profile from '../../client/reducers/auth/user-profile'
 
 test('test environment for profile reducer is operating correctly', () => {
   expect(true).toBeTruthy()

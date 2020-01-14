@@ -1,5 +1,5 @@
 import {RECEIVE_PUBLIC_EVENT_BY_NAME} from '../../actions/public-e/p-event'
-import publicEvent from './p-event'
+import publicEvent from '../../../client/reducers/public-e/p-event'
 
 test('test environment for p-event reducer is operating correctly', () => {
   expect(true).toBeTruthy()

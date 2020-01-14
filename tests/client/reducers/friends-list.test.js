@@ -1,5 +1,5 @@
 import {RECEIVE_FRIENDS_LIST} from '../../actions/notify/friends-list'
-import friendsList from './friends-list'
+import friendsList from '../../../client/reducers/notify/friends-list'
 
 test('test environment for p-event reducer is operating correctly', () => {
   expect(true).toBeTruthy()

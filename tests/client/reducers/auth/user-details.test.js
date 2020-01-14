@@ -2,8 +2,8 @@ import {
   LOG_OUT,
   REQUEST_USER_DETAILS,
   RECEIVE_USER_DETAILS
-} from '../../../../client/actions/auth/auth'
-import userDetails from '../../../../client/reducers/auth/user-details'
+} from '../../client/actions/auth/auth'
+import userDetails from '../../client/reducers/auth/user-details'
 
 test('test environment for userDetails reducer is operating correctly', () => {
   expect(true).toBeTruthy()

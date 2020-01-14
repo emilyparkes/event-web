@@ -1,5 +1,5 @@
 import {RECEIVE_LOCAL_EVENTS} from '../../actions/local-e/local-events'
-import localEvents from './local-events'
+import localEvents from '../../../client/reducers/local-e/local-events'
 
 test('test environment for local events reducer is operating correctly', () => {
   expect(true).toBeTruthy()

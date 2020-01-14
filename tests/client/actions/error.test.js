@@ -1,6 +1,6 @@
 /* global test expect */
 
-import {showError} from '../../../client/actions/error'
+import { showError } from '../../../client/actions/error'
 
 test('showError returns the correct action type', () => {
   const expected = 'SHOW_ERROR'
