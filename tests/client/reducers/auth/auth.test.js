@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import {
   REQUEST_SIGNIN,
   // RECEIVE_SIGNIN,
@@ -6,8 +5,6 @@ import {
   RECEIVE_USER_REGISTRATION
 } from '../../../../client/actions/auth/auth'
 import auth from '../../../../client/reducers/auth/auth'
-=======
->>>>>>> Stashed changes
 import '../../../test/client/mocks/api'
 import '../../../test/client/mocks/save-auth-token'
 
@@ -22,7 +19,6 @@ import {
   receiveAllUsers
 } from '../client/actions/auth/auth'
 
-<<<<<<< Updated upstream
 import { CLEAR_ERROR } from '../client/actions/error'
 
 test('test environment for categories reducer is operating correctly', () => {
@@ -64,9 +60,6 @@ test('auth returns true during REQUEST_SIGNIN', () => {
 //   const newState = auth(currentState, action)
 //   expect(newState).toBe(false)
 // })
-=======
-import {CLEAR_ERROR} from '../client/actions/error'
->>>>>>> Stashed changes
 
 // test('registering a user dispatches the correct actions', () => {
 //   const dispatch = jest.fn()
@@ -90,11 +83,8 @@ test('getAllUsers dispatches the correct actions', () => {
 })
 
 test('receiveAllUsers returns correct action', () => {
-<<<<<<< Updated upstream
   const allUsers = [{ id: 1 }, { id: 2 }]
-=======
-  const allUsers = [{id: 1}, {id: 2}]
->>>>>>> Stashed changes
+
   const expectedAction = {
     type: RECEIVE_ALL_USERS,
     allUsers
