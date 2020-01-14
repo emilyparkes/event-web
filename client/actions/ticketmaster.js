@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import {showError} from './error'
+import { showError } from './error'
 
 export const RECEIVE_API = 'RECEIVE_API'
 

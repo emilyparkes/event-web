@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 import { showError } from '../error'
-import baseUrl from '../../lib/base-url'
+import baseUrl from '../lib/base-url'
 
 export const RECEIVE_PUBLIC_EVENTS = 'RECEIVE_PUBLIC_EVENTS'
 export const RECEIVE_PUBLIC_EVENT_BY_NAME = 'RECEIVE_PUBLIC_EVENT_BY_NAME'

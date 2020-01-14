@@ -2,19 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router-dom'
 
-import { getLocalEventByName } from '../../actions/local-e/l-event'
+import { getLocalEventByName } from '../../actions/local-events'
 
 class LocalEvent extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getLocalEventByName(this.props.match.params.eventName))
   }
 
-
-  render() {
+  render () {
     const { lEvent } = this.props
     return (
       <div className='localeventpg'>
@@ -25,14 +20,14 @@ class LocalEvent extends React.Component {
         </div>
 
         <div className='page-section'>
-          {this.props.lEvent.description}
-          {this.props.lEvent.date_start}
-          {this.props.lEvent.date_end}
-          {this.props.lEvent.time_start}
-          {this.props.lEvent.time_end}
-          {this.props.lEvent.access}
-          {this.props.lEvent.tickets}
-          {this.props.lEvent.restrictions}
+          {lEvent.description}
+          {lEvent.date_start}
+          {lEvent.date_end}
+          {lEvent.time_start}
+          {lEvent.time_end}
+          {lEvent.access}
+          {lEvent.tickets}
+          {lEvent.restrictions}
         </div>
 
       </div>

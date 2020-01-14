@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 import { showError } from '../error'
-import baseUrl from '../../lib/base-url'
+import baseUrl from '../lib/base-url'
 
 export const RECEIVE_FRIENDS_LIST = 'RECEIVE_FRIENDS_LIST'
 

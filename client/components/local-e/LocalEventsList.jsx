@@ -2,18 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { getLocalEvents } from '../../actions/local-e/local-events'
+import { getLocalEvents } from '../../actions/local-events'
 
 class LocalEvents extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getLocalEvents())
   }
 
-  render() {
+  render () {
     return (
       <div className='localeventspg' >
 

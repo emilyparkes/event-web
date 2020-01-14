@@ -1,7 +1,7 @@
 import request from 'superagent'
 import Geocode from 'react-geocode'
 
-import {showError, clearError, showSuccess} from './error'
+import { showError, clearError, showSuccess } from './error'
 import baseUrl from '../lib/base-url'
 
 Geocode.setApiKey(process.env.GOOGLE_API_KEY)
@@ -64,7 +64,7 @@ export function sendForm (newEvent) {
 export function getLatLng (address) {
   return Geocode.fromAddress(address).then(
     response => {
-      const {lat, lng} = response.results[0].geometry.location
+      const { lat, lng } = response.results[0].geometry.location
       const latLng = {
         lat: lat,
         lng: lng

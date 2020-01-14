@@ -1,8 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 // import { Link } from 'react-router-dom'
 
-import {getGoingToList} from '../../actions/notify/going-to'
+import { getGoingToList } from '../../actions/notify'
 class GoingTo extends React.Component {
   componentDidMount () {
     this.props.dispatch(getGoingToList())

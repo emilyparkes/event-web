@@ -1,5 +1,4 @@
-import {
-  RECEIVE_INVITED_TO_LIST} from '../../actions/notify/invited-to'
+import { RECEIVE_INVITED_TO_LIST } from '../../actions/notify'
 
 const initialState = []
 

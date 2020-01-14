@@ -1,5 +1,4 @@
-import {
-  RECEIVE_GOING_TO_LIST} from '../../actions/notify/going-to'
+import { RECEIVE_GOING_TO_LIST } from '../../actions/notify'
 
 const initialState = []
 

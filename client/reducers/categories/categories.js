@@ -1,5 +1,4 @@
-import {
-  RECEIVE_CATEGORIES} from '../../actions/categories/categories'
+import { RECEIVE_CATEGORIES } from '../../actions/categories'
 
 const initialState = []
 

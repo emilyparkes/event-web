@@ -1,8 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import {getEventsByCategory} from '../../actions/categories/events-by-category'
+import { getEventsByCategory } from '../../actions/categories'
 
 export class Category extends React.Component {
   componentDidMount () {

@@ -1,5 +1,4 @@
-import {
-  RECEIVE_INTERESTED_IN_LIST} from '../../actions/notify/interested-in'
+import { RECEIVE_INTERESTED_IN_LIST } from '../../actions/notify'
 
 const initialState = []
 

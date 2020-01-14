@@ -1,8 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 // import { Link } from 'react-router-dom'
 
-import {getInvitedToList} from '../../actions/notify/invited-to'
+import { getInvitedToList } from '../../actions/notify'
 
 class Invites extends React.Component {
   componentDidMount () {
