@@ -1,9 +1,9 @@
 import request from '../../lib/apiClient'
-import {showSuccess, showError, clearError} from '../error'
-import {saveUserToken, logOut} from '../../lib/auth'
+import { showSuccess, showError, clearError } from '../error'
+import { saveUserToken, logOut } from '../../lib/auth'
 
 export const REQUEST_LOG_OUT = 'REQUEST_LOG_OUT'
-export const RECIEVE_LOG_OUT = 'RECIEVE_LOG_OUT'
+export const RECEIVE_LOG_OUT = 'RECEIVE_LOG_OUT'
 
 export const REQUEST_SIGNIN = 'REQUEST_SIGNIN'
 export const RECEIVE_SIGNIN = 'RECEIVE_SIGNIN'
@@ -26,7 +26,7 @@ const requestLogOut = () => {
 
 const recieveLogOut = () => {
   return {
-    type: RECIEVE_LOG_OUT
+    type: RECEIVE_LOG_OUT
   }
 }
 
@@ -157,7 +157,7 @@ export function getUserDetails (userId) {
 export function getAllUsers () {
   return (dispatch) => {
     dispatch(requestAllUsers())
-    return request('get', `/users`)
+    return request('get', '/users')
       .then(res => {
         dispatch(receiveAllUsers(res.body))
         dispatch(clearError())

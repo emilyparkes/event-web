@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import { showError } from '../error'
+import { showError } from './error'
 import baseUrl from '../lib/base-url'
 
 export const RECEIVE_LOCAL_EVENTS = 'RECEIVE_LOCAL_EVENTS'

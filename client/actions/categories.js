@@ -1,5 +1,7 @@
+import request from 'superagent'
+
 import { showError } from './error'
-import { fetchCategories, fetchEventFromCategory, fetchEventsByCategory } from '../api/categories'
+import baseUrl from '../lib/base-url'
 
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES'
 export const RECEIVE_EVENT_FROM_CATEGORY = 'RECEIVE_EVENT_FROM_CATEGORY'
@@ -14,9 +16,9 @@ export const receiveCategories = (categories) => {
 
 export function getCategories () {
   return (dispatch) => {
-    fetchCategories()
-      .then(categories => {
-        dispatch(receiveCategories(categories))
+    request.get(`${baseUrl}/api/v1/categories`)
+      .then(res => {
+        dispatch(receiveCategories(res.body.categories))
       })
       .catch(() => {
         dispatch(showError('An unexpected error in getting category information'))
@@ -33,7 +35,7 @@ export const receiveEventsByCategory = (eventsInCategory) => {
 
 export function getEventsByCategory (category) {
   return (dispatch) => {
-    fetchEventsByCategory(category)
+    request.get(`${baseUrl}/api/v1/categories/${category}`)
       .then(res => {
         dispatch(receiveEventsByCategory(res.body))
       })
@@ -52,7 +54,7 @@ export const receiveEventFromCategory = (eventFromCategory) => {
 
 export function getEventFromCategory (category, eventName) {
   return (dispatch) => {
-    fetchEventFromCategory(category, eventName)
+    request.get(`${baseUrl}/api/v1/categories/${category}/${eventName}`)
       .then(res => {
         dispatch(receiveEventFromCategory(res.body))
       })

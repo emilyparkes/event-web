@@ -17,7 +17,7 @@ const addRoutes = require('./routes/create-event')
 const notifyRoutes = require('./routes/notify')
 
 const server = express()
-server.use(express.static(path.join(__dirname, '../public')))
+server.use(express.static(path.join(__dirname, 'public')))
 server.use(bodyParser.json())
 server.use(passport.initialize())
 server.use(express.json())
@@ -38,7 +38,7 @@ server.use('/api/v1/notify', notifyRoutes)
 
 // Default route for non-API requests
 server.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'))
+  res.sendFile(path.join(__dirname, 'public/index.html'))
 })
 
 module.exports = server

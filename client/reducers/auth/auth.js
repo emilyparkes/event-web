@@ -1,4 +1,4 @@
-import {SHOW_ERROR} from '../../actions/error'
+import { SHOW_ERROR } from '../../actions/error'
 import {
   REQUEST_LOG_OUT,
   RECEIVE_LOG_OUT,
@@ -9,7 +9,7 @@ import {
   REQUEST_USER_REGISTRATION,
   RECEIVE_USER_REGISTRATION
 } from '../../actions/auth/auth'
-import {getUserToken} from '../../lib/auth'
+import { getUserToken } from '../../lib/auth'
 
 const initialState = {
   // isFetching: false,
