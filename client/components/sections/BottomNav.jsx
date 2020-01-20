@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
 export default function LabelBottomNavigation () {
   const classes = useStyles()
-  const [value, setValue] = React.useState('recents')
+  const [value, setValue] = React.useState('home')
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
