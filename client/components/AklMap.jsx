@@ -1,8 +1,8 @@
 import React from 'react'
-import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
-import {connect} from 'react-redux'
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import { connect } from 'react-redux'
 
-import {getApi} from '../actions/ticketmaster'
+import { getApi } from '../actions/ticketmaster'
 
 class AklMap extends React.Component {
   componentDidMount () {
@@ -32,7 +32,7 @@ class AklMap extends React.Component {
             </Popup>
           </Marker>
           {/* Example */}
-          {(this.props.ticketmaster && this.props.ticketmaster.map((event) => {
+          {/* {(this.props.ticketmaster && this.props.ticketmaster.map((event) => {
             const position = {
               lat: event.point.lat,
               lng: event.point.lng
@@ -43,7 +43,7 @@ class AklMap extends React.Component {
               </Marker>
             )
           })
-          )}
+          )} */}
         </Map>
       </div>
     )
