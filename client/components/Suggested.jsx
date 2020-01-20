@@ -1,14 +1,11 @@
 import React from 'react'
-import { Container } from '@material-ui/core'
 
-class Suggested extends React.Component {
-  render () {
-    return (
-      <Container>
-        <h1>events suggested based on preferences</h1>
-      </Container>
-    )
-  }
+const Suggested = () => {
+  return (
+    <div>
+      <h1>Suggested based on friends going and preferences</h1>
+    </div>
+  )
 }
 
 export default Suggested

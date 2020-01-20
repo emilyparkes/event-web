@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 // import DayPickerInput from 'react-day-picker/DayPickerInput'
 // import {
@@ -9,9 +9,9 @@ import {Redirect} from 'react-router-dom'
 // } from 'react-day-picker/moment'
 // import 'moment/locale/it'
 
-import ErrorMessage from './auth/ErrorMessage'
-import DatePicker from './create-event/DatePicker'
-import {sendForm} from '../actions/create-event'
+import ErrorMessage from '../auth/ErrorMessage'
+import DatePicker from './DatePicker'
+import { sendForm } from '../../actions/create-event'
 
 class CreateEvent extends React.Component {
   constructor () {
@@ -50,7 +50,7 @@ class CreateEvent extends React.Component {
     })
   }
 
-  handleDayClick (day, {selected}) {
+  handleDayClick (day, { selected }) {
     // const {selectedDays} = this.state
   //   if (selected) {
   //     const selectedIndex = selectedDays.findIndex(selectedDay =>

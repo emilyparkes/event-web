@@ -58,7 +58,7 @@ export default function SimpleTabs () {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" centered>
           <Tab label="Map" {...a11yProps(0)} />
           <Tab label="List" {...a11yProps(1)} />
         </Tabs>
