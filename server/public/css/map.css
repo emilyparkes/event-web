@@ -1,19 +1,10 @@
-.map, .leaflet-container {
-  height: 500px;
-  width: 1600px;
-  margin: 0;
-  padding: 0;
-}
-
 .map { 
   box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.leaflet-container { 
-  height: 500px; 
-  width: 1600px;
-  position: relative;
-  overflow: auto;
+.leaflet-container {
+  width: 100%;
+  height: calc(100vh - 48px);
 }
 
 /* .leaflet-popup-content-wrapper {
